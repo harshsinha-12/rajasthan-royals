@@ -1,0 +1,8 @@
+__pycache__/
+.DS_Store
+.venv/
+tmp/
+output/cache/
+data/raw/
+output/audit.json
+output/tables/match_audit.csv

@@ -1,0 +1,28 @@
+{
+  "seed": 20261117,
+  "bootstrap_draws": 2000,
+  "pressure_quantile": 0.75,
+  "wicket_runs": 12,
+  "pressure_prior_balls": 120,
+  "normal_prior_balls": 240,
+  "pressure_min_balls": 60,
+  "pressure_min_matches": 8,
+  "normal_min_balls": 120,
+  "min_total_matches": 12,
+  "min_seasons": 2,
+  "uplift_weight": 0.25,
+  "ranking_quantile": 0.2,
+  "robust_scenarios": {
+    "pressure_quantiles": [
+      0.7,
+      0.75,
+      0.8
+    ],
+    "wicket_values": [
+      8,
+      12,
+      16
+    ],
+    "aggregation": "median_within_each_shared_match_bootstrap"
+  }
+}

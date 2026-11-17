@@ -1,0 +1,54 @@
+{
+  "train_matches": 457,
+  "test_matches": 306,
+  "test_deliveries": 72484,
+  "accuracy": 0.7248974362138191,
+  "baseline_accuracy": 0.4607843137254902,
+  "brier": 0.17920838144512133,
+  "baseline_brier": 0.25254010023596885,
+  "auc": 0.8096643865039247,
+  "neutral_brier": 0.25,
+  "neutral_accuracy": 0.4865999894600711,
+  "performance_models": [
+    {
+      "metric": "bat_runs",
+      "rmse": 1.7641145710480082,
+      "baseline_rmse": 1.7883209345583977
+    },
+    {
+      "metric": "bat_out",
+      "rmse": 0.22700771867386263,
+      "baseline_rmse": 0.22773287577462228
+    },
+    {
+      "metric": "bowl_runs",
+      "rmse": 1.803165857031024,
+      "baseline_rmse": 1.8295544698563315
+    },
+    {
+      "metric": "bowl_out",
+      "rmse": 0.22496144715380756,
+      "baseline_rmse": 0.225458835845601
+    }
+  ],
+  "accuracy_interval_95": [
+    0.692975478505616,
+    0.7558822981046772
+  ],
+  "brier_interval_95": [
+    0.16341060617871148,
+    0.19545679741963704
+  ],
+  "batters_temporal": {
+    "common_eligible": 59,
+    "early_top10_later_eligible": 7,
+    "early_late_spearman": 0.23226183518410293,
+    "early_top10_late_top10": 1
+  },
+  "bowlers_temporal": {
+    "common_eligible": 60,
+    "early_top10_later_eligible": 4,
+    "early_late_spearman": 0.10502917477076969,
+    "early_top10_late_top10": 0
+  }
+}

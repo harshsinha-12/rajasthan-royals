@@ -1,0 +1,11 @@
+variant,eligible,overlap_top10
+pressure_top30,184,8
+pressure_top20,161,8
+wicket8,176,6
+wicket16,176,8
+prior60,176,8
+prior240,176,7
+uplift0,176,7
+uplift50,176,6
+IPL_only,91,4
+T20I_only,115,5

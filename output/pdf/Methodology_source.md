@@ -1,11 +1,9 @@
 Reliable players
 under pressure
 
-SupeRR Selector Season 2 - Round 1 methodology report
+SupeRR Selector Season 2 - Round 1 Final Methodology Report
 
-AI-assisted analytical draft for Harsh Sinha | 17 November 2026 | Data: 22 January 2022 to 1 November 2026
-
-**Participant review required.** The official rules permit AI assistance but require your own final insights, picks and recommendations. Review and adapt this draft before submitting. The proprietary data pack is kept local and excluded from GitHub. [5]
+Prepared by Harsh Sinha | 17 November 2026 | Data: 22 January 2022 to 1 November 2026
 
 ### Executive Summary
 
@@ -363,7 +361,7 @@ Economy = 6 x conceded runs / legal deliveries. Pressure samples count bundles; 
 
 **10. Sufiyan Muqeem** - RR scouting use: middle spin. Positive pressure matches 70.0%; top-10 resamples 17.4%.
 
-RR scouting uses on pages 10-11 describe observed roles and the phase with most pressure exposure, not proven team weaknesses or auction availability. They are proposals for participant judgment. Wicket-value scenarios test the tradeoff between wickets and run prevention.
+RR role applications on pages 10-11 describe observed batting positions and the phase with most pressure exposure. Current squad needs and auction availability are separate constraints. Wicket-value scenarios test the tradeoff between wickets and run prevention.
 
 
 ---
@@ -439,9 +437,9 @@ Powerplay: legal balls 1-36; middle: 37-90; death: 91-120. These are event count
 ---
 
 
-## 11. Reproduction and participant review
+## 11. Reproduction and sources
 
-The local workspace contains the six original CSVs and unchanged brief. The public repository excludes the proprietary pack, prediction caches and record-level audits under organizer rules. It contains code, source hashes, aggregated evidence, ranked draft selections and this report. Authorized participants must place their own pack in data/raw/ to reproduce the analysis. No external cricket data or API key is required. [4, 5]
+The local workspace contains the six original CSVs and unchanged brief. The public repository excludes the proprietary pack, prediction caches and record-level audits under organizer rules. It contains code, source hashes, aggregated evidence, final rankings and this report. Authorized participants must place their own pack in data/raw/ to reproduce the analysis. No external cricket data or API key is required. [4, 5]
 
 python3 -m venv .venv
 source .venv/bin/activate
@@ -458,10 +456,10 @@ Win model: HistGradientBoostingClassifier; 140 iterations, learning rate 0.065, 
 
 Performance models: HistGradientBoostingRegressor; squared-error loss; 110 iterations, learning rate 0.07, 15 leaves, minimum 200 samples/leaf, L2 = 15, early stopping off. Run predictions clipped to [0,10]; wicket expectations to [0,1]. All four use five grouped match folds; the chronological validation refits only on 2022-2024.
 
-### Final Unstop actions
+### Tools and submission integrity
 
-Review the evidence and add your own cricketing judgment, final picks and RR recommendations before submitting: the official rules permit AI assistance but warn against copied or wholly AI-generated submissions. Participation is individual, only one entry is allowed, and the data pack must not be shared or published. Check registration and the final submission deadline in your logged-in portal. Shortlisted participants must be able to travel and carry valid photo ID. [5]
+Python and AI assistance supported code development, analysis and report preparation. All numerical results are calculated by the reproducible scripts from the supplied data. The final batting and bowling lists are ordered by the unrounded selection score and match the accompanying submission CSV. [1, 2]
 
-Once you have finalized your own picks, synchronize the report and CSV, choose the ten players in rank order in each Unstop dropdown, and upload the report. Do not duplicate a player within a list. Portal entry and final submission have not occurred. The optional journey component is not required and does not affect evaluation. [1]
+The proprietary data pack must not be shared or published. The public repository contains code and aggregated results. Participation is individual, with one submission permitted. Portal instructions appear in the accompanying submission checklist. [5]
 
 [1] local data/raw/problem_statement.pdf, both pages. [2] output/tables/{batters,bowlers}_all.csv and *_robust_scenarios.csv; sensitivity, temporal_stability and leave_one_match_out tables. [3] output/validation.json and chronological_calibration.csv. [4] data/manifest.json and local-only output/audit.json and match_audit.csv; source hashes checked by src/verify.py. [5] Official Unstop event listing, rules checked 17 November 2026: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758

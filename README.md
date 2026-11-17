@@ -1,20 +1,23 @@
 # rajasthan-royals
 
-An AI-assisted, reproducible Round 1 analytical draft for **SupeRR Selector Season 2**: identify batters and bowlers who perform reliably under pressure compared with their usual level.
+Final Round 1 submission for **SupeRR Selector Season 2**: identify batters and bowlers who perform reliably under pressure compared with their usual level.
+
+**Prepared by Harsh Sinha**
 
 The analysis uses only the six supplied CSVs. It retains **763 complete, decisive IPL/T20I matches and 182,440 delivery events**, from 22 January 2022 to 1 November 2026. No external reputation rankings or API services are used.
 
-**Participant review required.** Official rules allow AI assistance, but final insights, picks and recommendations must be your own; copied or wholly AI-generated entries may be disqualified. Review the draft and add your own cricketing judgment before submitting. The proprietary data pack must not be published and remains local. [Official rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758), checked 17 November 2026.
+The proprietary data pack remains local and is excluded from GitHub under the [official rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758), checked 17 November 2026. The methodology report includes the analysis methods, validation, limitations and tools used.
 
 ## Submission files
 
-- [Methodology draft - review before uploading](output/pdf/SupeRR_Selector_Round1_Methodology.pdf)
+- [Final methodology report](output/pdf/SupeRR_Selector_Round1_Methodology.pdf)
 - [Exact Unstop selection order and checklist](submission/UNSTOP_CHECKLIST.md)
 - [Rankings with full-precision scores, player IDs, samples and intervals](submission/rankings.csv)
+- [Interactive player rankings](output/player_rankings.html)
 
-After your review and final decisions, synchronize your lists and report, then enter the names in Unstop's batting and bowling dropdowns. Upload the reviewed PDF separately. **No Unstop submission has been made.** The optional journey/photos/video component is not required.
+Enter the final names in Unstop's batting and bowling dropdowns in the exact order shown below, then upload the methodology report. **Portal submission has not been performed by this project.** The optional journey/photos/video component is not required.
 
-## Data-driven draft rankings
+## Final rankings
 
 Scores are conservative, adjusted run-equivalent advantages per 100 opportunities. They are **not accuracy percentages** and are not constrained to 0-100. Batting and bowling are separate comparison populations.
 
@@ -33,9 +36,9 @@ Scores are conservative, adjusted run-equivalent advantages per 100 opportunitie
 
 The CSV preserves exact player identities. Adjacent positions often have overlapping uncertainty; the portal still requires one ordered list.
 
-## Draft picks by role and supporting evidence
+## Selected players by role and supporting evidence
 
-The score sets each player's rank; the role labels show possible RR scouting uses. Batting roles come from observed positions in the pressure sample. Bowling roles combine the recorded bowling style with the phase containing the most pressure opportunities. These are proposals for your review, with current squad needs and auction eligibility still to be established.
+The score sets each player's rank; the role labels show RR scouting applications. Batting roles come from observed positions in the pressure sample. Bowling roles combine the recorded bowling style with the phase containing the most pressure opportunities. Current squad needs and auction eligibility are separate constraints from these historical performance rankings.
 
 The evidence below uses the reference pressure definition: the top 25% of pressure scores within each innings. Final scores above combine all nine scenarios. **Uplift** is the adjusted, regularized difference from the player's ordinary level, in run-equivalent units per 100 opportunities. Raw strike rate and economy are descriptive comparisons.
 
@@ -73,39 +76,13 @@ Batting strike rate is runs per 100 balls faced. These selections evaluate batti
 
 Bowling opportunities bundle illegal deliveries with the next legal delivery. Economy is conceded runs per six legal balls. Wickets exclude run-outs and retirements. The phase labels describe exposure; each player's score includes their pressure performance across phases.
 
-### Role decisions for your review
+### Selection considerations
 
-- **Finishing:** Ashutosh offers the highest batting score and a smaller sample. Tim David and Tristan Stubbs provide more pressure exposure at Nos. 5-6. Add your judgment on who best fits RR's required batting position.
+- **Finishing:** Ashutosh offers the highest batting score and a smaller sample. Tim David and Tristan Stubbs provide more pressure exposure at Nos. 5-6, giving the list several middle/late-order options with different evidence profiles.
 - **Opening:** Reeza Hendricks, Vaibhav Sooryavanshi and Hazratullah Zazai offer different scoring profiles and sample sizes. Zazai's 66 pressure balls and one dismissal make that selection particularly sensitive to limited evidence.
-- **Spin balance:** Jadeja and Krunal overlap as left-arm orthodox options. Mujeeb, Chawla and Muqeem offer other spin styles and phase profiles. Decide whether those differences address an actual RR need.
-- **Death bowling:** None of the selected bowlers has the death overs as their largest pressure-exposure phase. If death bowling is your priority, request a dedicated death-over comparison before treating any of these selections as the answer.
+- **Spin balance:** Jadeja and Krunal overlap as left-arm orthodox options. Mujeeb, Chawla and Muqeem offer other spin styles and phase profiles, so role balance matters alongside the overall score.
+- **Death bowling:** None of the selected bowlers has the death overs as their largest pressure-exposure phase. The aggregate ranking therefore does not establish a dedicated death-over specialist; phase-specific performance is a separate selection question.
 - **Practical shortlist:** These are historical performance rankings. Any RR recruitment recommendation also needs verified availability, auction eligibility, squad fit and applicable overseas-player constraints.
-
-## Your inputs to add this evening
-
-The event allows AI assistance but requires your own final insights, picks and recommendations. Use this section to record your judgment after reviewing the draft. These prompts are for your contribution; no participant opinion has been assumed.
-
-1. **RR squad priorities:** Which two or three roles matter most to you, and why? Examples: late-order finishing, powerplay batting, middle-over wickets, or death-over run prevention.
-
-   **Your notes:** _To be added this evening._
-
-2. **Player and role judgments:** Which of the named selections above do you back for those roles? Which would you question? Add your cricketing observations and reasoning, including how you weigh larger samples against higher but less certain scores.
-
-   **Your notes:** _To be added this evening._
-
-3. **Final ranked picks:** Review both top-10 lists. Record the order you support, or proposed additions, removals or changes with reasons. Any changes should be checked against the evidence and synchronized across the report, CSV and Unstop dropdowns.
-
-   **Your notes:** _To be added this evening._
-
-4. **Practical constraints and sources:** Add any verified RR squad, retention, auction-eligibility, availability, budget or overseas-slot constraints you want considered, with source links and dates. Unknown information can remain marked unknown.
-
-   **Your notes:** _To be added this evening._
-
-5. **Your final RR recommendation:** In three to five sentences, explain the roles RR should prioritize, the players you would back, the evidence you find persuasive, and the uncertainty you would accept.
-
-   **Your notes:** _To be added this evening._
-
-After you add these inputs, incorporate your decisions into the methodology report and submission files before making the single permitted Unstop submission.
 
 ## How the system works
 
@@ -119,6 +96,8 @@ After you add these inputs, incorporate your decisions into the methodology repo
 Bowling bundles wides/no-balls with the next legal delivery, using the context before the first event. This charges illegal deliveries without pretending they consume a legal ball. Six multi-bowler opportunities are omitted only from bowling scoring.
 
 Reference eligibility: 60 pressure opportunities, 8 pressure matches, 120 ordinary opportunities, 12 matches overall and 2 calendar years. The final pools contain 176 batters and 175 bowlers. Eligibility is fixed across the nine robust scenarios.
+
+Python and AI assistance supported code development, analysis and report preparation. All numerical results are calculated by the reproducible scripts from the supplied data.
 
 ## Measured validation, with its limits
 
@@ -177,4 +156,4 @@ The fixed random seed is `20261117`. Analysis uses a CPU and no credentials. The
 
 Participation is individual and only one submission is allowed. Confirm registration and the final deadline in your logged-in portal. If shortlisted, travel availability and a valid government photo ID are required. The optional journey is not scored. No PR is merged automatically.
 
-The draft's RR scouting uses describe observed batting order or modal pressure-bowling phase. They propose uses for your review; they do not assert current RR squad gaps, auction availability, retention status or prices.
+The report's RR role applications describe observed batting order or modal pressure-bowling phase. They do not assert current RR squad gaps, auction availability, retention status or prices.

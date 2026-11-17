@@ -18,6 +18,9 @@ from reportlab.lib.pagesizes import A4
 
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output';T=OUT/'tables';FIG=OUT/'figures'
 NAVY='#10294A';PINK='#D40879';BLUE='#336F9B';GRAY='#536274';PALE='#F1F4F8'
+AUTHOR='Harsh Sinha'
+PREPARED_BY=f'Prepared by {AUTHOR}'
+REPORT_TITLE='SupeRR Selector Season 2 - Final Methodology Report'
 for folder in [FIG,OUT/'pdf',ROOT/'submission']:folder.mkdir(exist_ok=True,parents=True)
 font=Path(font_manager.findfont('DejaVu Sans'))
 pdfmetrics.registerFont(TTFont('Body',str(font)))
@@ -75,7 +78,7 @@ def page_frame(c,doc):
     c.setStrokeColor(colors.HexColor(PINK));c.setLineWidth(2);c.line(44,A4[1]-32,A4[0]-44,A4[1]-32)
     c.setFont('Body',7);c.setFillColor(colors.HexColor(GRAY))
     c.drawString(44,A4[1]-25,'SUPERR SELECTOR SEASON 2  /  ROUND 1')
-    c.drawString(44,24,'Prepared for Harsh Sinha  |  Analytical draft  |  17 November 2026')
+    c.drawString(44,24,f'{PREPARED_BY}  |  Final report  |  17 November 2026')
     c.drawRightString(A4[0]-44,24,str(doc.page))
 
 def main():
@@ -89,9 +92,8 @@ def main():
     selected[['role','rank','player_id','name','score','rating','ci_low','ci_high','p_balls','p_matches','top10_bootstrap_pct']].to_csv(ROOT/'submission/rankings.csv',index=False)
 
     para('Reliable players<br/>under pressure','TitleCustom')
-    para('SupeRR Selector Season 2 - Round 1 methodology report','SubCustom')
-    small('AI-assisted analytical draft for Harsh Sinha | 17 November 2026 | Data: 22 January 2022 to 1 November 2026')
-    small('<b>Participant review required.</b> The official rules permit AI assistance but require your own final insights, picks and recommendations. Review and adapt this draft before submitting. The proprietary data pack is kept local and excluded from GitHub. [5]')
+    para('SupeRR Selector Season 2 - Round 1 Final Methodology Report','SubCustom')
+    small(f'{PREPARED_BY} | 17 November 2026 | Data: 22 January 2022 to 1 November 2026')
     sub('Executive Summary')
     para(f'<b>{b.iloc[0]["name"]}</b> leads the batting list with a conservative score of <b>{b.iloc[0].score:.2f}</b>; <b>{bo.iloc[0]["name"]}</b> leads bowling at <b>{bo.iloc[0].score:.2f}</b>. Scores measure context-adjusted run-equivalent advantage per 100 opportunities. They are neither percentages nor probabilities of success. [1, 2]')
     para('Pressure is identified <b>before the delivery</b>: the contest must still be open, the next ball must be able to shift it, and fewer remaining balls increase urgency. Both first innings and chases count. A six, wicket, final match result, or player reputation cannot make its own ball qualify after the fact.')
@@ -224,7 +226,7 @@ def main():
         z=d[d.bowler_id.eq(r.player_id)&d.high_pressure&d.bowling_active]
         phase=z.phase.mode().iloc[0].lower();kind=z.pace_or_spin.mode().iloc[0].lower()
         small(f'<b>{int(r["rank"])}. {r["name"]}</b> - RR scouting use: {phase} {kind}. Positive pressure matches {r.positive_pressure_match_pct:.1f}%; top-10 resamples {r.top10_bootstrap_pct:.1f}%.')
-    para('RR scouting uses on pages 10-11 describe observed roles and the phase with most pressure exposure, not proven team weaknesses or auction availability. They are proposals for participant judgment. Wicket-value scenarios test the tradeoff between wickets and run prevention.')
+    para('RR role applications on pages 10-11 describe observed batting positions and the phase with most pressure exposure. Current squad needs and auction availability are separate constraints. Wicket-value scenarios test the tradeoff between wickets and run prevention.')
 
     newpage();title('9. Source audit and fair comparison')
     para(f'The supplied files contain {a["raw_matches"]} match records and {a["raw_deliveries"]:,} delivery events. No exact duplicate rows or duplicate match/innings/delivery-sequence keys were found. Join every delivery to a unique match, then a unique competition. Match/player/team identity uses IDs, never names. [4]')
@@ -252,29 +254,29 @@ def main():
     para('<b>Attribution is partial.</b> Dismissals reflect fielding as well as batting/bowling skill. Striker run-outs are charged to the dismissed striker; non-striker run-outs change the team state without charging the striker. Tactical retire-outs are personal dismissals but never bowling wickets. Byes, catches and fielding quality are not independent player ratings here.')
     para('<b>Coverage follows the supplied data.</b> Excluding shortened and unresolved matches improves comparability but narrows scope. Dates and records are accepted as supplied; the analysis does not independently certify provider accuracy or completeness against every real-world IPL/T20I match.')
 
-    newpage();title('11. Reproduction and participant review')
-    para('The local workspace contains the six original CSVs and unchanged brief. The public repository excludes the proprietary pack, prediction caches and record-level audits under organizer rules. It contains code, source hashes, aggregated evidence, ranked draft selections and this report. Authorized participants must place their own pack in data/raw/ to reproduce the analysis. No external cricket data or API key is required. [4, 5]')
+    newpage();title('11. Reproduction and sources')
+    para('The local workspace contains the six original CSVs and unchanged brief. The public repository excludes the proprietary pack, prediction caches and record-level audits under organizer rules. It contains code, source hashes, aggregated evidence, final rankings and this report. Authorized participants must place their own pack in data/raw/ to reproduce the analysis. No external cricket data or API key is required. [4, 5]')
     formula('python3 -m venv .venv<br/>source .venv/bin/activate<br/>pip install -r requirements.txt<br/>python src/analyse.py<br/>python src/build_report.py<br/>python src/verify.py')
     para(f'Use Python 3.12 and the pinned dependencies. Random seed = {cfg["seed"]}; final bootstrap draws = {cfg["bootstrap_draws"]}; sensitivity/temporal draws = 1,000. The seed controls match folds and multinomial whole-match resampling. The full-precision CSVs are authoritative if displayed decimals coincide.')
     sub('Model settings and decision rules')
     small('Win model: HistGradientBoostingClassifier; 140 iterations, learning rate 0.065, 15 leaves, minimum 200 samples/leaf, L2 = 15, early stopping off. Monotonic directions: balls left and score positive; wickets lost, target and required rate negative; stabilized current rate positive; other features unconstrained. Outcome: current batting team eventually wins the regulation match.')
     small('Performance models: HistGradientBoostingRegressor; squared-error loss; 110 iterations, learning rate 0.07, 15 leaves, minimum 200 samples/leaf, L2 = 15, early stopping off. Run predictions clipped to [0,10]; wicket expectations to [0,1]. All four use five grouped match folds; the chronological validation refits only on 2022-2024.')
-    sub('Final Unstop actions')
-    para('Review the evidence and add your own cricketing judgment, final picks and RR recommendations before submitting: the official rules permit AI assistance but warn against copied or wholly AI-generated submissions. Participation is individual, only one entry is allowed, and the data pack must not be shared or published. Check registration and the final submission deadline in your logged-in portal. Shortlisted participants must be able to travel and carry valid photo ID. [5]')
-    para('Once you have finalized your own picks, synchronize the report and CSV, choose the ten players in rank order in each Unstop dropdown, and upload the report. Do not duplicate a player within a list. Portal entry and final submission have not occurred. The optional journey component is not required and does not affect evaluation. [1]')
+    sub('Tools and submission integrity')
+    para('Python and AI assistance supported code development, analysis and report preparation. All numerical results are calculated by the reproducible scripts from the supplied data. The final batting and bowling lists are ordered by the unrounded selection score and match the accompanying submission CSV. [1, 2]')
+    para('The proprietary data pack must not be shared or published. The public repository contains code and aggregated results. Participation is individual, with one submission permitted. Portal instructions appear in the accompanying submission checklist. [5]')
     small('[1] local data/raw/problem_statement.pdf, both pages. [2] output/tables/{batters,bowlers}_all.csv and *_robust_scenarios.csv; sensitivity, temporal_stability and leave_one_match_out tables. [3] output/validation.json and chronological_calibration.csv. [4] data/manifest.json and local-only output/audit.json and match_audit.csv; source hashes checked by src/verify.py. [5] Official Unstop event listing, rules checked 17 November 2026: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758')
 
     path=OUT/'pdf/SupeRR_Selector_Round1_Methodology.pdf'
     doc=SimpleDocTemplate(str(path),pagesize=A4,rightMargin=44,leftMargin=44,topMargin=54,bottomMargin=43,
-        title='SupeRR Selector Season 2 - Analytical Draft',author='AI-assisted analytical draft for Harsh Sinha',pageCompression=1)
+        title=REPORT_TITLE,author=AUTHOR,pageCompression=1)
     doc.build(story,onFirstPage=page_frame,onLaterPages=page_frame)
     (OUT/'pdf/Methodology_source.md').write_text('\n\n'.join(md)+'\n')
-    lines=['# Unstop draft selection order','', '**Participant review required:** AI assistance is allowed, but final insights, picks and recommendations must be your own. Review and adapt the analytical draft before submission.','', 'After your review, use `output/pdf/SupeRR_Selector_Round1_Methodology.pdf` as the methodology report.','', 'Scores are run-equivalent advantages per 100 opportunities, not accuracy percentages.','']
+    lines=['# Unstop final selection order','',f'**{PREPARED_BY}**','', 'Upload `output/pdf/SupeRR_Selector_Round1_Methodology.pdf` as the final methodology report.','', 'Scores are run-equivalent advantages per 100 opportunities, not accuracy percentages.','']
     for role,df in players.items():
         lines += ['## '+role.title(),'','| Rank | Name | Player ID | Score |','| --- | --- | --- | --- |']
         for _,r in df.iterrows(): lines.append(f'| {int(r["rank"])} | {r["name"]} | {int(r.player_id)} | {r.score:.2f} |')
         lines.append('')
-    lines += ['## Before submitting','','- Review the analysis and add your own cricketing judgment and recommendations; this is an AI-assisted draft.','- Match every dropdown rank to your finalized lists; no duplicate within a list.','- Confirm the dropdown identity using player ID if the name is abbreviated.','- Upload the reviewed PDF, then review the portal selections.','- Individual participation and only one submission are allowed.','- Do not share or publish the supplied data pack. Raw inputs and record-level audits remain local.','- Confirm registration and the submission deadline in your logged-in Unstop portal.','- If shortlisted, confirm travel availability and a valid government photo ID.','- This package has not been submitted to Unstop. The optional journey is not required.','','Rules source: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758 (checked 17 November 2026).']
+    lines += ['## Portal submission steps','','- Enter both top-10 lists in the exact order shown above; no duplicate within a list.','- Confirm the dropdown identity using player ID if the name is abbreviated.','- Upload the final PDF and confirm its rankings match the dropdown selections.','- Confirm registration and the submission deadline in your logged-in Unstop portal.','- Submit the single permitted individual entry and retain the portal confirmation.','- Do not share or publish the supplied data pack. Raw inputs and record-level audits remain local.','- If shortlisted, confirm travel availability and a valid government photo ID.','- Portal submission has not been performed by this project. The optional journey is not required.','','Rules source: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758 (checked 17 November 2026).']
     (ROOT/'submission/UNSTOP_CHECKLIST.md').write_text('\n'.join(lines)+'\n')
     build_inline(players)
     print('Built',path)
@@ -288,7 +290,8 @@ def build_inline(players):
             tip=f'{int(r.p_balls)} reference pressure opportunities across {int(r.p_matches)} matches; robust estimate {r.rating:.2f}; 90% match-resample band {r.ci_low:.2f} to {r.ci_high:.2f}'
             parts.append(f'<div class="row" title="{html.escape(tip)}"><span>{int(r["rank"])}</span><span>{html.escape(r["name"])}</span><div class="track"><div class="bar" style="width:{100*max(0,r.score)/maximum:.3f}%"></div></div><span class="score">{r.score:.2f}</span></div>')
         parts.append('</div>')
-    parts.append('<div class="note">Analytical draft: participant review required before submission. Median across nine pressure/wicket scenarios; score is the 20th percentile of 2,000 whole-match resamples. Scores are not probabilities. Nearby ranks are uncertain; hover for reference samples and resampling bands. Source: supplied IPL/T20I data, 763 retained matches, 2022-2026.</div><script>function show(id,b){document.querySelectorAll(".panel").forEach(x=>x.hidden=x.id!==id);document.querySelectorAll("button").forEach(x=>x.classList.remove("active"));b.classList.add("active")}</script></body></html>')
-    (OUT/'score_preview.html').write_text(''.join(parts))
+    parts.append(f'<div class="note">{PREPARED_BY} | Final rankings. Median across nine pressure/wicket scenarios; score is the 20th percentile of 2,000 whole-match resamples. Scores are not probabilities. Nearby ranks are uncertain; hover for reference samples and resampling bands. Source: supplied IPL/T20I data, 763 retained matches, 2022-2026.</div><script>function show(id,b){{document.querySelectorAll(".panel").forEach(x=>x.hidden=x.id!==id);document.querySelectorAll("button").forEach(x=>x.classList.remove("active"));b.classList.add("active")}}</script></body></html>')
+    page=''.join(parts).replace('<head>',f'<head><title>{REPORT_TITLE}</title><meta name="author" content="{AUTHOR}">',1)
+    (OUT/'player_rankings.html').write_text(page)
 
 if __name__=='__main__':main()

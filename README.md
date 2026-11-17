@@ -33,6 +33,80 @@ Scores are conservative, adjusted run-equivalent advantages per 100 opportunitie
 
 The CSV preserves exact player identities. Adjacent positions often have overlapping uncertainty; the portal still requires one ordered list.
 
+## Draft picks by role and supporting evidence
+
+The score sets each player's rank; the role labels show possible RR scouting uses. Batting roles come from observed positions in the pressure sample. Bowling roles combine the recorded bowling style with the phase containing the most pressure opportunities. These are proposals for your review, with current squad needs and auction eligibility still to be established.
+
+The evidence below uses the reference pressure definition: the top 25% of pressure scores within each innings. Final scores above combine all nine scenarios. **Uplift** is the adjusted, regularized difference from the player's ordinary level, in run-equivalent units per 100 opportunities. Raw strike rate and economy are descriptive comparisons.
+
+### Batters
+
+| Rank | Selected player | Observed role / possible RR use | Reference pressure evidence |
+| --- | --- | --- | --- |
+| 1 | Ashutosh Sharma | Late-order hitting; most pressure balls at No. 7 | 112 balls across 12 matches; SR 195.5; 5 dismissals; uplift +36.9 |
+| 2 | Reeza Hendricks | Opening batting; most pressure balls at No. 2 | 244 balls across 24 matches; SR 152.9; 4 dismissals; uplift +33.1 |
+| 3 | Vaibhav Sooryavanshi | Opening batting; most pressure balls at No. 2 | 127 balls across 19 matches; SR 205.5; 4 dismissals; uplift +6.6 |
+| 4 | Tim David | Middle/late-order hitting; most pressure balls at Nos. 5-6 | 390 balls across 46 matches; SR 167.7; 14 dismissals; uplift +6.7 |
+| 5 | Tristan Stubbs | Middle/late-order batting; most pressure balls at Nos. 5-6 | 283 balls across 34 matches; SR 140.6; 7 dismissals; uplift +16.9 |
+| 6 | Hardik Pandya | Middle-order batting; most pressure balls at No. 4 | 450 balls across 51 matches; SR 142.0; 12 dismissals; uplift +27.1 |
+| 7 | Hazratullah Zazai | Opening batting; most pressure balls at No. 1 | 66 balls across 9 matches; SR 156.1; 1 dismissal; uplift +43.5 |
+| 8 | Glenn Phillips | Middle-order batting; most pressure balls at No. 4 | 250 balls across 27 matches; SR 140.4; 6 dismissals; uplift +19.6 |
+| 9 | Harry Brook | Middle-order batting; most pressure balls at Nos. 4-5 | 185 balls across 25 matches; SR 169.7; 10 dismissals; uplift +7.3 |
+| 10 | Kamindu Mendis | Middle/late-order batting; most pressure balls at Nos. 5-6 | 169 balls across 18 matches; SR 132.0; 6 dismissals; uplift +20.4 |
+
+Batting strike rate is runs per 100 balls faced. These selections evaluate batting; an all-rounder's inclusion here does not establish a bowling recommendation.
+
+### Bowlers
+
+| Rank | Selected player | Observed role / possible RR use | Reference pressure evidence |
+| --- | --- | --- | --- |
+| 1 | Joshua Little | Left-arm pace; largest pressure exposure in the powerplay | 213 opportunities across 24 matches; 15 wickets; economy 6.45; uplift +42.8 |
+| 2 | Shaheen Afridi | Left-arm pace; largest pressure exposure in the powerplay | 314 opportunities across 35 matches; 26 wickets; economy 7.51; uplift +34.2 |
+| 3 | Umran Malik | Right-arm pace; largest pressure exposure in the middle overs | 155 opportunities across 18 matches; 17 wickets; economy 9.37; uplift +48.2 |
+| 4 | Ravindra Jadeja | Left-arm orthodox spin in the middle overs | 320 opportunities across 41 matches; 20 wickets; economy 7.61; uplift +29.5 |
+| 5 | Tim Southee | Right-arm pace; largest pressure exposure in the powerplay | 202 opportunities across 26 matches; 15 wickets; economy 6.95; uplift +30.7 |
+| 6 | Mujeeb Ur Rahman | Right-arm off-spin; largest pressure exposure in the powerplay | 250 opportunities across 25 matches; 13 wickets; economy 6.36; uplift +7.8 |
+| 7 | Krunal Pandya | Left-arm orthodox spin in the middle overs | 328 opportunities across 40 matches; 14 wickets; economy 6.53; uplift +19.0 |
+| 8 | Piyush Chawla | Right-arm leg-spin in the middle overs | 97 opportunities across 16 matches; 8 wickets; economy 8.10; uplift +15.5 |
+| 9 | Hasan Mahmud | Right-arm pace; largest pressure exposure in the middle overs | 107 opportunities across 12 matches; 8 wickets; economy 7.18; uplift +23.4 |
+| 10 | Sufiyan Muqeem | Left-arm wrist-spin in the middle overs | 121 opportunities across 10 matches; 7 wickets; economy 5.90; uplift +7.3 |
+
+Bowling opportunities bundle illegal deliveries with the next legal delivery. Economy is conceded runs per six legal balls. Wickets exclude run-outs and retirements. The phase labels describe exposure; each player's score includes their pressure performance across phases.
+
+### Role decisions for your review
+
+- **Finishing:** Ashutosh offers the highest batting score and a smaller sample. Tim David and Tristan Stubbs provide more pressure exposure at Nos. 5-6. Add your judgment on who best fits RR's required batting position.
+- **Opening:** Reeza Hendricks, Vaibhav Sooryavanshi and Hazratullah Zazai offer different scoring profiles and sample sizes. Zazai's 66 pressure balls and one dismissal make that selection particularly sensitive to limited evidence.
+- **Spin balance:** Jadeja and Krunal overlap as left-arm orthodox options. Mujeeb, Chawla and Muqeem offer other spin styles and phase profiles. Decide whether those differences address an actual RR need.
+- **Death bowling:** None of the selected bowlers has the death overs as their largest pressure-exposure phase. If death bowling is your priority, request a dedicated death-over comparison before treating any of these selections as the answer.
+- **Practical shortlist:** These are historical performance rankings. Any RR recruitment recommendation also needs verified availability, auction eligibility, squad fit and applicable overseas-player constraints.
+
+## Your inputs to add this evening
+
+The event allows AI assistance but requires your own final insights, picks and recommendations. Use this section to record your judgment after reviewing the draft. These prompts are for your contribution; no participant opinion has been assumed.
+
+1. **RR squad priorities:** Which two or three roles matter most to you, and why? Examples: late-order finishing, powerplay batting, middle-over wickets, or death-over run prevention.
+
+   **Your notes:** _To be added this evening._
+
+2. **Player and role judgments:** Which of the named selections above do you back for those roles? Which would you question? Add your cricketing observations and reasoning, including how you weigh larger samples against higher but less certain scores.
+
+   **Your notes:** _To be added this evening._
+
+3. **Final ranked picks:** Review both top-10 lists. Record the order you support, or proposed additions, removals or changes with reasons. Any changes should be checked against the evidence and synchronized across the report, CSV and Unstop dropdowns.
+
+   **Your notes:** _To be added this evening._
+
+4. **Practical constraints and sources:** Add any verified RR squad, retention, auction-eligibility, availability, budget or overseas-slot constraints you want considered, with source links and dates. Unknown information can remain marked unknown.
+
+   **Your notes:** _To be added this evening._
+
+5. **Your final RR recommendation:** In three to five sentences, explain the roles RR should prioritize, the players you would back, the evidence you find persuasive, and the uncertainty you would accept.
+
+   **Your notes:** _To be added this evening._
+
+After you add these inputs, incorporate your decisions into the methodology report and submission files before making the single permitted Unstop submission.
+
 ## How the system works
 
 1. Reconstruct **pre-ball** score, wickets, legal balls remaining and chase target. Exclude incomplete/revised matches, regulation ties and outside-scope emerging-team tournaments.

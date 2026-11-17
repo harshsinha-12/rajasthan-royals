@@ -458,7 +458,7 @@ Performance models: HistGradientBoostingRegressor; squared-error loss; 110 itera
 
 ### Tools and submission integrity
 
-Python and AI assistance supported code development, analysis and report preparation. All numerical results are calculated by the reproducible scripts from the supplied data. The final batting and bowling lists are ordered by the unrounded selection score and match the accompanying submission CSV. [1, 2]
+All numerical results are calculated by the reproducible Python scripts from the supplied data. The final batting and bowling lists are ordered by the unrounded selection score and match the accompanying submission CSV. [1, 2]
 
 The proprietary data pack must not be shared or published. The public repository contains code and aggregated results. Participation is individual, with one submission permitted. Portal instructions appear in the accompanying submission checklist. [5]
 

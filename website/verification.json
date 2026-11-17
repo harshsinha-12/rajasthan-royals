@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-17",
+  "static_data_checks": "passed",
+  "desktop": {
+    "width": 1200,
+    "interaction_checks_passed": 20
+  },
+  "mobile": {
+    "width": 390,
+    "interaction_checks_passed": 20
+  },
+  "surface": "T3 HTML preview",
+  "downloads_match_submission": true,
+  "restricted_pack_included": false,
+  "deployment_target": "Vercel",
+  "host_independent_profile_links": true
+}

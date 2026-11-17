@@ -1,0 +1,3816 @@
+{
+  "batters:8101": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Death": 82,
+      "Middle": 30
+    }
+  },
+  "batters:768": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 126,
+      "Middle": 109,
+      "Death": 9
+    }
+  },
+  "batters:50284": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 105,
+      "Middle": 22
+    }
+  },
+  "batters:6396": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 208,
+      "Death": 171,
+      "Powerplay": 11
+    }
+  },
+  "batters:20702": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 170,
+      "Death": 101,
+      "Powerplay": 12
+    }
+  },
+  "batters:3330": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 270,
+      "Death": 155,
+      "Powerplay": 25
+    }
+  },
+  "batters:7152": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 61,
+      "Middle": 5
+    }
+  },
+  "batters:4853": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 167,
+      "Powerplay": 48,
+      "Death": 35
+    }
+  },
+  "batters:6280": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 140,
+      "Powerplay": 37,
+      "Death": 8
+    }
+  },
+  "batters:4904": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 109,
+      "Death": 40,
+      "Powerplay": 20
+    }
+  },
+  "batters:6819": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 365,
+      "Middle": 131,
+      "Death": 7
+    }
+  },
+  "batters:25669": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 96,
+      "Middle": 16
+    }
+  },
+  "batters:4106": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 148,
+      "Death": 47,
+      "Powerplay": 37
+    }
+  },
+  "batters:3125": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 278,
+      "Powerplay": 110,
+      "Death": 80
+    }
+  },
+  "batters:21790": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Death": 44,
+      "Middle": 20
+    }
+  },
+  "batters:5939": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 147,
+      "Powerplay": 78,
+      "Death": 47
+    }
+  },
+  "batters:22565": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 98,
+      "Middle": 75
+    }
+  },
+  "batters:813": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 360,
+      "Middle": 213,
+      "Death": 48
+    }
+  },
+  "batters:4847": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 160,
+      "Middle": 21
+    }
+  },
+  "batters:1101": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Death": 67,
+      "Middle": 66
+    }
+  },
+  "batters:3782": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Death": 58,
+      "Middle": 40
+    }
+  },
+  "batters:4219": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 141,
+      "Death": 47,
+      "Powerplay": 19
+    }
+  },
+  "batters:23311": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Middle": 72,
+      "Powerplay": 31,
+      "Death": 18
+    }
+  },
+  "batters:3954": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 110,
+      "Middle": 55,
+      "Death": 12
+    }
+  },
+  "batters:3916": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Middle": 153,
+      "Death": 93,
+      "Powerplay": 4
+    }
+  },
+  "batters:8238": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 55,
+      "Powerplay": 21,
+      "Death": 14
+    }
+  },
+  "batters:4812": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 126,
+      "Powerplay": 63,
+      "Death": 46
+    }
+  },
+  "batters:143": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Death": 129,
+      "Middle": 46
+    }
+  },
+  "batters:2463": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 96,
+      "Death": 43,
+      "Powerplay": 2
+    }
+  },
+  "batters:6651": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 108,
+      "Death": 40,
+      "Powerplay": 7
+    }
+  },
+  "batters:2436": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Death": 117,
+      "Middle": 111,
+      "Powerplay": 1
+    }
+  },
+  "batters:2756": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Death": 63,
+      "Middle": 61,
+      "Powerplay": 2
+    }
+  },
+  "batters:8741": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 35,
+      "Middle": 26,
+      "Death": 3
+    }
+  },
+  "batters:3024": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 193,
+      "Middle": 149,
+      "Death": 39
+    }
+  },
+  "batters:37052": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Death": 32,
+      "Middle": 15,
+      "Powerplay": 13
+    }
+  },
+  "batters:220": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 175,
+      "Middle": 115,
+      "Death": 11
+    }
+  },
+  "batters:2930": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 67,
+      "Death": 38,
+      "Powerplay": 15
+    }
+  },
+  "batters:6448": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 102,
+      "Powerplay": 76,
+      "Death": 49
+    }
+  },
+  "batters:1941": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 235,
+      "Middle": 119,
+      "Death": 1
+    }
+  },
+  "batters:1699": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 408,
+      "Powerplay": 133,
+      "Death": 91
+    }
+  },
+  "batters:3374": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 105,
+      "Death": 24,
+      "Powerplay": 22
+    }
+  },
+  "batters:6059": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 284,
+      "Middle": 129,
+      "Death": 20
+    }
+  },
+  "batters:1318": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Death": 100,
+      "Middle": 88
+    }
+  },
+  "batters:6288": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 329,
+      "Middle": 186,
+      "Death": 34
+    }
+  },
+  "batters:4986": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 195,
+      "Death": 118,
+      "Powerplay": 28
+    }
+  },
+  "batters:7897": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 382,
+      "Death": 136,
+      "Powerplay": 101
+    }
+  },
+  "batters:47": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 382,
+      "Middle": 257,
+      "Death": 56
+    }
+  },
+  "batters:1596": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "LHB",
+    "phases": {
+      "Middle": 155,
+      "Death": 54,
+      "Powerplay": 35
+    }
+  },
+  "batters:1205": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 114,
+      "Middle": 79,
+      "Death": 7
+    }
+  },
+  "batters:3926": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "LHB",
+    "phases": {
+      "Death": 118,
+      "Middle": 37
+    }
+  },
+  "batters:8182": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Death": 36,
+      "Middle": 30
+    }
+  },
+  "batters:8221": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 64,
+      "Powerplay": 13,
+      "Death": 10
+    }
+  },
+  "batters:126": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 318,
+      "Middle": 126
+    }
+  },
+  "batters:7216": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 214,
+      "Middle": 125,
+      "Death": 8
+    }
+  },
+  "batters:23450": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 180,
+      "Middle": 134,
+      "Death": 24
+    }
+  },
+  "batters:2680": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Death": 35,
+      "Middle": 26,
+      "Powerplay": 5
+    }
+  },
+  "batters:4814": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 124,
+      "Powerplay": 44,
+      "Death": 22
+    }
+  },
+  "batters:5882": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 49,
+      "Death": 23,
+      "Powerplay": 5
+    }
+  },
+  "batters:818": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 236,
+      "Middle": 213,
+      "Death": 21
+    }
+  },
+  "batters:25213": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 159,
+      "Powerplay": 34,
+      "Death": 2
+    }
+  },
+  "batters:2533": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 66,
+      "Death": 42,
+      "Powerplay": 2
+    }
+  },
+  "batters:4409": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 134,
+      "Death": 73,
+      "Powerplay": 29
+    }
+  },
+  "batters:3647": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 258,
+      "Powerplay": 126,
+      "Death": 62
+    }
+  },
+  "batters:4708": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 159,
+      "Death": 108,
+      "Powerplay": 3
+    }
+  },
+  "batters:4780": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 69,
+      "Middle": 45
+    }
+  },
+  "batters:3648": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 94,
+      "Powerplay": 38,
+      "Death": 16
+    }
+  },
+  "batters:2984": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 171,
+      "Death": 53,
+      "Powerplay": 27
+    }
+  },
+  "batters:3727": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 98,
+      "Middle": 32,
+      "Death": 11
+    }
+  },
+  "batters:1077": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 197,
+      "Death": 135,
+      "Powerplay": 10
+    }
+  },
+  "batters:4494": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 6,
+    "style": "RHB",
+    "phases": {
+      "Middle": 46,
+      "Death": 32
+    }
+  },
+  "batters:6281": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 402,
+      "Middle": 109
+    }
+  },
+  "batters:4755": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 214,
+      "Death": 96,
+      "Powerplay": 12
+    }
+  },
+  "batters:7544": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 111,
+      "Powerplay": 73,
+      "Death": 29
+    }
+  },
+  "batters:2876": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "LHB",
+    "phases": {
+      "Middle": 173,
+      "Death": 143,
+      "Powerplay": 15
+    }
+  },
+  "batters:3323": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "LHB",
+    "phases": {
+      "Middle": 45,
+      "Death": 28
+    }
+  },
+  "batters:4007": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 92,
+      "Middle": 68,
+      "Death": 1
+    }
+  },
+  "batters:3672": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 202,
+      "Middle": 157,
+      "Death": 23
+    }
+  },
+  "batters:5553": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 337,
+      "Middle": 97,
+      "Death": 2
+    }
+  },
+  "batters:6433": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 59,
+      "Death": 15,
+      "Powerplay": 15
+    }
+  },
+  "batters:3700": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 121,
+      "Middle": 41
+    }
+  },
+  "batters:2416": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 173,
+      "Middle": 54,
+      "Death": 1
+    }
+  },
+  "batters:6676": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 56,
+      "Death": 44,
+      "Powerplay": 5
+    }
+  },
+  "batters:1107": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 84,
+      "Death": 59,
+      "Powerplay": 3
+    }
+  },
+  "batters:953": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 257,
+      "Middle": 227,
+      "Death": 65
+    }
+  },
+  "batters:4900": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Middle": 55,
+      "Death": 48
+    }
+  },
+  "batters:5928": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 93,
+      "Middle": 17
+    }
+  },
+  "batters:6423": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 187,
+      "Death": 74,
+      "Powerplay": 3
+    }
+  },
+  "batters:2877": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 69,
+      "Powerplay": 35,
+      "Death": 18
+    }
+  },
+  "batters:4736": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 116,
+      "Powerplay": 81,
+      "Death": 10
+    }
+  },
+  "batters:4260": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 158,
+      "Death": 54,
+      "Powerplay": 15
+    }
+  },
+  "batters:3297": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Death": 125,
+      "Middle": 116,
+      "Powerplay": 15
+    }
+  },
+  "batters:6460": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 77,
+      "Death": 67,
+      "Powerplay": 5
+    }
+  },
+  "batters:728": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 74,
+      "Powerplay": 59,
+      "Death": 3
+    }
+  },
+  "batters:6664": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 40,
+      "Middle": 19,
+      "Death": 5
+    }
+  },
+  "batters:4773": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 64,
+      "Death": 53,
+      "Powerplay": 3
+    }
+  },
+  "batters:2485": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 172,
+      "Middle": 138,
+      "Death": 21
+    }
+  },
+  "batters:6725": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 151,
+      "Death": 54,
+      "Powerplay": 11
+    }
+  },
+  "batters:4117": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 341,
+      "Middle": 189,
+      "Death": 19
+    }
+  },
+  "batters:1568": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 74,
+      "Powerplay": 71,
+      "Death": 1
+    }
+  },
+  "batters:2003": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 66,
+      "Death": 36,
+      "Powerplay": 18
+    }
+  },
+  "batters:28967": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 76,
+      "Middle": 25
+    }
+  },
+  "batters:7472": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "LHB",
+    "phases": {
+      "Middle": 60,
+      "Death": 51,
+      "Powerplay": 2
+    }
+  },
+  "batters:838": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 192,
+      "Powerplay": 41,
+      "Death": 37
+    }
+  },
+  "batters:2367": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 244,
+      "Middle": 46
+    }
+  },
+  "batters:4821": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 41,
+      "Death": 34,
+      "Powerplay": 1
+    }
+  },
+  "batters:1440": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 85,
+      "Powerplay": 82,
+      "Death": 6
+    }
+  },
+  "batters:7049": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 60,
+      "Powerplay": 29,
+      "Death": 4
+    }
+  },
+  "batters:1116": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 48,
+      "Powerplay": 42,
+      "Death": 9
+    }
+  },
+  "batters:19714": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 45,
+      "Middle": 22,
+      "Death": 3
+    }
+  },
+  "batters:7900": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 87,
+      "Middle": 50,
+      "Death": 13
+    }
+  },
+  "batters:3282": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 45,
+      "Middle": 33,
+      "Death": 2
+    }
+  },
+  "batters:2687": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 86,
+      "Death": 32,
+      "Powerplay": 20
+    }
+  },
+  "batters:6931": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 271,
+      "Middle": 165,
+      "Death": 22
+    }
+  },
+  "batters:3605": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 175,
+      "Powerplay": 88,
+      "Death": 31
+    }
+  },
+  "batters:5039": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 155,
+      "Powerplay": 66,
+      "Death": 14
+    }
+  },
+  "batters:6726": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 8,
+    "style": "RHB",
+    "phases": {
+      "Death": 88,
+      "Middle": 42
+    }
+  },
+  "batters:2921": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 114,
+      "Powerplay": 56,
+      "Death": 31
+    }
+  },
+  "batters:152": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 120,
+      "Death": 94,
+      "Powerplay": 12
+    }
+  },
+  "batters:2490": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "LHB",
+    "phases": {
+      "Death": 79,
+      "Middle": 53,
+      "Powerplay": 1
+    }
+  },
+  "batters:109": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 175,
+      "Middle": 24
+    }
+  },
+  "batters:49003": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 45,
+      "Powerplay": 9,
+      "Death": 8
+    }
+  },
+  "batters:2101": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 237,
+      "Middle": 79,
+      "Death": 2
+    }
+  },
+  "batters:7903": {
+    "group": "Late order",
+    "label": "Middle / late order",
+    "position": 6,
+    "style": "LHB",
+    "phases": {
+      "Middle": 50,
+      "Death": 27,
+      "Powerplay": 8
+    }
+  },
+  "batters:6512": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "LHB",
+    "phases": {
+      "Death": 54,
+      "Middle": 31,
+      "Powerplay": 1
+    }
+  },
+  "batters:8647": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Middle": 47,
+      "Powerplay": 43,
+      "Death": 1
+    }
+  },
+  "batters:2258": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 244,
+      "Powerplay": 228,
+      "Death": 40
+    }
+  },
+  "batters:4854": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 52,
+      "Middle": 40,
+      "Death": 8
+    }
+  },
+  "batters:535": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 48,
+      "Death": 19,
+      "Powerplay": 1
+    }
+  },
+  "batters:2671": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 141,
+      "Middle": 77,
+      "Death": 4
+    }
+  },
+  "batters:4722": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 8,
+    "style": "RHB",
+    "phases": {
+      "Death": 101,
+      "Middle": 5
+    }
+  },
+  "batters:7446": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Death": 59,
+      "Middle": 33
+    }
+  },
+  "batters:7341": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 73,
+      "Middle": 7
+    }
+  },
+  "batters:5808": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "RHB",
+    "phases": {
+      "Middle": 52,
+      "Death": 19,
+      "Powerplay": 5
+    }
+  },
+  "batters:142": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 137,
+      "Middle": 49,
+      "Death": 6
+    }
+  },
+  "batters:3091": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 84,
+      "Middle": 13,
+      "Death": 4
+    }
+  },
+  "batters:305": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Death": 39,
+      "Middle": 29,
+      "Powerplay": 15
+    }
+  },
+  "batters:4703": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 183,
+      "Powerplay": 56,
+      "Death": 29
+    }
+  },
+  "batters:2379": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "LHB",
+    "phases": {
+      "Middle": 55,
+      "Powerplay": 31,
+      "Death": 4
+    }
+  },
+  "batters:1327": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 57,
+      "Middle": 19
+    }
+  },
+  "batters:4369": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 105,
+      "Middle": 90,
+      "Death": 10
+    }
+  },
+  "batters:1187": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 90,
+      "Middle": 25
+    }
+  },
+  "batters:796": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "LHB",
+    "phases": {
+      "Death": 85,
+      "Powerplay": 41,
+      "Middle": 37
+    }
+  },
+  "batters:4823": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "LHB",
+    "phases": {
+      "Middle": 76,
+      "Death": 69,
+      "Powerplay": 4
+    }
+  },
+  "batters:6272": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 95,
+      "Middle": 72,
+      "Death": 12
+    }
+  },
+  "batters:8600": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 73,
+      "Middle": 10
+    }
+  },
+  "batters:6467": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 7,
+    "style": "LHB",
+    "phases": {
+      "Death": 28,
+      "Middle": 19,
+      "Powerplay": 14
+    }
+  },
+  "batters:3056": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 85,
+      "Death": 60,
+      "Powerplay": 5
+    }
+  },
+  "batters:7260": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 121,
+      "Death": 71,
+      "Powerplay": 15
+    }
+  },
+  "batters:2639": {
+    "group": "Middle order",
+    "label": "Middle / late order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 137,
+      "Death": 58,
+      "Powerplay": 33
+    }
+  },
+  "batters:4391": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 200,
+      "Death": 54,
+      "Powerplay": 42
+    }
+  },
+  "batters:7690": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 132,
+      "Middle": 75,
+      "Death": 3
+    }
+  },
+  "batters:7059": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 110,
+      "Death": 25,
+      "Powerplay": 5
+    }
+  },
+  "batters:167": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 107,
+      "Middle": 78
+    }
+  },
+  "batters:781": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 84,
+      "Middle": 25,
+      "Death": 7
+    }
+  },
+  "batters:7094": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "RHB",
+    "phases": {
+      "Middle": 85,
+      "Death": 22,
+      "Powerplay": 16
+    }
+  },
+  "batters:3280": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 40,
+      "Powerplay": 37,
+      "Death": 12
+    }
+  },
+  "batters:8": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 8,
+    "style": "RHB",
+    "phases": {
+      "Death": 56,
+      "Middle": 19
+    }
+  },
+  "batters:2573": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 44,
+      "Middle": 15,
+      "Death": 13
+    }
+  },
+  "batters:88": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 215,
+      "Middle": 146,
+      "Death": 15
+    }
+  },
+  "batters:24017": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 134,
+      "Middle": 85
+    }
+  },
+  "batters:7901": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 2,
+    "style": "LHB",
+    "phases": {
+      "Powerplay": 45,
+      "Middle": 19,
+      "Death": 1
+    }
+  },
+  "batters:20327": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 54,
+      "Powerplay": 17,
+      "Death": 12
+    }
+  },
+  "batters:6674": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 188,
+      "Middle": 98,
+      "Death": 10
+    }
+  },
+  "batters:4895": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 5,
+    "style": "LHB",
+    "phases": {
+      "Middle": 161,
+      "Powerplay": 33,
+      "Death": 32
+    }
+  },
+  "batters:198": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 65,
+      "Powerplay": 17,
+      "Death": 8
+    }
+  },
+  "batters:3489": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 4,
+    "style": "RHB",
+    "phases": {
+      "Middle": 50,
+      "Powerplay": 23,
+      "Death": 21
+    }
+  },
+  "batters:772": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 40,
+      "Powerplay": 21
+    }
+  },
+  "batters:26906": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "RHB",
+    "phases": {
+      "Middle": 50,
+      "Powerplay": 24,
+      "Death": 13
+    }
+  },
+  "batters:4867": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 66,
+      "Middle": 31,
+      "Death": 5
+    }
+  },
+  "batters:443": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 147,
+      "Middle": 19
+    }
+  },
+  "batters:3639": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 232,
+      "Middle": 72,
+      "Death": 3
+    }
+  },
+  "batters:1481": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 111,
+      "Powerplay": 24,
+      "Death": 1
+    }
+  },
+  "batters:6314": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 123,
+      "Powerplay": 92,
+      "Death": 34
+    }
+  },
+  "batters:4246": {
+    "group": "Middle order",
+    "label": "Middle order",
+    "position": 3,
+    "style": "LHB",
+    "phases": {
+      "Middle": 147,
+      "Powerplay": 34,
+      "Death": 12
+    }
+  },
+  "batters:992": {
+    "group": "Opening",
+    "label": "Opening",
+    "position": 1,
+    "style": "RHB",
+    "phases": {
+      "Powerplay": 99,
+      "Middle": 55,
+      "Death": 4
+    }
+  },
+  "batters:2633": {
+    "group": "Late order",
+    "label": "Late order",
+    "position": 8,
+    "style": "RHB",
+    "phases": {
+      "Death": 45,
+      "Middle": 28,
+      "Powerplay": 13
+    }
+  },
+  "bowlers:4807": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm Fast",
+    "phases": {
+      "Powerplay": 103,
+      "Middle": 59,
+      "Death": 51
+    }
+  },
+  "bowlers:6355": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm Fast",
+    "phases": {
+      "Powerplay": 182,
+      "Death": 84,
+      "Middle": 48
+    }
+  },
+  "bowlers:25048": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 110,
+      "Death": 32,
+      "Powerplay": 13
+    }
+  },
+  "bowlers:152": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 303,
+      "Powerplay": 11,
+      "Death": 6
+    }
+  },
+  "bowlers:278": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 127,
+      "Middle": 41,
+      "Death": 34
+    }
+  },
+  "bowlers:6450": {
+    "group": "Powerplay",
+    "label": "Powerplay spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Powerplay": 144,
+      "Middle": 79,
+      "Death": 27
+    }
+  },
+  "bowlers:4219": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 234,
+      "Powerplay": 83,
+      "Death": 11
+    }
+  },
+  "bowlers:23": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 81,
+      "Powerplay": 9,
+      "Death": 7
+    }
+  },
+  "bowlers:6643": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Middle": 48,
+      "Death": 38,
+      "Powerplay": 21
+    }
+  },
+  "bowlers:34485": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Left-arm Chinaman",
+    "phases": {
+      "Middle": 102,
+      "Death": 19
+    }
+  },
+  "bowlers:4722": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 423,
+      "Death": 125,
+      "Powerplay": 56
+    }
+  },
+  "bowlers:22920": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 79,
+      "Death": 50,
+      "Middle": 11
+    }
+  },
+  "bowlers:499": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 70,
+      "Death": 12,
+      "Powerplay": 7
+    }
+  },
+  "bowlers:7322": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 112,
+      "Middle": 75,
+      "Death": 55
+    }
+  },
+  "bowlers:1612": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 410,
+      "Death": 108,
+      "Powerplay": 15
+    }
+  },
+  "bowlers:1566": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 241,
+      "Death": 56,
+      "Middle": 28
+    }
+  },
+  "bowlers:2490": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 208,
+      "Powerplay": 49,
+      "Death": 6
+    }
+  },
+  "bowlers:7344": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 98,
+      "Middle": 71,
+      "Death": 39
+    }
+  },
+  "bowlers:3174": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 100,
+      "Middle": 29,
+      "Death": 25
+    }
+  },
+  "bowlers:7741": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 132,
+      "Powerplay": 7,
+      "Death": 6
+    }
+  },
+  "bowlers:3644": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Left-arm Chinaman",
+    "phases": {
+      "Middle": 356,
+      "Death": 65,
+      "Powerplay": 3
+    }
+  },
+  "bowlers:6512": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 88,
+      "Powerplay": 44,
+      "Death": 19
+    }
+  },
+  "bowlers:830": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 209,
+      "Death": 62,
+      "Middle": 55
+    }
+  },
+  "bowlers:2984": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 232,
+      "Death": 27,
+      "Powerplay": 26
+    }
+  },
+  "bowlers:7905": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Middle": 91,
+      "Powerplay": 44,
+      "Death": 35
+    }
+  },
+  "bowlers:6284": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 53,
+      "Powerplay": 22,
+      "Death": 2
+    }
+  },
+  "bowlers:2411": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 114,
+      "Death": 86,
+      "Middle": 55
+    }
+  },
+  "bowlers:2382": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Middle": 43,
+      "Death": 22,
+      "Powerplay": 5
+    }
+  },
+  "bowlers:3628": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 259,
+      "Middle": 82,
+      "Death": 58
+    }
+  },
+  "bowlers:6256": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 288,
+      "Powerplay": 77,
+      "Death": 50
+    }
+  },
+  "bowlers:4900": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 333,
+      "Death": 82,
+      "Powerplay": 14
+    }
+  },
+  "bowlers:6398": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 49,
+      "Powerplay": 27,
+      "Death": 11
+    }
+  },
+  "bowlers:19312": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 110,
+      "Death": 36,
+      "Middle": 7
+    }
+  },
+  "bowlers:403": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 162,
+      "Middle": 35,
+      "Death": 4
+    }
+  },
+  "bowlers:1758": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Middle": 68,
+      "Powerplay": 56,
+      "Death": 39
+    }
+  },
+  "bowlers:1944": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 59,
+      "Powerplay": 30,
+      "Death": 6
+    }
+  },
+  "bowlers:29888": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 94,
+      "Middle": 71,
+      "Death": 63
+    }
+  },
+  "bowlers:8049": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 82,
+      "Death": 79,
+      "Middle": 31
+    }
+  },
+  "bowlers:2681": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 128,
+      "Death": 72,
+      "Middle": 64
+    }
+  },
+  "bowlers:6287": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 52,
+      "Death": 40,
+      "Powerplay": 17
+    }
+  },
+  "bowlers:395": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 59,
+      "Death": 6
+    }
+  },
+  "bowlers:7325": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 126,
+      "Powerplay": 35,
+      "Death": 12
+    }
+  },
+  "bowlers:305": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 316,
+      "Powerplay": 61,
+      "Death": 24
+    }
+  },
+  "bowlers:2687": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 174,
+      "Powerplay": 35,
+      "Death": 3
+    }
+  },
+  "bowlers:4823": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 86,
+      "Powerplay": 46,
+      "Death": 17
+    }
+  },
+  "bowlers:2985": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 45,
+      "Death": 27,
+      "Middle": 20
+    }
+  },
+  "bowlers:2417": {
+    "group": "Powerplay",
+    "label": "Powerplay spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Powerplay": 229,
+      "Middle": 224,
+      "Death": 19
+    }
+  },
+  "bowlers:2933": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 152,
+      "Death": 97,
+      "Middle": 76
+    }
+  },
+  "bowlers:7920": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 122,
+      "Death": 62,
+      "Powerplay": 53
+    }
+  },
+  "bowlers:2878": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Death": 64,
+      "Middle": 49,
+      "Powerplay": 15
+    }
+  },
+  "bowlers:1596": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 158,
+      "Powerplay": 31,
+      "Death": 12
+    }
+  },
+  "bowlers:7696": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 35,
+      "Death": 22,
+      "Middle": 14
+    }
+  },
+  "bowlers:2261": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 233,
+      "Death": 184,
+      "Powerplay": 32
+    }
+  },
+  "bowlers:4489": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 78,
+      "Powerplay": 75,
+      "Death": 66
+    }
+  },
+  "bowlers:1389": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Middle": 67,
+      "Powerplay": 32,
+      "Death": 23
+    }
+  },
+  "bowlers:7967": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Left-arm Chinaman",
+    "phases": {
+      "Middle": 284,
+      "Death": 65,
+      "Powerplay": 13
+    }
+  },
+  "bowlers:19316": {
+    "group": "Powerplay",
+    "label": "Powerplay spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Powerplay": 204,
+      "Middle": 155,
+      "Death": 46
+    }
+  },
+  "bowlers:21784": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 53,
+      "Death": 32,
+      "Middle": 19
+    }
+  },
+  "bowlers:7250": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium",
+    "phases": {
+      "Powerplay": 71,
+      "Death": 14,
+      "Middle": 5
+    }
+  },
+  "bowlers:781": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 244,
+      "Death": 49,
+      "Powerplay": 48
+    }
+  },
+  "bowlers:7240": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium",
+    "phases": {
+      "Powerplay": 222,
+      "Death": 76,
+      "Middle": 15
+    }
+  },
+  "bowlers:8661": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Death": 126,
+      "Middle": 108,
+      "Powerplay": 10
+    }
+  },
+  "bowlers:27960": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 29,
+      "Middle": 28,
+      "Death": 14
+    }
+  },
+  "bowlers:2463": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 79,
+      "Death": 3
+    }
+  },
+  "bowlers:4641": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 107,
+      "Death": 37,
+      "Middle": 27
+    }
+  },
+  "bowlers:6523": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 101,
+      "Death": 72,
+      "Middle": 41
+    }
+  },
+  "bowlers:7699": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 64,
+      "Death": 54,
+      "Powerplay": 19
+    }
+  },
+  "bowlers:4101": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 172,
+      "Powerplay": 63,
+      "Death": 45
+    }
+  },
+  "bowlers:479": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 212,
+      "Death": 43,
+      "Powerplay": 6
+    }
+  },
+  "bowlers:2636": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 256,
+      "Death": 66,
+      "Powerplay": 18
+    }
+  },
+  "bowlers:1219": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Powerplay": 64,
+      "Death": 33,
+      "Middle": 13
+    }
+  },
+  "bowlers:2054": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Powerplay": 61,
+      "Death": 23,
+      "Middle": 19
+    }
+  },
+  "bowlers:7364": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 123,
+      "Death": 103,
+      "Middle": 90
+    }
+  },
+  "bowlers:8009": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 64,
+      "Death": 27,
+      "Middle": 10
+    }
+  },
+  "bowlers:26663": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm Fast",
+    "phases": {
+      "Powerplay": 39,
+      "Middle": 33,
+      "Death": 14
+    }
+  },
+  "bowlers:1107": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 180,
+      "Powerplay": 31,
+      "Death": 14
+    }
+  },
+  "bowlers:5944": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 283,
+      "Death": 72,
+      "Middle": 70
+    }
+  },
+  "bowlers:4692": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Middle": 93,
+      "Powerplay": 88,
+      "Death": 51
+    }
+  },
+  "bowlers:1813": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 160,
+      "Death": 27,
+      "Middle": 13
+    }
+  },
+  "bowlers:2320": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Powerplay": 307,
+      "Death": 77,
+      "Middle": 54
+    }
+  },
+  "bowlers:7473": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 42,
+      "Middle": 27,
+      "Death": 7
+    }
+  },
+  "bowlers:2334": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 35,
+      "Death": 28,
+      "Powerplay": 4
+    }
+  },
+  "bowlers:3275": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 116,
+      "Powerplay": 100,
+      "Death": 94
+    }
+  },
+  "bowlers:46066": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 72,
+      "Powerplay": 14,
+      "Death": 12
+    }
+  },
+  "bowlers:7689": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 60,
+      "Middle": 22,
+      "Death": 9
+    }
+  },
+  "bowlers:3276": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 138,
+      "Death": 9,
+      "Powerplay": 4
+    }
+  },
+  "bowlers:5979": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 111,
+      "Powerplay": 48,
+      "Death": 20
+    }
+  },
+  "bowlers:39657": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Death": 54,
+      "Powerplay": 36,
+      "Middle": 35
+    }
+  },
+  "bowlers:28": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 72,
+      "Middle": 38,
+      "Death": 22
+    }
+  },
+  "bowlers:6161": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 205,
+      "Death": 29
+    }
+  },
+  "bowlers:360": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 356,
+      "Death": 179,
+      "Middle": 36
+    }
+  },
+  "bowlers:7690": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 124,
+      "Powerplay": 34,
+      "Death": 6
+    }
+  },
+  "bowlers:5577": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 78,
+      "Death": 22,
+      "Powerplay": 4
+    }
+  },
+  "bowlers:4265": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium",
+    "phases": {
+      "Death": 81,
+      "Powerplay": 66,
+      "Middle": 66
+    }
+  },
+  "bowlers:3298": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 182,
+      "Death": 87,
+      "Middle": 24
+    }
+  },
+  "bowlers:5939": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 138,
+      "Powerplay": 58,
+      "Death": 30
+    }
+  },
+  "bowlers:6160": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 55,
+      "Powerplay": 25,
+      "Death": 8
+    }
+  },
+  "bowlers:2526": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 185,
+      "Death": 23
+    }
+  },
+  "bowlers:4409": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 122,
+      "Death": 121,
+      "Middle": 111
+    }
+  },
+  "bowlers:295": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 63,
+      "Middle": 30,
+      "Death": 8
+    }
+  },
+  "bowlers:1487": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 50,
+      "Middle": 28,
+      "Death": 20
+    }
+  },
+  "bowlers:4755": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 54,
+      "Death": 11,
+      "Powerplay": 1
+    }
+  },
+  "bowlers:829": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm Fast",
+    "phases": {
+      "Powerplay": 138,
+      "Death": 42,
+      "Middle": 30
+    }
+  },
+  "bowlers:8221": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 51,
+      "Powerplay": 14,
+      "Death": 12
+    }
+  },
+  "bowlers:8746": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 128,
+      "Death": 30,
+      "Middle": 25
+    }
+  },
+  "bowlers:5738": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 81,
+      "Middle": 37,
+      "Death": 17
+    }
+  },
+  "bowlers:2876": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 394,
+      "Powerplay": 139,
+      "Death": 42
+    }
+  },
+  "bowlers:2633": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 181,
+      "Middle": 180,
+      "Death": 119
+    }
+  },
+  "bowlers:4373": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium",
+    "phases": {
+      "Death": 144,
+      "Powerplay": 141,
+      "Middle": 103
+    }
+  },
+  "bowlers:58134": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 60,
+      "Powerplay": 36,
+      "Death": 25
+    }
+  },
+  "bowlers:1318": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Middle": 86,
+      "Powerplay": 47,
+      "Death": 42
+    }
+  },
+  "bowlers:4201": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Death": 39,
+      "Powerplay": 32,
+      "Middle": 11
+    }
+  },
+  "bowlers:6806": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 147,
+      "Death": 58,
+      "Middle": 41
+    }
+  },
+  "bowlers:6669": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 79,
+      "Middle": 44,
+      "Death": 27
+    }
+  },
+  "bowlers:6464": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 374,
+      "Death": 219,
+      "Middle": 121
+    }
+  },
+  "bowlers:3720": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 53,
+      "Powerplay": 51,
+      "Death": 34
+    }
+  },
+  "bowlers:5837": {
+    "group": "Powerplay",
+    "label": "Powerplay spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Powerplay": 131,
+      "Middle": 108,
+      "Death": 20
+    }
+  },
+  "bowlers:8380": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 162,
+      "Death": 35
+    }
+  },
+  "bowlers:6676": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 185,
+      "Middle": 92,
+      "Death": 54
+    }
+  },
+  "bowlers:4837": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Powerplay": 106,
+      "Death": 77,
+      "Middle": 71
+    }
+  },
+  "bowlers:3697": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 50,
+      "Death": 24,
+      "Middle": 15
+    }
+  },
+  "bowlers:3330": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 189,
+      "Powerplay": 177,
+      "Death": 46
+    }
+  },
+  "bowlers:20005": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium",
+    "phases": {
+      "Powerplay": 66,
+      "Death": 10,
+      "Middle": 3
+    }
+  },
+  "bowlers:5379": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Powerplay": 187,
+      "Death": 106,
+      "Middle": 5
+    }
+  },
+  "bowlers:6628": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 46,
+      "Death": 28,
+      "Middle": 19
+    }
+  },
+  "bowlers:7574": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 77,
+      "Death": 7,
+      "Powerplay": 1
+    }
+  },
+  "bowlers:29066": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 43,
+      "Death": 28,
+      "Middle": 15
+    }
+  },
+  "bowlers:838": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 160,
+      "Powerplay": 84,
+      "Death": 6
+    }
+  },
+  "bowlers:4816": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium",
+    "phases": {
+      "Powerplay": 219,
+      "Death": 54,
+      "Middle": 28
+    }
+  },
+  "bowlers:8295": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 52,
+      "Middle": 19,
+      "Death": 12
+    }
+  },
+  "bowlers:7808": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm Fast",
+    "phases": {
+      "Powerplay": 161,
+      "Middle": 85,
+      "Death": 38
+    }
+  },
+  "bowlers:6281": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 55,
+      "Powerplay": 20,
+      "Death": 10
+    }
+  },
+  "bowlers:3323": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 61,
+      "Death": 30,
+      "Powerplay": 14
+    }
+  },
+  "bowlers:2399": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 122,
+      "Death": 93,
+      "Middle": 68
+    }
+  },
+  "bowlers:2847": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 128,
+      "Death": 65,
+      "Middle": 63
+    }
+  },
+  "bowlers:4237": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Left-arm Chinaman",
+    "phases": {
+      "Middle": 61,
+      "Death": 2
+    }
+  },
+  "bowlers:6726": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Middle": 202,
+      "Powerplay": 77,
+      "Death": 71
+    }
+  },
+  "bowlers:6354": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm Fast",
+    "phases": {
+      "Powerplay": 34,
+      "Middle": 26,
+      "Death": 24
+    }
+  },
+  "bowlers:2436": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 88,
+      "Death": 7,
+      "Powerplay": 1
+    }
+  },
+  "bowlers:22134": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 70,
+      "Death": 55,
+      "Powerplay": 8
+    }
+  },
+  "bowlers:4874": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Powerplay": 113,
+      "Death": 74,
+      "Middle": 7
+    }
+  },
+  "bowlers:22471": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 47,
+      "Powerplay": 35,
+      "Death": 6
+    }
+  },
+  "bowlers:7503": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 448,
+      "Death": 101,
+      "Powerplay": 53
+    }
+  },
+  "bowlers:4658": {
+    "group": "Powerplay",
+    "label": "Powerplay spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Powerplay": 74,
+      "Middle": 64,
+      "Death": 7
+    }
+  },
+  "bowlers:7312": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm fast-medium",
+    "phases": {
+      "Powerplay": 99,
+      "Middle": 19,
+      "Death": 12
+    }
+  },
+  "bowlers:2315": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Powerplay": 93,
+      "Death": 54,
+      "Middle": 15
+    }
+  },
+  "bowlers:4487": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 54,
+      "Death": 19,
+      "Powerplay": 8
+    }
+  },
+  "bowlers:5041": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Powerplay": 96,
+      "Death": 84,
+      "Middle": 26
+    }
+  },
+  "bowlers:58246": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Middle": 71,
+      "Powerplay": 56,
+      "Death": 42
+    }
+  },
+  "bowlers:7472": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 96,
+      "Powerplay": 30,
+      "Death": 6
+    }
+  },
+  "bowlers:4391": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 138,
+      "Death": 18,
+      "Powerplay": 14
+    }
+  },
+  "bowlers:8177": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 39,
+      "Death": 29,
+      "Powerplay": 12
+    }
+  },
+  "bowlers:6272": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 40,
+      "Powerplay": 29,
+      "Death": 6
+    }
+  },
+  "bowlers:3653": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Death": 184,
+      "Powerplay": 135,
+      "Middle": 117
+    }
+  },
+  "bowlers:3629": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Middle": 59,
+      "Death": 17,
+      "Powerplay": 15
+    }
+  },
+  "bowlers:3605": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 64,
+      "Powerplay": 23,
+      "Death": 1
+    }
+  },
+  "bowlers:7545": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Middle": 54,
+      "Powerplay": 19,
+      "Death": 12
+    }
+  },
+  "bowlers:4639": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Slow left-arm orthodox",
+    "phases": {
+      "Middle": 71,
+      "Powerplay": 14,
+      "Death": 11
+    }
+  },
+  "bowlers:2304": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Middle": 28,
+      "Powerplay": 25,
+      "Death": 9
+    }
+  },
+  "bowlers:2639": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 102,
+      "Powerplay": 51,
+      "Death": 43
+    }
+  },
+  "bowlers:7094": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Middle": 80,
+      "Death": 19,
+      "Powerplay": 18
+    }
+  },
+  "bowlers:32862": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm offbreak",
+    "phases": {
+      "Middle": 29,
+      "Powerplay": 24,
+      "Death": 8
+    }
+  },
+  "bowlers:47050": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Death": 34,
+      "Middle": 19,
+      "Powerplay": 17
+    }
+  },
+  "bowlers:4815": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 102
+    }
+  },
+  "bowlers:5441": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 89,
+      "Death": 63,
+      "Middle": 40
+    }
+  },
+  "bowlers:5940": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Death": 40,
+      "Powerplay": 31,
+      "Middle": 27
+    }
+  },
+  "bowlers:4926": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 174,
+      "Death": 19
+    }
+  },
+  "bowlers:4840": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Middle": 77,
+      "Death": 31,
+      "Powerplay": 22
+    }
+  },
+  "bowlers:38855": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 57,
+      "Death": 36,
+      "Middle": 22
+    }
+  },
+  "bowlers:7270": {
+    "group": "Death",
+    "label": "Death pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm Fast",
+    "phases": {
+      "Death": 52,
+      "Powerplay": 50,
+      "Middle": 33
+    }
+  },
+  "bowlers:27964": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium",
+    "phases": {
+      "Powerplay": 48,
+      "Middle": 24,
+      "Death": 10
+    }
+  },
+  "bowlers:36982": {
+    "group": "Middle",
+    "label": "Middle spin",
+    "style": "Spin",
+    "bowling_type": "Right-arm Leg-Break",
+    "phases": {
+      "Middle": 142,
+      "Death": 19
+    }
+  },
+  "bowlers:786": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm fast-medium",
+    "phases": {
+      "Middle": 73,
+      "Death": 53,
+      "Powerplay": 32
+    }
+  },
+  "bowlers:1071": {
+    "group": "Middle",
+    "label": "Middle pace",
+    "style": "Pace",
+    "bowling_type": "Left-arm medium-fast",
+    "phases": {
+      "Middle": 39,
+      "Powerplay": 38,
+      "Death": 16
+    }
+  },
+  "bowlers:5809": {
+    "group": "Powerplay",
+    "label": "Powerplay pace",
+    "style": "Pace",
+    "bowling_type": "Right-arm medium-fast",
+    "phases": {
+      "Powerplay": 89,
+      "Death": 62,
+      "Middle": 32
+    }
+  }
+}

@@ -17,6 +17,24 @@ The proprietary data pack remains local and is excluded from GitHub under the [o
 
 Enter the final names in Unstop's batting and bowling dropdowns in the exact order shown below, then upload the methodology report. **Portal submission has not been performed by this project.** The optional journey/photos/video component is not required.
 
+## Website
+
+The website brings the final rankings and supporting evidence into one responsive experience: searchable top-10 and eligible-player lists, observed-role and coverage filters, player profiles, two-player comparisons, uncertainty plots, methodology, validation and matching submission downloads.
+
+Prepared by **Harsh Sinha**. Ready for static deployment on Vercel. The restricted source pack is excluded.
+
+Import this GitHub repository into Vercel with **Root Directory: `website`**, **Framework Preset: Other**, **Output Directory: `dist`**, and empty build/install commands. The committed `website/vercel.json` supplies the static deployment settings. No environment variables or API keys are needed.
+
+Build or verify it from the repository root:
+
+```bash
+python src/build_website.py
+python src/verify_website.py
+node --check website/app.js
+```
+
+The website exporter uses committed aggregate evidence, so these website checks do not require the private competition pack. See [website documentation](website/README.md).
+
 ## Final rankings
 
 Scores are conservative, adjusted run-equivalent advantages per 100 opportunities. They are **not accuracy percentages** and are not constrained to 0-100. Batting and bowling are separate comparison populations.
@@ -97,7 +115,7 @@ Bowling bundles wides/no-balls with the next legal delivery, using the context b
 
 Reference eligibility: 60 pressure opportunities, 8 pressure matches, 120 ordinary opportunities, 12 matches overall and 2 calendar years. The final pools contain 176 batters and 175 bowlers. Eligibility is fixed across the nine robust scenarios.
 
-Python and AI assistance supported code development, analysis and report preparation. All numerical results are calculated by the reproducible scripts from the supplied data.
+All numerical results are calculated by the reproducible Python scripts from the supplied data.
 
 ## Measured validation, with its limits
 

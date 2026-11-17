@@ -1,0 +1,13 @@
+{
+  "author": "Harsh Sinha",
+  "entry_count": 351,
+  "source_files": [
+    "output/tables/batters_all.csv",
+    "output/tables/bowlers_all.csv",
+    "output/validation.json",
+    "output/tables/chronological_calibration.csv",
+    "submission/rankings.csv"
+  ],
+  "report_sha256": "caed6a7ee6b6e6cf386f27889fa0cc9393072253ebd8cbf7432dbd9fbf6a8df7",
+  "raw_data_included": false
+}

@@ -19,3 +19,6 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m compileall -q src
       - run: python src/verify_public.py
+      - run: node --check website/app.js
+      - run: python src/build_website.py
+      - run: python src/verify_website.py

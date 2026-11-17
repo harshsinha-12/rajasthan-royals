@@ -6,3 +6,4 @@ output/cache/
 data/raw/
 output/audit.json
 output/tables/match_audit.csv
+.vercel/

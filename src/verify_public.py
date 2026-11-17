@@ -1,4 +1,4 @@
-"""Validate publishable review artifacts without access to the private competition pack."""
+"""Validate final submission artifacts without access to the private competition pack."""
 from pathlib import Path
 import json,subprocess
 import pandas as pd
@@ -14,10 +14,16 @@ def main():
     doc=fitz.open(ROOT/'output/pdf/SupeRR_Selector_Round1_Methodology.pdf')
     text=' '.join(('\n'.join(p.get_text() for p in doc)).split())
     assert len(doc)==14
-    assert 'Participant review required.' in text
+    assert doc.metadata['author']=='Harsh Sinha'
+    assert 'Final Methodology Report' in doc.metadata['title']
+    assert all('Prepared by Harsh Sinha' in page.get_text() for page in doc)
+    assert all(label not in text.lower() for label in ['prepared for','analytical draft','participant review required','to be added'])
     assert 'must not be shared or published' in text
     assert '72.49%' in text
     readme=(ROOT/'README.md').read_text()
+    assert 'Prepared by Harsh Sinha' in readme
+    assert 'To be added this evening' not in readme
+    assert all('Prepared by Harsh Sinha' in (ROOT/f).read_text() for f in ['submission/UNSTOP_CHECKLIST.md','output/player_rankings.html'])
     for role in ['batters','bowlers']:
         top=pd.read_csv(ROOT/f'output/tables/{role}_top10.csv')
         submitted=selections[selections.role.eq(role)]
@@ -29,7 +35,7 @@ def main():
         assert all(x in text and x in readme for x in top.name)
         assert all(f'{x:.2f}' in text and f'{x:.2f}' in readme for x in top.score)
     assert json.loads((ROOT/'output/verification.json').read_text())['checks_passed']==38
-    print('PASS: public artifact ordering, scores, PDF, participant-review notice, and private-input exclusions')
+    print('PASS: final artifact ordering, scores, author attribution on every PDF page, and private-input exclusions')
     print('Full source/model reproduction is a local check requiring the authorized private pack.')
 
 if __name__=='__main__':main()

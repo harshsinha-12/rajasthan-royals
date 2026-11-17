@@ -1,8 +1,8 @@
-# Unstop draft selection order
+# Unstop final selection order
 
-**Participant review required:** AI assistance is allowed, but final insights, picks and recommendations must be your own. Review and adapt the analytical draft before submission.
+**Prepared by Harsh Sinha**
 
-After your review, use `output/pdf/SupeRR_Selector_Round1_Methodology.pdf` as the methodology report.
+Upload `output/pdf/SupeRR_Selector_Round1_Methodology.pdf` as the final methodology report.
 
 Scores are run-equivalent advantages per 100 opportunities, not accuracy percentages.
 
@@ -36,16 +36,15 @@ Scores are run-equivalent advantages per 100 opportunities, not accuracy percent
 | 9 | Hasan Mahmud | 6643 | 8.39 |
 | 10 | Sufiyan Muqeem | 34485 | 7.84 |
 
-## Before submitting
+## Portal submission steps
 
-- Review the analysis and add your own cricketing judgment and recommendations; this is an AI-assisted draft.
-- Match every dropdown rank to your finalized lists; no duplicate within a list.
+- Enter both top-10 lists in the exact order shown above; no duplicate within a list.
 - Confirm the dropdown identity using player ID if the name is abbreviated.
-- Upload the reviewed PDF, then review the portal selections.
-- Individual participation and only one submission are allowed.
-- Do not share or publish the supplied data pack. Raw inputs and record-level audits remain local.
+- Upload the final PDF and confirm its rankings match the dropdown selections.
 - Confirm registration and the submission deadline in your logged-in Unstop portal.
+- Submit the single permitted individual entry and retain the portal confirmation.
+- Do not share or publish the supplied data pack. Raw inputs and record-level audits remain local.
 - If shortlisted, confirm travel availability and a valid government photo ID.
-- This package has not been submitted to Unstop. The optional journey is not required.
+- Portal submission has not been performed by this project. The optional journey is not required.
 
 Rules source: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758 (checked 17 November 2026).

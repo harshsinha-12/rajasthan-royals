@@ -1,4 +1,4 @@
-name: Validate public review artifacts
+name: Validate final submission artifacts
 on:
   pull_request:
   push:

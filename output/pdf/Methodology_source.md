@@ -3,25 +3,32 @@ under pressure
 
 SupeRR Selector Season 2 - Round 1 Final Methodology Report
 
-Prepared by Harsh Sinha | 17 November 2026 | Data: 22 January 2022 to 1 November 2026
+Prepared by Harsh Sinha | 18 November 2026 | Data: 22 January 2022 to 1 November 2026
 
-### Executive Summary
+This study ranks the ten batters and ten bowlers who performed best under pressure across **763 complete, decisive IPL and T20I matches** and **182,440 deliveries**. It measures historical performance in the organizer's supplied data. [1, 4, 6]
 
-**Ashutosh Sharma** leads the batting list with a conservative score of **23.86**; **Joshua Little** leads bowling at **25.66**. Scores measure context-adjusted run-equivalent advantage per 100 opportunities. They are neither percentages nor probabilities of success. [1, 2]
+### The two leaders
 
-Pressure is identified **before the delivery**: the contest must still be open, the next ball must be able to shift it, and fewer remaining balls increase urgency. Both first innings and chases count. A six, wicket, final match result, or player reputation cannot make its own ball qualify after the fact.
+| Discipline | Rank 1 | Score / 100 | Reference pressure sample |
+| --- | --- | --- | --- |
+| Batting | Ashutosh Sharma | 23.86 | 112 balls in 12 matches |
+| Bowling | Joshua Little | 25.66 | 213 opportunities in 24 matches |
 
-The final order combines actual pressure performance with improvement over each player's ordinary level. Nine definitions - three pressure cutoffs and three wicket values - are combined within the same match resamples. Small samples are shrunk toward the contextual average, and ranking uses the lower 20th percentile rather than the most optimistic estimate.
+Scores are conservative context-adjusted run-equivalent advantages per 100 opportunities. Each discipline has its own ranking pool. [2]
 
-The win-probability model achieves **72.49%** match-weighted pre-ball classification accuracy on a later, untouched period (306 matches in 2025-2026), with a 95% match-bootstrap interval of 69.30%-75.59%. This validates the pressure model's predictive component, **not the correctness of a top-10 list**. The brief specifies no accuracy target. [3]
+### How a moment becomes a ranking
 
-### What these selections mean
+First, score the stakes before the delivery. An open contest, a plausible one-ball swing and fewer balls remaining increase pressure. Then compare the observed delivery with what the model expected in that situation. The rating gives 75% weight to pressure performance and 25% to improvement over the player's usual level.
 
-The analysis retains **763 complete, decisive IPL/T20I matches** and **182,440 delivery records** from the six supplied CSVs. It ranks historical pressure performance in this coverage, rather than predicting a permanent psychological trait or selecting an available squad for today.
+Shrink small samples toward the contextual average. Test three pressure cutoffs and three wicket values, then rank players by the 20th percentile of 2,000 whole-match resamples. The conservative score gives lower ranks to less certain estimates when other evidence is similar.
 
-The rankings are complete and ordered, as the brief requires. Several adjacent positions have overlapping uncertainty intervals. Strict early-versus-late rank stability is weak; that result is reported, rather than hidden. The 20 dropdown selections and this document form the two required submission components. [1]
+### What the evidence supports
 
-Source key: [1] supplied problem statement; [2] computed rankings; [3] chronological validation; [4] local source audit; [5] official Unstop event rules. Exact references appear on page 14.
+The win model classified eventual winners correctly for **72.49%** of pre-ball states, with equal match weighting, on 306 later matches (95% interval 69.30%-75.59%). That figure measures win prediction. Earlier-versus-later player ranks showed weak persistence, and uncertainty bands overlap across several adjacent places. [3]
+
+### Where to find the evidence
+
+Exact top tens and ranking cutoffs, pp. 2-3. Worked delivery and scoring method, pp. 4-6. Reliability and holdout, pp. 7-9. Player evidence, pp. 10-11. Data audit and reproduction, pp. 12-14.
 
 
 ---
@@ -44,11 +51,13 @@ Sort key: the unrounded conservative score, descending. The table rounds scores 
 | 9 | Harry Brook | 12.98 | 29.44 | 185 | 25 |
 | 10 | Kamindu Mendis | 12.44 | 25.00 | 169 | 18 |
 
-P = reference high pressure (top quartile within innings). Batting units are balls faced, including no-balls and excluding wides. Bowling units are legal-ball opportunities with preceding wides/no-balls bundled. A terminal illegal-only opportunity still counts once. Samples shown use the reference definition.
+P = reference high pressure (top quartile for the first innings or chase across matches). Batting units are balls faced, including no-balls and excluding wides. Bowling units bundle preceding illegal deliveries with the next legal ball. A terminal illegal-only opportunity still counts once.
 
 ![Evidence chart](../figures/batters_uncertainty.png)
 
-Resampling bands condition on the fitted context/pressure models and eligible candidate set. They do not include all model uncertainty or correct winner-selection bias. The exact names and player IDs are preserved in submission/rankings.csv; match those identities in the Unstop dropdowns.
+**Where the list ends.** Kamindu Mendis is 10th (12.44) and Yashasvi Jaiswal is 11th (12.17), a gap of 0.27 per 100. Their 90% bands (0.43 to 43.73 and 1.57 to 39.93) overlap. The full-precision score decides the portal order, with uncertainty about which player is stronger.
+
+Resampling bands condition on the fitted models and eligible candidate set and omit full model uncertainty and winner-selection bias. Player IDs for the Unstop dropdowns are in submission/rankings.csv.
 
 
 ---
@@ -71,11 +80,13 @@ Sort key: the unrounded conservative score, descending. The table rounds scores 
 | 9 | Hasan Mahmud | 8.39 | 23.10 | 107 | 12 |
 | 10 | Sufiyan Muqeem | 7.84 | 17.19 | 121 | 10 |
 
-P = reference high pressure (top quartile within innings). Batting units are balls faced, including no-balls and excluding wides. Bowling units are legal-ball opportunities with preceding wides/no-balls bundled. A terminal illegal-only opportunity still counts once. Samples shown use the reference definition.
+P = reference high pressure (top quartile for the first innings or chase across matches). Batting units are balls faced, including no-balls and excluding wides. Bowling units bundle preceding illegal deliveries with the next legal ball. A terminal illegal-only opportunity still counts once.
 
 ![Evidence chart](../figures/bowlers_uncertainty.png)
 
-Resampling bands condition on the fitted context/pressure models and eligible candidate set. They do not include all model uncertainty or correct winner-selection bias. The exact names and player IDs are preserved in submission/rankings.csv; match those identities in the Unstop dropdowns.
+**Where the list ends.** Sufiyan Muqeem is 10th (7.84) and Rashid Khan is 11th (7.68), a gap of 0.16 per 100. Their 90% bands (-3.24 to 37.32 and -0.26 to 36.18) overlap. The full-precision score decides the portal order, with uncertainty about which player is stronger.
+
+Resampling bands condition on the fitted models and eligible candidate set and omit full model uncertainty and winner-selection bias. Player IDs for the Unstop dropdowns are in submission/rankings.csv.
 
 
 ---
@@ -102,11 +113,16 @@ p is predicted win probability from the current batting side's perspective. p6, 
 
 C peaks in an open contest and suppresses almost settled games. L approximates a plausible event swing: 0.30 = a 1.8-run shock / six, while 0.055 is a fixed wicket hazard. These are transparent scale assumptions, not fitted psychological measures. U rises from 1 toward 2 as opportunities disappear. Neither a later six nor a wicket changes its own pressure classification.
 
-High pressure in the reference definition is the top 25% of scores **separately in each innings**: cutoffs 0.032583 (first innings) and 0.039404 (chase). This keeps both tasks represented without allocating a quota to a player, competition or phase. The robust rating also uses the top 30% and 20%.
+Compute the 75th-percentile cutoff across all retained first-innings events (0.032583) and separately across all retained chase events (0.039404). This keeps both tasks represented and leaves each match, player, competition and phase free to contribute different pressure shares. The robust rating also uses the top 30% and 20%.
 
-### A concrete state in the supplied data
+### Two chases with six balls left
 
-Match 31268 (2024-05-02), innings 2: 200/6, target 202, 1 legal ball(s) remaining. Before that event, p = 0.529 and pressure = 0.596. The state qualifies before its actual result is examined.
+| Runs needed | p | p6 | p0 | pw | Pressure score | Reference class |
+| --- | --- | --- | --- | --- | --- | --- |
+| 10 | 0.50 | 0.87 | 0.32 | 0.10 | 0.3453 | Pressure |
+| 2 | 0.98 | 1.00 | 0.96 | 0.90 | 0.0023 | Ordinary |
+
+The states and model probabilities are illustrative. Both have urgency 1.95. The close chase crosses the measured chase cutoff because the next ball can move an open contest. The same six balls remain when only two runs are needed, but the contest is nearly settled.
 
 
 ---
@@ -298,27 +314,27 @@ Reference pressure = top quartile; the normal comparison is the same player's re
 
 ### Why performance and uplift both matter
 
-**1. Ashutosh Sharma** - RR scouting use: late-order hitting (modal position 7). Positive pressure matches 75.0%; top-10 resamples 55.6%.
+**1. Ashutosh Sharma** - late-order hitting, most often at No. 7. Positive pressure matches 75.0%. Top-10 resamples 55.6%.
 
-**2. Reeza Hendricks** - RR scouting use: opening batting (modal position 2). Positive pressure matches 62.5%; top-10 resamples 61.1%.
+**2. Reeza Hendricks** - opening batting, most often at No. 2. Positive pressure matches 62.5%. Top-10 resamples 61.1%.
 
-**3. Vaibhav Sooryavanshi** - RR scouting use: opening batting (modal position 2). Positive pressure matches 63.2%; top-10 resamples 42.5%.
+**3. Vaibhav Sooryavanshi** - opening batting, most often at No. 2. Positive pressure matches 63.2%. Top-10 resamples 42.5%.
 
-**4. Tim David** - RR scouting use: middle-order batting (modal position 5). Positive pressure matches 67.4%; top-10 resamples 40.6%.
+**4. Tim David** - middle-order batting, most often at No. 5. Positive pressure matches 67.4%. Top-10 resamples 40.6%.
 
-**5. Tristan Stubbs** - RR scouting use: middle-order batting (modal position 5). Positive pressure matches 70.6%; top-10 resamples 48.5%.
+**5. Tristan Stubbs** - middle-order batting, most often at No. 5. Positive pressure matches 70.6%. Top-10 resamples 48.5%.
 
-**6. Hardik Pandya** - RR scouting use: middle-order batting (modal position 4). Positive pressure matches 64.7%; top-10 resamples 39.0%.
+**6. Hardik Pandya** - middle-order batting, most often at No. 4. Positive pressure matches 64.7%. Top-10 resamples 39.0%.
 
-**7. Hazratullah Zazai** - RR scouting use: opening batting (modal position 1). Positive pressure matches 66.7%; top-10 resamples 39.4%.
+**7. Hazratullah Zazai** - opening batting, most often at No. 1. Positive pressure matches 66.7%. Top-10 resamples 39.4%.
 
-**8. Glenn Phillips** - RR scouting use: middle-order batting (modal position 4). Positive pressure matches 77.8%; top-10 resamples 39.6%.
+**8. Glenn Phillips** - middle-order batting, most often at No. 4. Positive pressure matches 77.8%. Top-10 resamples 39.6%.
 
-**9. Harry Brook** - RR scouting use: middle-order batting (modal position 5). Positive pressure matches 64.0%; top-10 resamples 21.4%.
+**9. Harry Brook** - middle-order batting, most often at No. 5. Positive pressure matches 64.0%. Top-10 resamples 21.4%.
 
-**10. Kamindu Mendis** - RR scouting use: middle-order batting (modal position 5). Positive pressure matches 61.1%; top-10 resamples 26.1%.
+**10. Kamindu Mendis** - middle-order batting, most often at No. 5. Positive pressure matches 61.1%. Top-10 resamples 26.1%.
 
-Strong usual performers can rank through A even with little uplift. A weak usual record influences only 25% of the rating; low-sample selections remain uncertain despite shrinkage.
+**Why context matters.** Vaibhav Sooryavanshi's strike rate fell from 222.0 in ordinary play to 205.5 under pressure, yet his adjusted advantage rose by 6.6 per 100 balls. Adjusted performance accounts for expected scoring and dismissals in each situation.
 
 
 ---
@@ -341,27 +357,27 @@ Economy = 6 x conceded runs / legal deliveries. Pressure samples count bundles; 
 | 9 | Hasan Mahmud | 8 | 7.18 | 7.91 | 19.3 | -4.1 | 23.4 |
 | 10 | Sufiyan Muqeem | 7 | 5.90 | 6.81 | 18.6 | 11.2 | 7.3 |
 
-**1. Joshua Little** - RR scouting use: powerplay pace. Positive pressure matches 58.3%; top-10 resamples 74.8%.
+**1. Joshua Little** - pace, most pressure opportunities in the powerplay phase. Positive pressure matches 58.3%. Top-10 resamples 74.8%.
 
-**2. Shaheen Afridi** - RR scouting use: powerplay pace. Positive pressure matches 57.1%; top-10 resamples 56.8%.
+**2. Shaheen Afridi** - pace, most pressure opportunities in the powerplay phase. Positive pressure matches 57.1%. Top-10 resamples 56.8%.
 
-**3. Umran Malik** - RR scouting use: middle pace. Positive pressure matches 55.6%; top-10 resamples 42.3%.
+**3. Umran Malik** - pace, most pressure opportunities in the middle phase. Positive pressure matches 55.6%. Top-10 resamples 42.3%.
 
-**4. Ravindra Jadeja** - RR scouting use: middle spin. Positive pressure matches 48.8%; top-10 resamples 32.5%.
+**4. Ravindra Jadeja** - spin, most pressure opportunities in the middle phase. Positive pressure matches 48.8%. Top-10 resamples 32.5%.
 
-**5. Tim Southee** - RR scouting use: powerplay pace. Positive pressure matches 61.5%; top-10 resamples 35.8%.
+**5. Tim Southee** - pace, most pressure opportunities in the powerplay phase. Positive pressure matches 61.5%. Top-10 resamples 35.8%.
 
-**6. Mujeeb Ur Rahman** - RR scouting use: powerplay spin. Positive pressure matches 64.0%; top-10 resamples 21.5%.
+**6. Mujeeb Ur Rahman** - spin, most pressure opportunities in the powerplay phase. Positive pressure matches 64.0%. Top-10 resamples 21.5%.
 
-**7. Krunal Pandya** - RR scouting use: middle spin. Positive pressure matches 55.0%; top-10 resamples 16.4%.
+**7. Krunal Pandya** - spin, most pressure opportunities in the middle phase. Positive pressure matches 55.0%. Top-10 resamples 16.4%.
 
-**8. Piyush Chawla** - RR scouting use: middle spin. Positive pressure matches 56.2%; top-10 resamples 26.9%.
+**8. Piyush Chawla** - spin, most pressure opportunities in the middle phase. Positive pressure matches 56.2%. Top-10 resamples 26.9%.
 
-**9. Hasan Mahmud** - RR scouting use: middle pace. Positive pressure matches 75.0%; top-10 resamples 20.9%.
+**9. Hasan Mahmud** - pace, most pressure opportunities in the middle phase. Positive pressure matches 75.0%. Top-10 resamples 20.9%.
 
-**10. Sufiyan Muqeem** - RR scouting use: middle spin. Positive pressure matches 70.0%; top-10 resamples 17.4%.
+**10. Sufiyan Muqeem** - spin, most pressure opportunities in the middle phase. Positive pressure matches 70.0%. Top-10 resamples 17.4%.
 
-RR role applications on pages 10-11 describe observed batting positions and the phase with most pressure exposure. Current squad needs and auction availability are separate constraints. Wicket-value scenarios test the tradeoff between wickets and run prevention.
+**Why wickets matter.** Umran Malik took 17 pressure wickets in 155 opportunities at 9.37 economy. The wicket and run-prevention terms both feed his adjusted score. Joshua Little leads the final list with a tighter resampling band and 6.45 pressure economy.
 
 
 ---
@@ -423,7 +439,7 @@ Powerplay: legal balls 1-36; middle: 37-90; death: 91-120. These are event count
 
 ### Limits that change interpretation
 
-**Historical reliability is not a permanent trait.** The temporal test is weak. Pressure exposure, role, selection and form can change; retired players are not removed from historical rankings simply because they are unavailable today.
+**Historical reliability varies across periods.** The temporal test is weak. Pressure exposure, role, selection and form can change. Eligibility uses the observed historical sample and the opportunity minimums documented on page 6.
 
 **Pressure is a model of stakes, not measured stress.** First-innings stakes are inferred from neutral-context win probability. Crowd, tournament qualification, personal milestones, injury, weather and specific bowler-batter matchups are not measured. Knockout status receives no arbitrary bonus.
 
@@ -439,7 +455,7 @@ Powerplay: legal balls 1-36; middle: 37-90; death: 91-120. These are event count
 
 ## 11. Reproduction and sources
 
-The local workspace contains the six original CSVs and unchanged brief. The public repository excludes the proprietary pack, prediction caches and record-level audits under organizer rules. It contains code, source hashes, aggregated evidence, final rankings and this report. Authorized participants must place their own pack in data/raw/ to reproduce the analysis. No external cricket data or API key is required. [4, 5]
+All six CSVs and the original brief in the organizer's 17 November email ZIP match the local inputs byte for byte. SHA-256 hashes and file sizes are recorded in data/manifest.json. Authorized participants can reproduce the analysis by placing their copy in data/raw/. The public repository contains aggregate evidence, code and final rankings. [4-6]
 
 python3 -m venv .venv
 source .venv/bin/activate
@@ -462,4 +478,4 @@ All numerical results are calculated by the reproducible Python scripts from the
 
 The proprietary data pack must not be shared or published. The public repository contains code and aggregated results. Participation is individual, with one submission permitted. Portal instructions appear in the accompanying submission checklist. [5]
 
-[1] local data/raw/problem_statement.pdf, both pages. [2] output/tables/{batters,bowlers}_all.csv and *_robust_scenarios.csv; sensitivity, temporal_stability and leave_one_match_out tables. [3] output/validation.json and chronological_calibration.csv. [4] data/manifest.json and local-only output/audit.json and match_audit.csv; source hashes checked by src/verify.py. [5] Official Unstop event listing, rules checked 17 November 2026: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758
+[1] Supplied Round 1 problem statement. [2] output/tables/{batters,bowlers}_all.csv, robust scenarios, sensitivity and reliability tables. [3] output/validation.json and chronological_calibration.csv. [4] data/manifest.json and local source audit. [5] Official Unstop event listing, opportunity 1792758. [6] Unstop Events, Guidelines and Key Clarifications for Round 1 Submission, 17 November 2026, points 1-4.

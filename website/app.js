@@ -9,6 +9,7 @@
   const initials = (name) => name.split(/\s+/).map(x=>x[0]).filter(Boolean).slice(0,2).join('');
   const lookup = (role,id) => DATA.players[role].find(p=>p.player_id===Number(id));
   const selected = (role) => DATA.players[role].filter(p=>p.rank<=10).sort((a,b)=>a.rank-b.rank);
+  const cutoffPair = (role) => DATA.players[role].slice(9, 11);
   const state={role:'batters',pool:'selected',search:'',group:'all',coverage:'all',sort:'score',view:'table',compare:new Set(),profile:null};
   let toastTimer;
 
@@ -42,6 +43,8 @@
     state.role=role;state.group='all';state.compare.clear();roleOptions();renderTray();
     document.querySelectorAll('[data-role]').forEach(b=>{const active=b.dataset.role===role;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
     $('performance-header').textContent=role==='batters'?'Pressure SR':'Pressure economy';
+    const [tenth, eleventh] = cutoffPair(role);
+    $('cutline-summary').textContent = `${tenth.name} (${fmt(tenth.score, 2)}) is tenth and ${eleventh.name} (${fmt(eleventh.score, 2)}) is eleventh.`;
     renderPlayers();
   }
   function renderPlayers() {
@@ -145,6 +148,11 @@
   $('view-table').addEventListener('click',()=>{state.view='table';renderPlayers();});$('view-chart').addEventListener('click',()=>{state.view='chart';renderPlayers();});
   $('reset-filters').addEventListener('click',()=>{state.search='';state.group='all';state.coverage='all';$('player-search').value='';$('role-filter').value='all';$('coverage-filter').value='all';renderPlayers();});
   $('copy-rankings').addEventListener('click',()=>copy(selected(state.role).map(p=>`${p.rank}. ${p.name}`).join('\n'),`Final top 10 ${state.role} copied in submission order`));
+  $('compare-cutline').addEventListener('click', () => {
+    setupComparison(state.role, cutoffPair(state.role).map(player => player.player_id));
+    $('compare-role').focus({preventScroll: true});
+    $('compare').scrollIntoView();
+  });
   document.addEventListener('click',e=>{const b=e.target.closest('[data-profile]');if(b)openProfile(b.dataset.profileRole||state.role,b.dataset.profile);});
   document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('g[data-profile]')){e.preventDefault();openProfile(state.role,e.target.dataset.profile);}if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)&&!$('player-dialog').open){e.preventDefault();$('player-search').focus();}});
   $('player-rows').addEventListener('change',e=>{if(e.target.matches('[data-compare]'))toggleCompare(state.role,e.target.dataset.compare);});

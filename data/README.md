@@ -1,6 +1,6 @@
 # Supplied source data
 
-The six uploaded CSVs and two-page Round 1 problem statement are retained unchanged in the local `data/raw/` folder. The official rules prohibit publishing the pack, so that folder is ignored and is not in GitHub. Authorized participants must supply their own pack for reproduction. `manifest.json` records file sizes and SHA-256 hashes. The pipeline reads no outside cricket data.
+The six supplied CSVs and two-page Round 1 problem statement are retained unchanged in the local `data/raw/` folder. The ZIP reattached to Unstop's 17 November clarification contains identical copies of all seven files. `manifest.json` records their file sizes and SHA-256 hashes. The official rules prohibit publishing the pack, so authorized participants must use their own download for reproduction. The pipeline reads only the supplied cricket data.
 
 The source includes two emerging-team competitions beyond IPL/T20I; their 30 matches are excluded to match the brief's stated population. Revised-length/DLS matches, unresolved results, regulation ties and accounting failures are also excluded. Triggers overlap; consult `output/tables/match_audit.csv` for the exact match decisions.
 

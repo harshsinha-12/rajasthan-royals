@@ -9,6 +9,7 @@
   try{
 
     assert(rows().length===10&&rows()[0].textContent.includes('Ashutosh Sharma'),'Default final batting order');
+    assert($('cutline-summary').textContent.includes('Kamindu Mendis (12.44)')&&$('cutline-summary').textContent.includes('Yashasvi Jaiswal (12.17)'),'Batting cutoff names and scores');
     change('pool-filter','all');assert(rows().length===176,'All eligible batting entries');
     search('Tim David');assert(rows().length===1&&rows()[0].dataset.player==='6396','Player search');
     search('zz_no_such_player');assert(!$('empty-state').hidden&&rows().length===0,'Empty search state');
@@ -31,10 +32,13 @@
     $('compare-tray-open').click();
     assert($('compare-a').value==='6396'&&$('compare-b').value==='8101'&&document.querySelectorAll('.compare-card').length===2,'Comparison shows selected players');
     $('tab-bowlers').click();assert(rows().length===10&&rows()[0].textContent.includes('Joshua Little'),'Final bowling order');
+    assert($('cutline-summary').textContent.includes('Sufiyan Muqeem (7.84)')&&$('cutline-summary').textContent.includes('Rashid Khan (7.68)'),'Bowling cutoff updates when the discipline changes');
+    $('compare-cutline').click();
+    assert($('compare-role').value==='bowlers'&&[...document.querySelectorAll('.compare-card h3')].map(node=>node.textContent).join(', ')==='Sufiyan Muqeem, Rashid Khan','Cutoff comparison includes the eligible player outside the top 10');
     change('role-filter','Powerplay');assert(rows().length===4,'Powerplay role filter');
     change('role-filter','all');change('coverage-filter','t20i');assert(rows().length===4&&[...rows()].some(r=>r.textContent.includes('Shaheen Afridi')),'Evidence coverage filter');
     change('coverage-filter','all');change('sort-filter','name');assert(rows()[0].textContent.includes('Hasan Mahmud')&&rows()[0].querySelector('.rank-number').textContent==='09','Sorting retains official ranks');
-    change('compare-role','bowlers');assert(document.querySelector('.compare-card h3').textContent==='Joshua Little','Discipline-specific comparison');
+    change('compare-role','batters');change('compare-role','bowlers');assert(document.querySelector('.compare-card h3').textContent==='Joshua Little','Discipline-specific comparison');
     change('sort-filter','score');$('tab-batters').click();change('compare-role','batters');window.scrollTo(0,0);
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
     assert(document.documentElement.scrollWidth<=window.innerWidth+1,'No document-level horizontal overflow');

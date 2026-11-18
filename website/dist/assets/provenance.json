@@ -8,6 +8,7 @@
     "output/tables/chronological_calibration.csv",
     "submission/rankings.csv"
   ],
-  "report_sha256": "caed6a7ee6b6e6cf386f27889fa0cc9393072253ebd8cbf7432dbd9fbf6a8df7",
+  "report_sha256": "f27ab2d4cad06a33a4db73b2024e87a35a46feb04122448e362761ac0ae9e0de",
+  "strategy_report_sha256": "3c965f9019b1157f27a45bbfac2ce859e0e122246f107a385b5bdb928058007c",
   "raw_data_included": false
 }

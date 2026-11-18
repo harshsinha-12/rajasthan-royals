@@ -2,9 +2,11 @@
 
 **Prepared by Harsh Sinha**
 
-Upload `output/pdf/SupeRR_Selector_Round1_Methodology.pdf` as the final methodology report.
+Use the two dropdown lists below and upload the [final methodology PDF](../output/pdf/SupeRR_Selector_Round1_Methodology.pdf).
 
-Scores are run-equivalent advantages per 100 opportunities, not accuracy percentages.
+Unstop’s 17 November clarification accepts a PDF, PowerPoint or interactive dashboard for methodology. This entry uses the PDF for upload and the dashboard as a companion.
+
+Scores measure conservative run-equivalent advantage per 100 opportunities. The reattached dataset and brief match the original inputs byte for byte.
 
 ## Batters
 
@@ -38,13 +40,16 @@ Scores are run-equivalent advantages per 100 opportunities, not accuracy percent
 
 ## Portal submission steps
 
-- Enter both top-10 lists in the exact order shown above; no duplicate within a list.
-- Confirm the dropdown identity using player ID if the name is abbreviated.
-- Upload the final PDF and confirm its rankings match the dropdown selections.
+- Enter one unique player per rank in each dropdown list, in the exact order above.
+- Confirm ambiguous names against the player ID if the portal exposes IDs.
+- Upload the methodology PDF and verify that the dropdown choices match pages 2 and 3.
 - Confirm registration and the submission deadline in your logged-in Unstop portal.
 - Submit the single permitted individual entry and retain the portal confirmation.
-- Do not share or publish the supplied data pack. Raw inputs and record-level audits remain local.
+- Keep the supplied dataset and match-level audits private.
 - If shortlisted, confirm travel availability and a valid government photo ID.
-- Portal submission has not been performed by this project. The optional journey is not required.
 
-Rules source: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758 (checked 17 November 2026).
+## Share your journey
+
+Unstop’s clarification invites one reel or post. The original brief describes the journey as optional and unscored. Use the [ready-to-post draft](JOURNEY_POST.md), tag Rajasthan Royals and Unstop, and include `#SuperSelector`. The organizers encourage an on-camera appearance if you choose a reel.
+
+Sources are the 17 November clarification email, the supplied Round 1 brief and the [official Unstop rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758).

@@ -4,7 +4,7 @@ Final Round 1 submission for **SupeRR Selector Season 2**: identify batters and 
 
 **Prepared by Harsh Sinha**
 
-The analysis uses only the six supplied CSVs. It retains **763 complete, decisive IPL/T20I matches and 182,440 delivery events**, from 22 January 2022 to 1 November 2026. No external reputation rankings or API services are used.
+The analysis uses only the six supplied CSVs. It retains **763 complete, decisive IPL/T20I matches and 182,440 delivery events**, from 22 January 2022 to 1 November 2026. All six CSVs and the problem statement in the 17 November clarification email match the original inputs byte for byte.
 
 The proprietary data pack remains local and is excluded from GitHub under the [official rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758), checked 17 November 2026. The methodology report includes the analysis methods, validation, limitations and tools used.
 
@@ -13,13 +13,14 @@ The proprietary data pack remains local and is excluded from GitHub under the [o
 - [Final methodology report](output/pdf/SupeRR_Selector_Round1_Methodology.pdf)
 - [Exact Unstop selection order and checklist](submission/UNSTOP_CHECKLIST.md)
 - [Rankings with full-precision scores, player IDs, samples and intervals](submission/rankings.csv)
-- [Interactive player rankings](output/player_rankings.html)
+- [Interactive methodology dashboard](website/dist/index.html)
+- [Journey post draft for Rajasthan Royals and Unstop](submission/JOURNEY_POST.md)
 
-Enter the final names in Unstop's batting and bowling dropdowns in the exact order shown below, then upload the methodology report. **Portal submission has not been performed by this project.** The optional journey/photos/video component is not required.
+Enter the final names in Unstop's batting and bowling dropdowns in the exact order shown below, then upload the methodology PDF. The clarification accepts a PDF, PowerPoint or interactive dashboard. This entry uses the PDF for upload and the dashboard as a companion. Unstop invited one optional, unscored journey reel or post tagging Rajasthan Royals and Unstop with **#SuperSelector**.
 
 ## Website
 
-The website brings the final rankings and supporting evidence into one responsive experience: searchable top-10 and eligible-player lists, observed-role and coverage filters, player profiles, two-player comparisons, uncertainty plots, methodology, validation and matching submission downloads.
+The website includes searchable top-10 and eligible-player lists, observed-role and coverage filters, player profiles, two-player comparisons, uncertainty plots, methodology, validation and matching submission downloads. The ranks 10 and 11 comparison shows how close the cutoff is in each discipline.
 
 Prepared by **Harsh Sinha**. Ready for static deployment on Vercel. The restricted source pack is excluded.
 
@@ -52,17 +53,17 @@ Scores are conservative, adjusted run-equivalent advantages per 100 opportunitie
 | 9 | Harry Brook | 12.98 | Hasan Mahmud | 8.39 |
 | 10 | Kamindu Mendis | 12.44 | Sufiyan Muqeem | 7.84 |
 
-The CSV preserves exact player identities. Adjacent positions often have overlapping uncertainty; the portal still requires one ordered list.
+The CSV preserves exact player identities. Rank 10 is ahead by 0.27 run-equivalent units per 100 in batting and 0.16 in bowling. The 90% resampling bands overlap in both cases. The unrounded score sets the Unstop order.
 
 ## Selected players by role and supporting evidence
 
-The score sets each player's rank; the role labels show RR scouting applications. Batting roles come from observed positions in the pressure sample. Bowling roles combine the recorded bowling style with the phase containing the most pressure opportunities. Current squad needs and auction eligibility are separate constraints from these historical performance rankings.
+Batting roles come from observed positions in the pressure sample. Bowling roles combine the recorded bowling style with the phase containing the most pressure opportunities.
 
-The evidence below uses the reference pressure definition: the top 25% of pressure scores within each innings. Final scores above combine all nine scenarios. **Uplift** is the adjusted, regularized difference from the player's ordinary level, in run-equivalent units per 100 opportunities. Raw strike rate and economy are descriptive comparisons.
+For the reference pressure definition, calculate the top-quartile cutoff across all first-innings events and use a separate cutoff across all chase events. Final scores above combine all nine scenarios. **Uplift** is the adjusted, regularized difference from the player's ordinary level, in run-equivalent units per 100 opportunities. Raw strike rate and economy are descriptive comparisons.
 
 ### Batters
 
-| Rank | Selected player | Observed role / possible RR use | Reference pressure evidence |
+| Rank | Selected player | Observed role | Reference pressure evidence |
 | --- | --- | --- | --- |
 | 1 | Ashutosh Sharma | Late-order hitting; most pressure balls at No. 7 | 112 balls across 12 matches; SR 195.5; 5 dismissals; uplift +36.9 |
 | 2 | Reeza Hendricks | Opening batting; most pressure balls at No. 2 | 244 balls across 24 matches; SR 152.9; 4 dismissals; uplift +33.1 |
@@ -75,11 +76,11 @@ The evidence below uses the reference pressure definition: the top 25% of pressu
 | 9 | Harry Brook | Middle-order batting; most pressure balls at Nos. 4-5 | 185 balls across 25 matches; SR 169.7; 10 dismissals; uplift +7.3 |
 | 10 | Kamindu Mendis | Middle/late-order batting; most pressure balls at Nos. 5-6 | 169 balls across 18 matches; SR 132.0; 6 dismissals; uplift +20.4 |
 
-Batting strike rate is runs per 100 balls faced. These selections evaluate batting; an all-rounder's inclusion here does not establish a bowling recommendation.
+Batting strike rate is runs per 100 balls faced.
 
 ### Bowlers
 
-| Rank | Selected player | Observed role / possible RR use | Reference pressure evidence |
+| Rank | Selected player | Observed role | Reference pressure evidence |
 | --- | --- | --- | --- |
 | 1 | Joshua Little | Left-arm pace; largest pressure exposure in the powerplay | 213 opportunities across 24 matches; 15 wickets; economy 6.45; uplift +42.8 |
 | 2 | Shaheen Afridi | Left-arm pace; largest pressure exposure in the powerplay | 314 opportunities across 35 matches; 26 wickets; economy 7.51; uplift +34.2 |
@@ -94,13 +95,12 @@ Batting strike rate is runs per 100 balls faced. These selections evaluate batti
 
 Bowling opportunities bundle illegal deliveries with the next legal delivery. Economy is conceded runs per six legal balls. Wickets exclude run-outs and retirements. The phase labels describe exposure; each player's score includes their pressure performance across phases.
 
-### Selection considerations
+### Reading the evidence
 
-- **Finishing:** Ashutosh offers the highest batting score and a smaller sample. Tim David and Tristan Stubbs provide more pressure exposure at Nos. 5-6, giving the list several middle/late-order options with different evidence profiles.
-- **Opening:** Reeza Hendricks, Vaibhav Sooryavanshi and Hazratullah Zazai offer different scoring profiles and sample sizes. Zazai's 66 pressure balls and one dismissal make that selection particularly sensitive to limited evidence.
-- **Spin balance:** Jadeja and Krunal overlap as left-arm orthodox options. Mujeeb, Chawla and Muqeem offer other spin styles and phase profiles, so role balance matters alongside the overall score.
-- **Death bowling:** None of the selected bowlers has the death overs as their largest pressure-exposure phase. The aggregate ranking therefore does not establish a dedicated death-over specialist; phase-specific performance is a separate selection question.
-- **Practical shortlist:** These are historical performance rankings. Any RR recruitment recommendation also needs verified availability, auction eligibility, squad fit and applicable overseas-player constraints.
+- Ashutosh Sharma leads batting with 112 pressure balls across 12 matches. Tim David and Tristan Stubbs have much larger middle- and late-order samples, at 390 and 283 pressure balls respectively.
+- Vaibhav Sooryavanshi's raw strike rate fell from 222.0 to 205.5 under pressure, while his adjusted advantage rose by 6.6 per 100 balls. The adjustment includes expected scoring and dismissals for the situation.
+- Umran Malik took 17 pressure wickets in 155 opportunities at 9.37 economy. Wickets and run prevention both enter the score, so the wicket-value sensitivity tests matter for interpreting his rank.
+- Each ranked bowler had their largest pressure sample in the powerplay or middle overs. The dashboard profiles show pressure exposure by phase.
 
 ## How the system works
 
@@ -129,9 +129,9 @@ These metrics evaluate win-probability predictions, **not ranking accuracy**. Th
 
 Strict earlier-versus-later rank correlations are weak (0.232 for batters; 0.105 for bowlers), and top-10 overlap is 1/10 and 0/10. The lists describe the supplied historical coverage; they are not established forecasts of a permanent clutch trait. The report states this explicitly. Resampling intervals condition on fitted models and candidate eligibility; they do not capture all model or selection uncertainty.
 
-## Strategy backtesting and tactical scenarios (new addendum)
+## Supplementary research
 
-The original Round 1 rankings and required report are unchanged. The [strategy validation addendum](docs/strategy_validation_report.md) ([PDF](output/pdf/Strategy_Validation_Addendum.pdf)) specifies the evidence gaps and adds independent evaluation tools. **New strategy tests have not been run against the private dataset in this branch.** Pre-ball prediction accuracy is not selection-strategy accuracy.
+The [strategy validation addendum](docs/strategy_validation_report.md) ([PDF](output/pdf/Strategy_Validation_Addendum.pdf)) documents experimental tools outside the Round 1 entry. It describes protocols and the evidence required to test them.
 
 - src/backtest.py: frozen historical Top 10 against pressure-only, overall-form and recent-form baselines, evaluated on later matches. Supports a cached 2024 cutoff and multi-cutoff walk-forward tests (2023, 2024, 2025).
 - src/cricsheet_adapter.py: convert external Cricsheet T20 JSON into a separate local delivery table. Identity mapping and independent scoring parity are not yet implemented.
@@ -193,6 +193,4 @@ The fixed random seed is `20261117`. Analysis uses a CPU and no credentials. The
 | Consistency across matches and less-certain findings | PDF pages 7-9, 13 |
 | Transparent reproduction | PDF page 14; scripts, manifests and pinned dependencies |
 
-Participation is individual and only one submission is allowed. Confirm registration and the final deadline in your logged-in portal. If shortlisted, travel availability and a valid government photo ID are required. The optional journey is not scored. No PR is merged automatically.
-
-The report's RR role applications describe observed batting order or modal pressure-bowling phase. They do not assert current RR squad gaps, auction availability, retention status or prices.
+Participation is individual and only one submission is allowed. Confirm registration and the final deadline in your logged-in portal. If shortlisted, travel availability and a valid government photo ID are required.

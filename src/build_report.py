@@ -21,6 +21,7 @@ NAVY='#10294A';PINK='#D40879';BLUE='#336F9B';GRAY='#536274';PALE='#F1F4F8'
 AUTHOR='Harsh Sinha'
 PREPARED_BY=f'Prepared by {AUTHOR}'
 REPORT_TITLE='SupeRR Selector Season 2 - Final Methodology Report'
+REPORT_DATE='18 November 2026'
 for folder in [FIG,OUT/'pdf',ROOT/'submission']:folder.mkdir(exist_ok=True,parents=True)
 font=Path(font_manager.findfont('DejaVu Sans'))
 pdfmetrics.registerFont(TTFont('Body',str(font)))
@@ -78,7 +79,7 @@ def page_frame(c,doc):
     c.setStrokeColor(colors.HexColor(PINK));c.setLineWidth(2);c.line(44,A4[1]-32,A4[0]-44,A4[1]-32)
     c.setFont('Body',7);c.setFillColor(colors.HexColor(GRAY))
     c.drawString(44,A4[1]-25,'SUPERR SELECTOR SEASON 2  /  ROUND 1')
-    c.drawString(44,24,f'{PREPARED_BY}  |  Final report  |  17 November 2026')
+    c.drawString(44,24,f'{PREPARED_BY}  |  Final report  |  {REPORT_DATE}')
     c.drawRightString(A4[0]-44,24,str(doc.page))
 
 def main():
@@ -93,16 +94,22 @@ def main():
 
     para('Reliable players<br/>under pressure','TitleCustom')
     para('SupeRR Selector Season 2 - Round 1 Final Methodology Report','SubCustom')
-    small(f'{PREPARED_BY} | 17 November 2026 | Data: 22 January 2022 to 1 November 2026')
-    sub('Executive Summary')
-    para(f'<b>{b.iloc[0]["name"]}</b> leads the batting list with a conservative score of <b>{b.iloc[0].score:.2f}</b>; <b>{bo.iloc[0]["name"]}</b> leads bowling at <b>{bo.iloc[0].score:.2f}</b>. Scores measure context-adjusted run-equivalent advantage per 100 opportunities. They are neither percentages nor probabilities of success. [1, 2]')
-    para('Pressure is identified <b>before the delivery</b>: the contest must still be open, the next ball must be able to shift it, and fewer remaining balls increase urgency. Both first innings and chases count. A six, wicket, final match result, or player reputation cannot make its own ball qualify after the fact.')
-    para('The final order combines actual pressure performance with improvement over each player\'s ordinary level. Nine definitions - three pressure cutoffs and three wicket values - are combined within the same match resamples. Small samples are shrunk toward the contextual average, and ranking uses the lower 20th percentile rather than the most optimistic estimate.')
-    para(f'The win-probability model achieves <b>{accuracy:.2f}%</b> match-weighted pre-ball classification accuracy on a later, untouched period ({v["test_matches"]} matches in 2025-2026), with a 95% match-bootstrap interval of {acc_ci[0]:.2f}%-{acc_ci[1]:.2f}%. This validates the pressure model\'s predictive component, <b>not the correctness of a top-10 list</b>. The brief specifies no accuracy target. [3]')
-    sub('What these selections mean')
-    para(f'The analysis retains <b>{a["included_matches"]} complete, decisive IPL/T20I matches</b> and <b>{a["included_deliveries"]:,} delivery records</b> from the six supplied CSVs. It ranks historical pressure performance in this coverage, rather than predicting a permanent psychological trait or selecting an available squad for today.')
-    para('The rankings are complete and ordered, as the brief requires. Several adjacent positions have overlapping uncertainty intervals. Strict early-versus-late rank stability is weak; that result is reported, rather than hidden. The 20 dropdown selections and this document form the two required submission components. [1]')
-    small('Source key: [1] supplied problem statement; [2] computed rankings; [3] chronological validation; [4] local source audit; [5] official Unstop event rules. Exact references appear on page 14.')
+    small(f'{PREPARED_BY} | {REPORT_DATE} | Data: 22 January 2022 to 1 November 2026')
+    para(f'This study ranks the ten batters and ten bowlers who performed best under pressure across <b>{a["included_matches"]} complete, decisive IPL and T20I matches</b> and <b>{a["included_deliveries"]:,} deliveries</b>. It measures historical performance in the organizer\'s supplied data. [1, 4, 6]')
+    sub('The two leaders')
+    batting_leader, bowling_leader = b.iloc[0], bo.iloc[0]
+    table(['Discipline', 'Rank 1', 'Score / 100', 'Reference pressure sample'], [
+        ['Batting', batting_leader['name'], f'{batting_leader.score:.2f}', f'{batting_leader.p_balls} balls in {batting_leader.p_matches} matches'],
+        ['Bowling', bowling_leader['name'], f'{bowling_leader.score:.2f}', f'{bowling_leader.p_balls} opportunities in {bowling_leader.p_matches} matches'],
+    ], [82, 133, 76, W-291])
+    small('Scores are conservative context-adjusted run-equivalent advantages per 100 opportunities. Each discipline has its own ranking pool. [2]')
+    sub('How a moment becomes a ranking')
+    para('First, score the stakes before the delivery. An open contest, a plausible one-ball swing and fewer balls remaining increase pressure. Then compare the observed delivery with what the model expected in that situation. The rating gives 75% weight to pressure performance and 25% to improvement over the player\'s usual level.')
+    para('Shrink small samples toward the contextual average. Test three pressure cutoffs and three wicket values, then rank players by the 20th percentile of 2,000 whole-match resamples. The conservative score gives lower ranks to less certain estimates when other evidence is similar.')
+    sub('What the evidence supports')
+    para(f'The win model classified eventual winners correctly for <b>{accuracy:.2f}%</b> of pre-ball states, with equal match weighting, on {v["test_matches"]} later matches (95% interval {acc_ci[0]:.2f}%-{acc_ci[1]:.2f}%). That figure measures win prediction. Earlier-versus-later player ranks showed weak persistence, and uncertainty bands overlap across several adjacent places. [3]')
+    sub('Where to find the evidence')
+    para('Exact top tens and ranking cutoffs, pp. 2-3. Worked delivery and scoring method, pp. 4-6. Reliability and holdout, pp. 7-9. Player evidence, pp. 10-11. Data audit and reproduction, pp. 12-14.')
 
     for role,label in [('batters','batters'),('bowlers','bowlers')]:
         newpage();df=players[role]
@@ -110,9 +117,11 @@ def main():
         para('Sort key: the unrounded conservative score, descending. The table rounds scores for reading only. The middle estimate and 90% resampling band describe the robust nine-scenario rating; the score is its 20th-percentile selection statistic. [2]')
         rows=[[int(r['rank']),r['name'],f'{r.score:.2f}',f'{r.rating:.2f}',int(r.p_balls),int(r.p_matches)] for _,r in df.iterrows()]
         table(['#','Player','Score','Estimate','P units','P matches'],rows,[31,173,58,64,56,W-382])
-        small('P = reference high pressure (top quartile within innings). Batting units are balls faced, including no-balls and excluding wides. Bowling units are legal-ball opportunities with preceding wides/no-balls bundled. A terminal illegal-only opportunity still counts once. Samples shown use the reference definition.')
-        fig(uncertainty_plot(df,role),height=221)
-        small('Resampling bands condition on the fitted context/pressure models and eligible candidate set. They do not include all model uncertainty or correct winner-selection bias. The exact names and player IDs are preserved in submission/rankings.csv; match those identities in the Unstop dropdowns.')
+        small('P = reference high pressure (top quartile for the first innings or chase across matches). Batting units are balls faced, including no-balls and excluding wides. Bowling units bundle preceding illegal deliveries with the next legal ball. A terminal illegal-only opportunity still counts once.')
+        fig(uncertainty_plot(df,role),height=208)
+        tenth, eleventh = allp[role].iloc[9:11].itertuples(index=False)
+        para(f'<b>Where the list ends.</b> {tenth.name} is 10th ({tenth.score:.2f}) and {eleventh.name} is 11th ({eleventh.score:.2f}), a gap of {tenth.score - eleventh.score:.2f} per 100. Their 90% bands ({tenth.ci_low:.2f} to {tenth.ci_high:.2f} and {eleventh.ci_low:.2f} to {eleventh.ci_high:.2f}) overlap. The full-precision score decides the portal order, with uncertainty about which player is stronger.')
+        small('Resampling bands condition on the fitted models and eligible candidate set and omit full model uncertainty and winner-selection bias. Player IDs for the Unstop dropdowns are in submission/rankings.csv.')
 
     newpage();title('1. Pressure exists before the outcome')
     para('A late over is not automatically pressure, and an early wicket can matter. The model therefore asks whether a plausible delivery can change an unresolved contest. The definition is identical for the batter and bowler facing the same pre-ball state. [2]')
@@ -124,10 +133,17 @@ def main():
     para('p is predicted win probability from the current batting side\'s perspective. p6, p0 and pw are probabilities after a hypothetical legal six, dot and wicket. Each hypothetical state uses one legal ball and updates all rate features. Chase wins/losses at terminal states are set to exactly 1/0. The first innings never uses the actual second-innings outcome to resolve a hypothetical state.')
     para('C peaks in an open contest and suppresses almost settled games. L approximates a plausible event swing: 0.30 = a 1.8-run shock / six, while 0.055 is a fixed wicket hazard. These are transparent scale assumptions, not fitted psychological measures. U rises from 1 toward 2 as opportunities disappear. Neither a later six nor a wicket changes its own pressure classification.')
     thresholds=a['thresholds']
-    para(f'High pressure in the reference definition is the top 25% of scores <b>separately in each innings</b>: cutoffs {thresholds["1"]:.6f} (first innings) and {thresholds["2"]:.6f} (chase). This keeps both tasks represented without allocating a quota to a player, competition or phase. The robust rating also uses the top 30% and 20%.')
-    sub('A concrete state in the supplied data')
-    ex=a['pressure_examples'][0]
-    para(f'Match {ex["match_id"]} ({ex["match_date"]}), innings {ex["innings"]}: {ex["score_before"]}/{ex["wickets_before"]}, target {int(ex["target"])}, {ex["balls_left"]} legal ball(s) remaining. Before that event, p = {ex["win_p"]:.3f} and pressure = {ex["pressure"]:.3f}. The state qualifies before its actual result is examined.')
+    para(f'Compute the 75th-percentile cutoff across all retained first-innings events ({thresholds["1"]:.6f}) and separately across all retained chase events ({thresholds["2"]:.6f}). This keeps both tasks represented and leaves each match, player, competition and phase free to contribute different pressure shares. The robust rating also uses the top 30% and 20%.')
+    sub('Two chases with six balls left')
+    rows = []
+    for needed, p, p6, p0, pw in [(10, .50, .87, .32, .10), (2, .98, 1.0, .96, .90)]:
+        closeness = 4 * p * (1 - p)
+        leverage = .30 * max(p6 - p0, 0) + .055 * max(p0 - pw, 0)
+        score = closeness * leverage * (1 + 114 / 120)
+        band = 'Pressure' if score >= thresholds['2'] else 'Ordinary'
+        rows.append([needed, f'{p:.2f}', f'{p6:.2f}', f'{p0:.2f}', f'{pw:.2f}', f'{score:.4f}', band])
+    table(['Runs needed', 'p', 'p6', 'p0', 'pw', 'Pressure score', 'Reference class'], rows, [80, 42, 42, 42, 42, 100, W-348])
+    small('The states and model probabilities are illustrative. Both have urgency 1.95. The close chase crosses the measured chase cutoff because the next ball can move an open contest. The same six balls remain when only two runs are needed, but the contest is nearly settled.')
 
     newpage();title('2. Compare performance fairly')
     para('Raw strike rate and economy answer different questions and depend on match context. The rating first subtracts what an average player would be expected to achieve in that state against that opponent. Positive residuals are good in both roles. [2]')
@@ -214,8 +230,9 @@ def main():
     for _,r in b.iterrows():
         z=d[d.striker_id.eq(r.player_id)&d.high_pressure&d.balls_faced.eq(1)]
         pos=int(z.batting_order.mode().iloc[0]);role='opening batting' if pos<=2 else 'middle-order batting' if pos<=5 else 'late-order hitting'
-        small(f'<b>{int(r["rank"])}. {r["name"]}</b> - RR scouting use: {role} (modal position {pos}). Positive pressure matches {r.positive_pressure_match_pct:.1f}%; top-10 resamples {r.top10_bootstrap_pct:.1f}%.')
-    para('Strong usual performers can rank through A even with little uplift. A weak usual record influences only 25% of the rating; low-sample selections remain uncertain despite shrinkage.')
+        small(f'<b>{int(r["rank"])}. {r["name"]}</b> - {role}, most often at No. {pos}. Positive pressure matches {r.positive_pressure_match_pct:.1f}%. Top-10 resamples {r.top10_bootstrap_pct:.1f}%.')
+    vaibhav = b.loc[b['rank'].eq(3)].iloc[0]
+    para(f'<b>Why context matters.</b> {vaibhav["name"]}\'s strike rate fell from {vaibhav.normal_strike_rate:.1f} in ordinary play to {vaibhav.pressure_strike_rate:.1f} under pressure, yet his adjusted advantage rose by {vaibhav.uplift:.1f} per 100 balls. Adjusted performance accounts for expected scoring and dismissals in each situation.')
 
     newpage();title('8. Evidence for the ten bowlers')
     para('Economy = 6 x conceded runs / legal deliveries. Pressure samples count bundles; wickets can occur on an illegal delivery. Raw economy is shown beside the player\'s ordinary economy, while A/B adjust for different state difficulty and opposition. [2]')
@@ -225,8 +242,9 @@ def main():
     for _,r in bo.iterrows():
         z=d[d.bowler_id.eq(r.player_id)&d.high_pressure&d.bowling_active]
         phase=z.phase.mode().iloc[0].lower();kind=z.pace_or_spin.mode().iloc[0].lower()
-        small(f'<b>{int(r["rank"])}. {r["name"]}</b> - RR scouting use: {phase} {kind}. Positive pressure matches {r.positive_pressure_match_pct:.1f}%; top-10 resamples {r.top10_bootstrap_pct:.1f}%.')
-    para('RR role applications on pages 10-11 describe observed batting positions and the phase with most pressure exposure. Current squad needs and auction availability are separate constraints. Wicket-value scenarios test the tradeoff between wickets and run prevention.')
+        small(f'<b>{int(r["rank"])}. {r["name"]}</b> - {kind}, most pressure opportunities in the {phase} phase. Positive pressure matches {r.positive_pressure_match_pct:.1f}%. Top-10 resamples {r.top10_bootstrap_pct:.1f}%.')
+    little, malik = bo.iloc[0], bo.iloc[2]
+    para(f'<b>Why wickets matter.</b> {malik["name"]} took {malik.wickets} pressure wickets in {malik.p_balls} opportunities at {malik.pressure_economy:.2f} economy. The wicket and run-prevention terms both feed his adjusted score. {little["name"]} leads the final list with a tighter resampling band and {little.pressure_economy:.2f} pressure economy.')
 
     newpage();title('9. Source audit and fair comparison')
     para(f'The supplied files contain {a["raw_matches"]} match records and {a["raw_deliveries"]:,} delivery events. No exact duplicate rows or duplicate match/innings/delivery-sequence keys were found. Join every delivery to a unique match, then a unique competition. Match/player/team identity uses IDs, never names. [4]')
@@ -248,14 +266,14 @@ def main():
     table(['Innings','Phase','All events','Pressure events','Pressure share'],rows,[61,116,111,120,W-408])
     small('Powerplay: legal balls 1-36; middle: 37-90; death: 91-120. These are event counts before bowling bundling and use the reference threshold. No phase has a player-selection quota.')
     sub('Limits that change interpretation')
-    para('<b>Historical reliability is not a permanent trait.</b> The temporal test is weak. Pressure exposure, role, selection and form can change; retired players are not removed from historical rankings simply because they are unavailable today.')
+    para('<b>Historical reliability varies across periods.</b> The temporal test is weak. Pressure exposure, role, selection and form can change. Eligibility uses the observed historical sample and the opportunity minimums documented on page 6.')
     para('<b>Pressure is a model of stakes, not measured stress.</b> First-innings stakes are inferred from neutral-context win probability. Crowd, tournament qualification, personal milestones, injury, weather and specific bowler-batter matchups are not measured. Knockout status receives no arbitrary bonus.')
     para('<b>Model uncertainty remains.</b> Context improvements over a constant mean are modest. Match-block resampling captures match-sample variation, not the full model-fitting and multiple-comparison problem. The robust scenario design addresses selected assumptions, not every possible pressure definition.')
     para('<b>Attribution is partial.</b> Dismissals reflect fielding as well as batting/bowling skill. Striker run-outs are charged to the dismissed striker; non-striker run-outs change the team state without charging the striker. Tactical retire-outs are personal dismissals but never bowling wickets. Byes, catches and fielding quality are not independent player ratings here.')
     para('<b>Coverage follows the supplied data.</b> Excluding shortened and unresolved matches improves comparability but narrows scope. Dates and records are accepted as supplied; the analysis does not independently certify provider accuracy or completeness against every real-world IPL/T20I match.')
 
     newpage();title('11. Reproduction and sources')
-    para('The local workspace contains the six original CSVs and unchanged brief. The public repository excludes the proprietary pack, prediction caches and record-level audits under organizer rules. It contains code, source hashes, aggregated evidence, final rankings and this report. Authorized participants must place their own pack in data/raw/ to reproduce the analysis. No external cricket data or API key is required. [4, 5]')
+    para('All six CSVs and the original brief in the organizer\'s 17 November email ZIP match the local inputs byte for byte. SHA-256 hashes and file sizes are recorded in data/manifest.json. Authorized participants can reproduce the analysis by placing their copy in data/raw/. The public repository contains aggregate evidence, code and final rankings. [4-6]')
     formula('python3 -m venv .venv<br/>source .venv/bin/activate<br/>pip install -r requirements.txt<br/>python src/analyse.py<br/>python src/build_report.py<br/>python src/verify.py')
     para(f'Use Python 3.12 and the pinned dependencies. Random seed = {cfg["seed"]}; final bootstrap draws = {cfg["bootstrap_draws"]}; sensitivity/temporal draws = 1,000. The seed controls match folds and multinomial whole-match resampling. The full-precision CSVs are authoritative if displayed decimals coincide.')
     sub('Model settings and decision rules')
@@ -264,19 +282,32 @@ def main():
     sub('Tools and submission integrity')
     para('All numerical results are calculated by the reproducible Python scripts from the supplied data. The final batting and bowling lists are ordered by the unrounded selection score and match the accompanying submission CSV. [1, 2]')
     para('The proprietary data pack must not be shared or published. The public repository contains code and aggregated results. Participation is individual, with one submission permitted. Portal instructions appear in the accompanying submission checklist. [5]')
-    small('[1] local data/raw/problem_statement.pdf, both pages. [2] output/tables/{batters,bowlers}_all.csv and *_robust_scenarios.csv; sensitivity, temporal_stability and leave_one_match_out tables. [3] output/validation.json and chronological_calibration.csv. [4] data/manifest.json and local-only output/audit.json and match_audit.csv; source hashes checked by src/verify.py. [5] Official Unstop event listing, rules checked 17 November 2026: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758')
+    small('[1] Supplied Round 1 problem statement. [2] output/tables/{batters,bowlers}_all.csv, robust scenarios, sensitivity and reliability tables. [3] output/validation.json and chronological_calibration.csv. [4] data/manifest.json and local source audit. [5] Official Unstop event listing, opportunity 1792758. [6] Unstop Events, Guidelines and Key Clarifications for Round 1 Submission, 17 November 2026, points 1-4.')
 
     path=OUT/'pdf/SupeRR_Selector_Round1_Methodology.pdf'
     doc=SimpleDocTemplate(str(path),pagesize=A4,rightMargin=44,leftMargin=44,topMargin=54,bottomMargin=43,
         title=REPORT_TITLE,author=AUTHOR,pageCompression=1)
     doc.build(story,onFirstPage=page_frame,onLaterPages=page_frame)
     (OUT/'pdf/Methodology_source.md').write_text('\n\n'.join(md)+'\n')
-    lines=['# Unstop final selection order','',f'**{PREPARED_BY}**','', 'Upload `output/pdf/SupeRR_Selector_Round1_Methodology.pdf` as the final methodology report.','', 'Scores are run-equivalent advantages per 100 opportunities, not accuracy percentages.','']
+    lines=['# Unstop final selection order','',f'**{PREPARED_BY}**','',
+           'Use the two dropdown lists below and upload the [final methodology PDF](../output/pdf/SupeRR_Selector_Round1_Methodology.pdf).', '',
+           'Unstop’s 17 November clarification accepts a PDF, PowerPoint or interactive dashboard for methodology. This entry uses the PDF for upload and the dashboard as a companion.', '',
+           'Scores measure conservative run-equivalent advantage per 100 opportunities. The reattached dataset and brief match the original inputs byte for byte.', '']
     for role,df in players.items():
         lines += ['## '+role.title(),'','| Rank | Name | Player ID | Score |','| --- | --- | --- | --- |']
         for _,r in df.iterrows(): lines.append(f'| {int(r["rank"])} | {r["name"]} | {int(r.player_id)} | {r.score:.2f} |')
         lines.append('')
-    lines += ['## Portal submission steps','','- Enter both top-10 lists in the exact order shown above; no duplicate within a list.','- Confirm the dropdown identity using player ID if the name is abbreviated.','- Upload the final PDF and confirm its rankings match the dropdown selections.','- Confirm registration and the submission deadline in your logged-in Unstop portal.','- Submit the single permitted individual entry and retain the portal confirmation.','- Do not share or publish the supplied data pack. Raw inputs and record-level audits remain local.','- If shortlisted, confirm travel availability and a valid government photo ID.','- Portal submission has not been performed by this project. The optional journey is not required.','','Rules source: https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758 (checked 17 November 2026).']
+    lines += ['## Portal submission steps', '',
+              '- Enter one unique player per rank in each dropdown list, in the exact order above.',
+              '- Confirm ambiguous names against the player ID if the portal exposes IDs.',
+              '- Upload the methodology PDF and verify that the dropdown choices match pages 2 and 3.',
+              '- Confirm registration and the submission deadline in your logged-in Unstop portal.',
+              '- Submit the single permitted individual entry and retain the portal confirmation.',
+              '- Keep the supplied dataset and match-level audits private.',
+              '- If shortlisted, confirm travel availability and a valid government photo ID.', '',
+              '## Share your journey', '',
+              'Unstop’s clarification invites one reel or post. The original brief describes the journey as optional and unscored. Use the [ready-to-post draft](JOURNEY_POST.md), tag Rajasthan Royals and Unstop, and include `#SuperSelector`. The organizers encourage an on-camera appearance if you choose a reel.', '',
+              'Sources are the 17 November clarification email, the supplied Round 1 brief and the [official Unstop rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758).']
     (ROOT/'submission/UNSTOP_CHECKLIST.md').write_text('\n'.join(lines)+'\n')
     build_inline(players)
     print('Built',path)

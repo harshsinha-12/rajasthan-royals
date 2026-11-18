@@ -7,15 +7,15 @@ Prepared by Harsh Sinha. A responsive website for the final SupeRR Selector Seas
 - Final top-10 batting and bowling lists, plus all 351 qualifying role entries.
 - Name search, observed-role and evidence-coverage filters, and alternate sorting that preserves official ranks.
 - Player profiles with pressure/ordinary performance, exposure, adjusted uplift, uncertainty and match consistency.
-- Two-player comparisons and interactive uncertainty plots.
-- Role coverage, scoring formulas, eligibility, chronological calibration and temporal limitations.
+- Two-player comparisons, a shortcut to compare ranks 10 and 11, and interactive uncertainty plots.
+- Role coverage, a worked pressure example, scoring formulas, eligibility, chronological calibration and temporal limitations.
 - Matching PDF and final-selection CSV downloads; exact-order copying for Unstop.
 
 The website is buildless HTML/CSS/JavaScript. It has no runtime dependencies, tracking or external cricket feed. It includes only aggregated results; the restricted data pack and record-level records are excluded.
 
-## Strategy testing addendum
+## Supplementary research
 
-The new Strategy Lab section displays the current evidence limitations and links a supplementary validation PDF (output/pdf/Strategy_Validation_Addendum.pdf). Its tools are run locally from the main repository: src/backtest.py, src/cricsheet_adapter.py and src/tactics.py. The external adapter and tactical optimizer do not import private competition data into the public website; no unmeasured strategy lift is claimed. See docs/strategy_validation_report.md.
+The dashboard groups the supplementary research and its addendum below the Round 1 downloads. Those protocols and tools are documented in [the strategy validation addendum](../docs/strategy_validation_report.md).
 
 ## Build from the main repository root
 
@@ -29,11 +29,11 @@ Open `website/dist/index.html` locally, or host `website/dist/` as static assets
 
 `template.html`, `styles.css` and `app.js` are the editable sources. `data/player_roles.json` contains derived role summaries. The exporter embeds reviewed results into the generated page and copies the exact submission downloads.
 
-The browser interaction harness is generated at `tmp/site-interaction-qa.html`. It checks search, empty/reset states, role filters, official-order copying, plots, profiles, comparison, coverage filtering, rank-preserving sorting and viewport overflow. Twenty checks passed at both 1200px and 390px using T3 HTML preview.
+The browser interaction harness at `tmp/site-interaction-qa.html` checks search, empty/reset states, role filters, official-order copying, plots, profiles, comparison (including ranks 10 and 11), coverage filtering, rank-preserving sorting and viewport overflow.
 
 ## Deploy on Vercel
 
-Import `harshsinha-12/rajasthan-royals` as a Vercel project. After this PR is merged, use the `main` branch; for a preview before merging, deploy `feat/pressure-analysis-website`.
+Import `harshsinha-12/rajasthan-royals` as a Vercel project. Use `main` for production once the revised submission is merged.
 
 | Setting | Value |
 | --- | --- |

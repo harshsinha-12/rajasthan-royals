@@ -35,7 +35,8 @@ def main():
     assert all((DIST/asset).is_file() for asset in page.assets)
     assert (DIST/'assets/rankings.csv').read_bytes()==(ROOT/'submission/rankings.csv').read_bytes()
     assert (DIST/'assets/methodology.pdf').read_bytes()==(ROOT/'output/pdf/SupeRR_Selector_Round1_Methodology.pdf').read_bytes()
-    expected={'index.html','assets/methodology.pdf','assets/rankings.csv','assets/provenance.json'}
+    assert (DIST/'assets/strategy-validation.pdf').read_bytes()==(ROOT/'output/pdf/Strategy_Validation_Addendum.pdf').read_bytes()
+    expected={'index.html','assets/methodology.pdf','assets/rankings.csv','assets/strategy-validation.pdf','assets/provenance.json'}
     assert {str(p.relative_to(DIST)) for p in DIST.rglob('*') if p.is_file()}==expected
     assert not any(token in html for token in ['/*__DATA__*/','/*__SCRIPT__*/','/*__STYLES__*/'])
     harness=html.replace('</body>','<script>'+(WEB/'tests/interaction.js').read_text()+'</script></body>')

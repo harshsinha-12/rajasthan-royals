@@ -3,11 +3,11 @@
   "static_data_checks": "passed",
   "desktop": {
     "width": 1200,
-    "interaction_checks_passed": 23
+    "interaction_checks_passed": 28
   },
   "mobile": {
     "width": 390,
-    "interaction_checks_passed": 23
+    "interaction_checks_passed": 28
   },
   "surface": "Local headless Chrome",
   "downloads_match_submission": true,

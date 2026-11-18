@@ -1,55 +1,41 @@
-# Unstop final selection order
+# The Pressure Pair · Unstop selection order
 
-**Prepared by Harsh Sinha**
+**Prepared by Harsh Sinha and Mosin Shaikh**
 
-Use the two dropdown lists below and upload the [final methodology PDF](../output/pdf/SupeRR_Selector_Round1_Methodology.pdf).
-
-Unstop’s 17 November clarification accepts a PDF, PowerPoint or interactive dashboard for methodology. This entry uses the PDF for upload and the dashboard as a companion.
-
-Scores measure conservative run-equivalent advantage per 100 opportunities. The reattached dataset and brief match the original inputs byte for byte.
+Upload the [team methodology presentation](../output/pdf/Pressure_Pair_Round_1_Methodology.pdf). Enter the exact names below from rank 1 through 10 in each dropdown list. The form uses the same 20-name candidate pool for both disciplines.
 
 ## Batters
 
-| Rank | Name | Player ID | Score |
-| --- | --- | --- | --- |
-| 1 | Ashutosh Sharma | 8101 | 23.86 |
-| 2 | Reeza Hendricks | 768 | 22.58 |
-| 3 | Vaibhav Sooryavanshi | 50284 | 18.96 |
-| 4 | Tim David | 6396 | 17.86 |
-| 5 | Tristan Stubbs | 20702 | 17.77 |
-| 6 | Hardik Pandya | 3330 | 17.39 |
-| 7 | Hazratullah Zazai | 7152 | 17.37 |
-| 8 | Glenn Phillips | 4853 | 16.49 |
-| 9 | Harry Brook | 6280 | 12.98 |
-| 10 | Kamindu Mendis | 4904 | 12.44 |
+| Rank | Name | Roster ID | Score | Evidence |
+| ---: | --- | ---: | ---: | --- |
+| 1 | Dinesh Karthik | 143 | +1.96 | Meets minimums |
+| 2 | Virat Kohli | 47 | -2.01 | Meets minimums |
+| 3 | Rohit Sharma | 126 | -3.38 | Meets minimums |
+| 4 | Ravindra Jadeja | 152 | -15.77 | Meets minimums |
+| 5 | Wriddhiman Saha | 109 | -16.00 | Meets minimums |
+| 6 | Rashid Khan | 4722 | -19.37 | Meets minimums |
+| 7 | Abdul Samad | 7446 | -19.88 | Meets minimums |
+| 8 | Shikhar Dhawan | 142 | -20.43 | Meets minimums |
+| 9 | Mahendra Singh Dhoni | 8 | -30.53 | Meets minimums |
+| 10 | Faf du Plessis | 88 | -32.13 | Meets minimums |
 
 ## Bowlers
 
-| Rank | Name | Player ID | Score |
-| --- | --- | --- | --- |
-| 1 | Joshua Little | 4807 | 25.66 |
-| 2 | Shaheen Afridi | 6355 | 21.09 |
-| 3 | Umran Malik | 25048 | 16.32 |
-| 4 | Ravindra Jadeja | 152 | 13.86 |
-| 5 | Tim Southee | 278 | 11.91 |
-| 6 | Mujeeb Ur Rahman | 6450 | 11.21 |
-| 7 | Krunal Pandya | 4219 | 9.77 |
-| 8 | Piyush Chawla | 23 | 9.11 |
-| 9 | Hasan Mahmud | 6643 | 8.39 |
-| 10 | Sufiyan Muqeem | 34485 | 7.84 |
+| Rank | Name | Roster ID | Score | Evidence |
+| ---: | --- | ---: | ---: | --- |
+| 1 | Ravindra Jadeja | 152 | +13.86 | Meets minimums |
+| 2 | Piyush Chawla | 23 | +9.11 | Meets minimums |
+| 3 | Rashid Khan | 4722 | +7.68 | Meets minimums |
+| 4 | Ishant Sharma | 28 | -11.47 | Meets minimums |
+| 5 | Pradeep Sangwan | 147 | +2.03 | Limited sample |
+| 6 | Basil Hameed | 8638 | +1.37 | Limited sample |
+| 7 | Amit Mishra | 158 | +1.31 | Limited sample |
+| 8 | Haider Ali | 28756 | -7.67 | Limited sample |
+| 9 | Dwayne Bravo | 161 | -13.01 | Limited sample |
+| 10 | Muhammad Farooq | 27373 | — | Ordinary play only |
 
-## Portal submission steps
+Scores are run-equivalent units per 100 pressure opportunities. The tenth bowling slot uses ordinary-play evidence.
 
-- Enter one unique player per rank in each dropdown list, in the exact order above.
-- Confirm ambiguous names against the player ID if the portal exposes IDs.
-- Upload the methodology PDF and verify that the dropdown choices match pages 2 and 3.
-- Confirm registration and the submission deadline in your logged-in Unstop portal.
-- Submit the single permitted individual entry and retain the portal confirmation.
-- Keep the supplied dataset and match-level audits private.
-- If shortlisted, confirm travel availability and a valid government photo ID.
+Check the entry type and deadline in the signed-in portal. The optional journey post can be shared with Rajasthan Royals and Unstop tagged and `#SuperSelector` included.
 
-## Share your journey
-
-Unstop’s clarification invites one reel or post. The original brief describes the journey as optional and unscored. Use the [ready-to-post draft](JOURNEY_POST.md), tag Rajasthan Royals and Unstop, and include `#SuperSelector`. The organizers encourage an on-camera appearance if you choose a reel.
-
-Sources are the 17 November clarification email, the supplied Round 1 brief and the [official Unstop rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758).
+[Unstop event listing](https://unstop.com/hackathons/crp-superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758)

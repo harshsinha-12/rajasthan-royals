@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import pandas as pd
-from backtest import evaluate_holdout, sorted_baselines, assess
+from backtest import compare, evaluate_holdout, match_draws, sorted_baselines, assess
 from cricsheet_adapter import iter_rows
 from tactics import optimize, phase
 
@@ -22,6 +22,26 @@ class StrategyLabTests(unittest.TestCase):
         self.assertEqual(summary["missing_or_thin_player_ids"], [3])
         self.assertEqual(summary["pressure_opportunities"], 3)
         self.assertAlmostEqual(summary["future_mean_per_100"], 25.0)
+        self.assertAlmostEqual(summary["opportunity_weighted_per_100"], 200 / 3)
+
+    def test_shared_match_draws_cancel_when_membership_is_identical(self):
+        hold = pd.DataFrame([
+            {"pid": 1, "match_id": 1, "high_pressure": True, "units": 5, "residual": 3.0},
+            {"pid": 2, "match_id": 2, "high_pressure": True, "units": 5, "residual": -2.0},
+        ])
+        choices = {"robust_pressure": [1, 2], "balanced_form": [2, 1]}
+        result = compare(hold, choices, {1: "A", 2: "B"}, [1, 2], match_draws([1, 2], 100), 1)
+        self.assertEqual(result["balanced_form"]["paired_difference_interval_95"], [0.0, 0.0])
+
+    def test_empty_holdout_coverage_returns_missing_not_zero(self):
+        hold = pd.DataFrame([
+            {"pid": 1, "match_id": 1, "high_pressure": True, "units": 5, "residual": 3.0},
+            {"pid": 1, "match_id": 2, "high_pressure": False, "units": 10, "residual": 30.0},
+        ])
+        result = evaluate_holdout(hold, [1], draws=10, min_units=10)
+        self.assertEqual(result["evaluated"], 0)
+        self.assertIsNone(result["future_mean_per_100"])
+        self.assertIsNone(result["opportunity_weighted_per_100"])
 
     def test_baselines_only_rank_training_candidates(self):
         d = pd.DataFrame([{"pid": 1, "residual": 2, "units": 1, "high_pressure": True, "year": 2024},

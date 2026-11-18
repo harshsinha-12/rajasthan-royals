@@ -33,15 +33,22 @@ def main():
     assert config['framework'] is None and config['outputDirectory']=='dist'
     assert config['buildCommand']=='' and config['installCommand']==''
     assert all((DIST/asset).is_file() for asset in page.assets)
-    assert (DIST/'assets/rankings.csv').read_bytes()==(ROOT/'submission/rankings.csv').read_bytes()
-    assert (DIST/'assets/methodology.pdf').read_bytes()==(ROOT/'output/pdf/SupeRR_Selector_Round1_Methodology.pdf').read_bytes()
+    portal=ROOT/'submission/pressure_pair_portal_rankings.csv'
+    for role,records in data['portal'].items():
+        source=pd.read_csv(portal).query('role == @role').reset_index(drop=True)
+        exported=pd.DataFrame(records)
+        pd.testing.assert_frame_equal(source,exported,check_exact=False,rtol=0,atol=1e-10)
+    assert data['backtest']==json.loads((ROOT/'output/strategy_backtest_summary.json').read_text())
+    assert not any(key in json.dumps(data['backtest']) for key in ['player_id','"players"','"match_id"'])
+    assert (DIST/'assets/rankings.csv').read_bytes()==portal.read_bytes()
+    assert (DIST/'assets/methodology.pdf').read_bytes()==(ROOT/'output/pdf/Pressure_Pair_Round_1_Methodology.pdf').read_bytes()
     assert (DIST/'assets/strategy-validation.pdf').read_bytes()==(ROOT/'output/pdf/Strategy_Validation_Addendum.pdf').read_bytes()
     expected={'index.html','assets/methodology.pdf','assets/rankings.csv','assets/strategy-validation.pdf','assets/provenance.json'}
     assert {str(p.relative_to(DIST)) for p in DIST.rglob('*') if p.is_file()}==expected
     assert not any(token in html for token in ['/*__DATA__*/','/*__SCRIPT__*/','/*__STYLES__*/'])
     harness=html.replace('</body>','<script>'+(WEB/'tests/interaction.js').read_text()+'</script></body>')
     target=ROOT/'tmp/site-interaction-qa.html';target.parent.mkdir(exist_ok=True);target.write_text(harness)
-    print('PASS: all 351 exported entries, score/interval/sample fidelity, role counts, downloads, asset allowlist and private-data exclusions')
+    print('PASS: historical and portal ranking fidelity, walk-forward aggregate parity, downloads and private-data exclusions')
     print('UI harness:',target)
 
 if __name__=='__main__':main()

@@ -1,110 +1,50 @@
-# SupeRR Selector Season 2
-## Strategy Validation Addendum | 18 November 2026
+# Strategy validation
 
-**Prepared by Harsh Sinha**  
-**Status: protocol and runnable tooling added. No new private-data backtest has been executed or verified in this branch.**
+**The Pressure Pair · Harsh Sinha and Mosin Shaikh**
 
-### Executive decision
+Balanced form improved the full-pool bowling point estimate in each of three later seasons and maintained or improved player coverage in every split. Its paired intervals all include zero. Overall form also finished ahead of the original bowling rule in each season. The Unstop bowling replay gave robust and balanced form the same estimate in all three splits.
 
-The Round 1 submission ranks historical context-adjusted performance under pressure. It does **not yet establish out-of-sample superiority** of those selections over simpler scouting baselines, nor prove that a selected XI would win more matches. This addendum introduces a reproducible validation procedure and a separate, explicitly hypothetical bowling-scenario optimizer.
+## Full-pool results
 
-The original submitted Top 10 batting/bowling lists and 14-page methodology PDF remain unchanged. This supplementary report should not be substituted for the official Round 1 upload.
+Each cell gives the equal-player later pressure score per 100 opportunities, then players scored out of ten.
 
-### What the existing evidence proves
+| Test year | Role | Robust pressure | Balanced form | Pressure-only | Overall form | Recent form |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2024 | Batters | -10.4 (9/10) | -13.2 (10/10) | -8.9 (9/10) | -23.8 (8/10) | -3.8 (9/10) |
+| 2024 | Bowlers | -12.8 (9/10) | +15.6 (9/10) | -10.6 (9/10) | +18.8 (9/10) | +10.3 (9/10) |
+| 2025 | Batters | +22.0 (8/10) | +9.5 (9/10) | +11.3 (8/10) | +1.7 (10/10) | +11.7 (8/10) |
+| 2025 | Bowlers | -41.6 (7/10) | -11.0 (9/10) | -42.2 (7/10) | +1.9 (8/10) | +6.8 (8/10) |
+| 2026 | Batters | +18.4 (8/10) | +2.7 (8/10) | +32.2 (6/10) | +28.0 (6/10) | +2.2 (9/10) |
+| 2026 | Bowlers | -13.6 (4/10) | +13.6 (7/10) | -22.4 (4/10) | +11.9 (5/10) | +9.4 (9/10) |
 
-| Measured on the existing private dataset | Result | What it measures |
-| --- | ---: | --- |
-| Retained complete IPL/T20I matches | 763 | Dataset coverage |
-| Pre-ball win prediction accuracy, train 2022-24 / test 2025-26 | 72.49% | Model prediction, **not** selected-player performance |
-| Brier score on chronological holdout | 0.1792 | Probability quality, **not** strategy quality |
-| Earlier-vs-later batter rank correlation | 0.232 | Weak temporal persistence |
-| Earlier-vs-later bowler rank correlation | 0.105 | Weak temporal persistence |
-| Top-10 overlap between periods | 1/10 batters, 0/10 bowlers | Low list stability |
+## Unstop-restricted replay
 
-These are previously measured and published in output/validation.json. They are not new experiments from this PR.
+Each method can select up to three of the 20 confirmed labels after applying the historical evidence minimums. Distinct lists count different memberships. A change in order alone leaves the metric unchanged.
 
-### Experiment 1: Frozen historical rankings on later matches
+| Test year | Role | Eligible | Distinct lists | Robust pressure | Balanced form |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 2024 | Batters | 7 | 3 | +64.4 (3/3) | +9.1 (3/3) |
+| 2024 | Bowlers | 2 | 1 | -5.3 (2/2) | -5.3 (2/2) |
+| 2025 | Batters | 8 | 2 | +28.5 (2/3) | -34.5 (2/3) |
+| 2025 | Bowlers | 4 | 1 | -31.6 (2/3) | -31.6 (2/3) |
+| 2026 | Batters | 10 | 4 | +39.8 (1/3) | +45.9 (1/3) |
+| 2026 | Bowlers | 4 | 3 | +45.1 (2/3) | +45.1 (2/3) |
 
-**Implementation:** src/backtest.py
+## Method and evidence limits
 
-1. Learn pre-ball pressure, expected batting/bowling outcomes, and prior-match opponent form using **training years only**. Train matches remain grouped for out-of-fold historical scoring.
-2. Freeze the eligible candidate pool, including original match/opportunity requirements. Select a Top 10 using the existing nine-scenario conservative pressure score.
-3. Select three challenger Top 10 lists from the **same eligible training pool**: mean high-pressure residual (pressure_only), mean overall residual (overall_form), and residual in the last training year (recent_form).
-4. Use only later matches to measure each selected player's pressure residual relative to the frozen nuisance models. A batter contributes per ball faced, with dismissal-on-wide attribution retained; a bowler contributes per valid bundled opportunity.
-5. Report the unregularized **mean of covered players' future residual per 100 opportunities**. Players with fewer than ten future pressure opportunities are explicitly marked as unscored, rather than assigned zero.
-6. Estimate an indicative 95% interval with shared whole-match resampling. This conditional interval does not reselect players or refit models.
+- Training ends in 2023, 2024 and 2025 respectively. Each model, cutoff and selection is fixed before the next calendar year. The 2026 test ends on 1 November, the last match supplied.
+- Robust pressure combines pressure performance and uplift over ordinary play. Balanced form uses an equal weight for pressure and ordinary performance with the same shrinkage, nine scenarios and conservative 20th percentile. The simple baselines use raw mean adjusted performance in pressure, all training opportunities, or the last training year.
+- A player needs at least ten later pressure opportunities to contribute to the primary mean. The JSON includes coverage and an opportunity-weighted sensitivity. A player with zero or limited coverage does not receive a zero score.
+- The paired intervals share 2,000 held-out whole-match resamples. Differences are comparator minus robust pressure. The intervals condition on the selected rosters and fitted context models. Periods are retrospective, and outcomes have been inspected in earlier analysis.
+- The constrained replay tests decisions available at each cutoff. The ten-name Round 1 lists use the full historical sample. The replay cannot establish that exact final order independent of those same observations.
 
-A match with a later date cannot enter the training data, pressure threshold, original selection or alternative baseline. Any exposure-aware recent opponent form used at inference time must come only from matches already played, with same-day matches frozen.
+## Reproduce
 
-**Modes:**
+```bash
+python src/backtest.py --summary-out output/strategy_backtest_summary.json
+python src/build_validation_report.py
+```
 
-- Cached single holdout (2022-2024 -> 2025-2026): use already-local strict_early.pkl and strict_late.pkl, created by src/analyse.py.
-- Multi-cutoff walk-forward (2022-2023 -> 2024, through 2024 -> 2025, through 2025 -> 2026): refit models per cutoff from the authorized original CSVs.
+See the [aggregate JSON](../output/strategy_backtest_summary.json) for exact values, date ranges, matched opportunities and paired intervals. The default private output `output/backtest_results.json` contains selection details and stays local.
 
-**Run from repository root:**
-
-~~~bash
-python src/analyse.py
-python src/backtest.py --mode cached --draws 300
-python src/backtest.py --mode walk-forward --cutoffs 2023 2024 2025 --draws 300
-~~~
-
-The generated output/backtest_results.json contains period, strategy, player coverage, future scores and intervals. Review it privately before publishing aggregate findings. It is deliberately excluded from this commit.
-
-**Interpretation:** Positive future run-equivalent residual does not demonstrate a causal improvement in win probability, auction value or a stable psychological pressure trait. Small or unequal future exposure can produce misleading ranking comparisons. Inspect both coverage and confidence intervals.
-
-### Experiment 2: Independent Cricsheet data checks
-
-**Implementation:** src/cricsheet_adapter.py
-
-Cricsheet publishes ball-by-ball JSON for many formats; the adapter extracts T20/T20I deliveries, inning, batter, bowler, score runs, wides/no-balls, legal-ball status, dismissals and phase into an isolated local CSV.
-
-~~~bash
-python src/cricsheet_adapter.py --json-dir /path/to/authorized/cricsheet-json
-~~~
-
-Cricsheet's competition/player naming, match exclusions, dismissal categories, target handling and data coverage must first be mapped to the private competition's entity IDs and opportunity accounting. No automatic ID joining or reranking has been implemented, and the adapter's existence must **not** be reported as independent validation. Do not combine external matches with the official restricted submission unless rules permit it.
-
-Dataset: https://cricsheet.org/matches/
-
-### Experiment 3: Bowling rotation scenario optimization
-
-**Implementation:** src/tactics.py
-
-This is an **optimization of user-supplied estimates**, not a trained cricket simulator. Given expected runs per over for 5-8 hypothetical bowlers in the powerplay, middle and death, it finds a minimum-cost 20-over rotation respecting at most four overs per bowler and no consecutive overs by the same bowler. It can compare a user-supplied legal baseline rotation.
-
-~~~bash
-python src/tactics.py --scenario examples/tactics_hypothetical.json
-~~~
-
-The sample numbers and player aliases are **synthetic**, only to test the solver. Outputs are scenario costs, **not** observed bowling figures, inferred pressure effects or predicted match wins. The model does not capture wickets, batter matchups, toss, pitch, bowling spells or tournament squad availability.
-
-Potential external simulator for later cross-checking: https://cricsynthesis.in/docs/. **No CricSynthesis integration/API call is claimed here.** Before feeding simulator exports into this optimizer, validate their phase-level run estimates and account for the uncertainty and model assumptions.
-
-### Results register
-
-| Evaluation | Status on this branch | Results |
-| --- | --- | --- |
-| Original chronological win model | Previously measured | 72.49% accuracy; Brier 0.1792 |
-| Original early-vs-late ranking stability | Previously measured | 0.232 batting / 0.105 bowling |
-| Cached frozen-selection backtest | Code added, needs local authorized pack/cache | Not run here |
-| Multi-cutoff walk-forward strategy backtest | Code added, needs local authorized pack | Not run here |
-| Cricsheet independent performance validation | Data adapter only | Not run; identity and scoring parity outstanding |
-| Bowling scenario optimization | Deterministic algorithm and synthetic tests | No real-player result |
-| Full XI or match-win simulation | Outside current scope | Not implemented |
-
-### Quality gates and limitations
-
-- Do not ship record-level private files, source extracts, source hashes changed by processing, or player-level ball-by-ball exports.
-- Never tune pressure cutoffs or model features against the same held-out period used for headline assessment.
-- Compare against simpler baselines, a matched evaluated-player universe and phase-specific demands, not only against the prior Top 10.
-- Report unavailable future exposure; avoid extrapolating from the small players who remain in the test period.
-- Distinguish **calibration of pre-ball win probability**, **ranking persistence**, **strategy generalization** and **team win probability**. They answer different questions.
-- For tournament decisions, verify auction eligibility, overseas limits, lineup roles, availability and team fit separately.
-
-### Next experiment to prioritize
-
-Run the cached backtest locally; inspect the coverage, numerical lift over the three baselines and match-bootstrap intervals. If promising, complete repeated walk-forward tests. Only after reviewing genuine holdout results should a strategy be presented as a recruitment recommendation.
-
-Source repository: https://github.com/harshsinha-12/rajasthan-royals  
-Prepared by Harsh Sinha.
+Independent Cricsheet scoring and real-player bowling rotations remain separate experiments. `src/cricsheet_adapter.py` parses external matches without a player-identity join. `src/tactics.py` optimizes a legal rotation from assumptions supplied by the caller. It reports scenario costs.

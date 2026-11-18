@@ -7,6 +7,13 @@
   const search=value=>{$('player-search').value=value;$('player-search').dispatchEvent(new Event('input',{bubbles:true}));};
   const rows=()=>document.querySelectorAll('#player-rows tr');
   try{
+    const portalLists = [...document.querySelectorAll('#portal-lists article')];
+    assert(portalLists.length===2&&portalLists.every(list=>list.querySelectorAll('tbody tr').length===10),'Both Unstop lists contain ten ranks');
+    assert(portalLists[0].querySelector('tbody tr').textContent.includes('Dinesh Karthik')&&portalLists[1].querySelector('tbody tr').textContent.includes('Ravindra Jadeja'),'Unstop lists show the team leaders');
+    assert($('backtest-table').querySelectorAll('tbody tr').length===6&&$('backtest-context').textContent.includes('ten training-eligible'),'Full backtest shows both roles for three seasons');
+    change('backtest-pool','portal_roles');
+    assert($('backtest-context').textContent.includes('20 Unstop names')&&$('backtest-table').textContent.includes('2/2 scored'),'Backtest pool switches to the restricted replay');
+    change('backtest-pool','roles');
 
     assert(rows().length===10&&rows()[0].textContent.includes('Ashutosh Sharma'),'Default final batting order');
     assert($('cutline-summary').textContent.includes('Kamindu Mendis (12.44)')&&$('cutline-summary').textContent.includes('Yashasvi Jaiswal (12.17)'),'Batting cutoff names and scores');
@@ -17,6 +24,8 @@
     change('pool-filter','selected');change('role-filter','Opening');assert(rows().length===3,'Observed opening roles');
     let copied='';
     Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{copied=text;}}});
+    document.querySelector('[data-portal-copy="bowlers"]').click();await new Promise(r=>setTimeout(r,10));
+    assert(copied.split('\n').length===10&&copied.startsWith('1. Ravindra Jadeja')&&copied.endsWith('10. Muhammad Farooq'),'Copy uses the exact Unstop dropdown order');
     $('copy-rankings').click();await new Promise(r=>setTimeout(r,10));
     assert(copied.split('\n').length===10&&copied.startsWith('1. Ashutosh Sharma')&&copied.endsWith('10. Kamindu Mendis'),'Copy preserves full submission order despite filters');
     change('role-filter','all');$('view-chart').click();assert(!$('chart-view').hidden&&document.querySelectorAll('.chart-player').length===10,'Uncertainty plot');

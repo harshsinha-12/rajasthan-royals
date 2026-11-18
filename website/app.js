@@ -49,7 +49,7 @@
   }
   function renderPlayers() {
     const list=filteredPlayers();const total=state.pool==='selected'?10:DATA.players[state.role].length;
-    $('results-count').textContent=`${list.length} of ${total} ${state.pool==='selected'?'final selections':'eligible entries'} · ${state.role==='batters'?'Batting':'Bowling'}`;
+    $('results-count').textContent=`${list.length} of ${total} ${state.pool==='selected'?'historical leaders':'eligible entries'} · ${state.role==='batters'?'Batting':'Bowling'}`;
     $('player-search').placeholder=state.pool==='selected'?'Search the selections':`Search all ${total} eligible entries`;
     $('empty-state').hidden=list.length>0;
     $('table-view').hidden=state.view!=='table'||!list.length;
@@ -89,7 +89,7 @@
   }
   function compareCard(p,role,domain) {
     const bat=role==='batters';
-    return `<article class="compare-card"><div class="compare-card-heading"><div><p class="compare-rank">${p.rank<=10?'FINAL SELECTION':'ELIGIBLE ENTRY'} #${p.rank}</p><h3>${esc(p.name)}</h3><p class="profile-role">${esc(p.role.label)}</p></div><div class="compare-card-score">${fmt(p.score,2)}<small>Selection score</small></div></div>${advantageChart(p,domain)}<div class="compare-card-stats"><div><strong>${fmt(p.p_balls,0)}</strong><span>Pressure ${bat?'balls':'opportunities'}<br>across ${p.p_matches} matches</span></div><div><strong>${fmt(bat?p.pressure_strike_rate:p.pressure_economy,bat?1:2)}</strong><span>Pressure ${bat?'strike rate':'economy'}<br>usual: ${fmt(bat?p.normal_strike_rate:p.normal_economy,bat?1:2)}</span></div><div><strong>${signed(p.uplift)}</strong><span>Adjusted uplift / 100<br>vs usual level</span></div></div><div class="comparison-band"><span>90% rating band: <strong>${fmt(p.ci_low)} to ${fmt(p.ci_high)}</strong></span><span>Positive matches: <strong>${fmt(p.positive_pressure_match_pct)}%</strong></span></div><button class="text-link profile-compare-link" data-profile="${p.player_id}" data-profile-role="${role}" style="border:0;background:transparent;margin-top:14px;padding-left:0">Full player evidence ↗</button></article>`;
+    return `<article class="compare-card"><div class="compare-card-heading"><div><p class="compare-rank">${p.rank<=10?'HISTORICAL LEADER':'ELIGIBLE ENTRY'} #${p.rank}</p><h3>${esc(p.name)}</h3><p class="profile-role">${esc(p.role.label)}</p></div><div class="compare-card-score">${fmt(p.score,2)}<small>Selection score</small></div></div>${advantageChart(p,domain)}<div class="compare-card-stats"><div><strong>${fmt(p.p_balls,0)}</strong><span>Pressure ${bat?'balls':'opportunities'}<br>across ${p.p_matches} matches</span></div><div><strong>${fmt(bat?p.pressure_strike_rate:p.pressure_economy,bat?1:2)}</strong><span>Pressure ${bat?'strike rate':'economy'}<br>usual: ${fmt(bat?p.normal_strike_rate:p.normal_economy,bat?1:2)}</span></div><div><strong>${signed(p.uplift)}</strong><span>Adjusted uplift / 100<br>vs usual level</span></div></div><div class="comparison-band"><span>90% rating band: <strong>${fmt(p.ci_low)} to ${fmt(p.ci_high)}</strong></span><span>Positive matches: <strong>${fmt(p.positive_pressure_match_pct)}%</strong></span></div><button class="text-link profile-compare-link" data-profile="${p.player_id}" data-profile-role="${role}" style="border:0;background:transparent;margin-top:14px;padding-left:0">Full player evidence ↗</button></article>`;
   }
   function setupComparison(role,ids=[]) {
     $('compare-role').value=role;
@@ -107,7 +107,7 @@
   function openProfile(role,id,updateUrl=true) {
     const p=lookup(role,id);if(!p)return;state.profile={role,id:p.player_id};const bat=role==='batters';
     const phaseEntries=['Powerplay','Middle','Death'].map(phase=>profileLine(phase,`${fmt(p.role.phases[phase]||0,0)} ${bat?'balls':'opps'}`)).join('');
-    $('player-profile').innerHTML=`<div class="profile-header"><p class="profile-overline">${bat?'BATTER':'BOWLER'} · ${p.rank<=10?'FINAL TOP 10':'ELIGIBLE POOL'} · RANK #${p.rank}</p><h2 id="player-title">${esc(p.name)}</h2><p class="profile-role">${esc(p.role.label)}${bat?` · Modal batting position ${p.role.position}`:` · ${esc(p.role.bowling_type)}`}</p></div><div class="profile-body"><div class="profile-score-row"><div><div class="profile-score-value">${fmt(p.score,2)}</div><div class="profile-score-label">Conservative selection score / 100 opportunities</div></div><button class="button button-outline button-small" id="profile-add-compare">Add to comparison <span aria-hidden="true">+</span></button></div><div class="profile-stats"><div><strong>${fmt(p.p_balls,0)}</strong><span>Pressure ${bat?'balls':'opportunities'}</span></div><div><strong>${p.p_matches}</strong><span>Pressure matches</span></div><div><strong>${signed(p.uplift)}</strong><span>Adjusted uplift / 100</span></div></div><div class="profile-evidence"><div><h3>Pressure vs ordinary</h3>${profileLine(bat?'Pressure strike rate':'Pressure economy',fmt(bat?p.pressure_strike_rate:p.pressure_economy,bat?1:2))}${profileLine(bat?'Ordinary strike rate':'Ordinary economy',fmt(bat?p.normal_strike_rate:p.normal_economy,bat?1:2))}${profileLine(bat?'Pressure runs / dismissals':'Pressure wickets / runs',bat?`${p.runs} / ${p.outs}`:`${p.wickets} / ${p.conceded}`)}${profileLine('Positive pressure matches',`${fmt(p.positive_pressure_match_pct)}% (${p.positive_pressure_matches}/${p.p_matches})`)}${profileLine('Resampled top-10 frequency',`${fmt(p.top10_bootstrap_pct)}%`)}</div><div><h3>Where the evidence comes from</h3>${phaseEntries}${profileLine('IPL pressure exposure',`${fmt(p.ipl_p_balls,0)} ${bat?'balls':'opps'}`)}${profileLine('T20I pressure exposure',`${fmt(p.p_balls-p.ipl_p_balls,0)} ${bat?'balls':'opps'}`)}</div></div><div class="profile-band"><strong>Robust estimate ${fmt(p.rating,2)}</strong> · 90% match-resample band: <strong>${fmt(p.ci_low,2)} to ${fmt(p.ci_high,2)}</strong>.<br>These bands condition on fitted models and eligibility. Resampled top-10 frequency is a stability diagnostic, not a probability that a player is truly top 10.</div><div class="profile-actions"><button class="button button-primary button-small" id="profile-copy-name">Copy player name ⧉</button><button class="button button-outline button-small" id="profile-copy-link">Copy profile link ↗</button><span class="fine-print" style="margin:0;align-self:center">Source player ID: ${p.player_id}</span></div></div>`;
+    $('player-profile').innerHTML=`<div class="profile-header"><p class="profile-overline">${bat?'BATTER':'BOWLER'} · ${p.rank<=10?'HISTORICAL TOP 10':'ELIGIBLE POOL'} · RANK #${p.rank}</p><h2 id="player-title">${esc(p.name)}</h2><p class="profile-role">${esc(p.role.label)}${bat?` · Modal batting position ${p.role.position}`:` · ${esc(p.role.bowling_type)}`}</p></div><div class="profile-body"><div class="profile-score-row"><div><div class="profile-score-value">${fmt(p.score,2)}</div><div class="profile-score-label">Conservative selection score / 100 opportunities</div></div><button class="button button-outline button-small" id="profile-add-compare">Add to comparison <span aria-hidden="true">+</span></button></div><div class="profile-stats"><div><strong>${fmt(p.p_balls,0)}</strong><span>Pressure ${bat?'balls':'opportunities'}</span></div><div><strong>${p.p_matches}</strong><span>Pressure matches</span></div><div><strong>${signed(p.uplift)}</strong><span>Adjusted uplift / 100</span></div></div><div class="profile-evidence"><div><h3>Pressure vs ordinary</h3>${profileLine(bat?'Pressure strike rate':'Pressure economy',fmt(bat?p.pressure_strike_rate:p.pressure_economy,bat?1:2))}${profileLine(bat?'Ordinary strike rate':'Ordinary economy',fmt(bat?p.normal_strike_rate:p.normal_economy,bat?1:2))}${profileLine(bat?'Pressure runs / dismissals':'Pressure wickets / runs',bat?`${p.runs} / ${p.outs}`:`${p.wickets} / ${p.conceded}`)}${profileLine('Positive pressure matches',`${fmt(p.positive_pressure_match_pct)}% (${p.positive_pressure_matches}/${p.p_matches})`)}${profileLine('Resampled top-10 frequency',`${fmt(p.top10_bootstrap_pct)}%`)}</div><div><h3>Where the evidence comes from</h3>${phaseEntries}${profileLine('IPL pressure exposure',`${fmt(p.ipl_p_balls,0)} ${bat?'balls':'opps'}`)}${profileLine('T20I pressure exposure',`${fmt(p.p_balls-p.ipl_p_balls,0)} ${bat?'balls':'opps'}`)}</div></div><div class="profile-band"><strong>Robust estimate ${fmt(p.rating,2)}</strong> · 90% match-resample band: <strong>${fmt(p.ci_low,2)} to ${fmt(p.ci_high,2)}</strong>.<br>These bands condition on fitted models and eligibility. Resampled top-10 frequency is a stability diagnostic, not a probability that a player is truly top 10.</div><div class="profile-actions"><button class="button button-primary button-small" id="profile-copy-name">Copy player name ⧉</button><button class="button button-outline button-small" id="profile-copy-link">Copy profile link ↗</button><span class="fine-print" style="margin:0;align-self:center">Source player ID: ${p.player_id}</span></div></div>`;
     $('profile-add-compare').addEventListener('click',()=>{toggleCompare(role,p.player_id);$('player-dialog').close();});
     $('profile-copy-name').addEventListener('click',()=>copy(p.name,`${p.name} copied`));
     $('profile-copy-link').addEventListener('click',()=>{const u=new URL(location.href);u.search='';u.searchParams.set('role',role);u.searchParams.set('player',p.player_id);copy(u.toString(),'Player profile link copied');});
@@ -119,13 +119,42 @@
     try{const u=new URL(location.href);u.searchParams.delete('player');history.replaceState(null,'',u);}catch{}
   }
   function renderHero() {
-    $('hero-leaders').innerHTML=['batters','bowlers'].map(role=>{const p=selected(role)[0];return `<div class="leader-row"><div><span class="leader-role">#1 ${role==='batters'?'BATTER':'BOWLER'}</span><strong>${esc(p.name)}</strong></div><div class="leader-track" aria-hidden="true"><span style="width:${p.score/30*100}%"></span></div><span class="leader-score">${fmt(p.score,2)}</span></div>`;}).join('');
+    $('hero-leaders').innerHTML=['batters','bowlers'].map(role=>{const p=DATA.portal[role][0];return `<div class="leader-row"><div><span class="leader-role">#1 ${role==='batters'?'BATTER':'BOWLER'}</span><strong>${esc(p.name)}</strong></div><div class="leader-track" aria-hidden="true"><span style="width:${p.score/30*100}%"></span></div><span class="leader-score">${fmt(p.score,2)}</span></div>`;}).join('');
+  }
+  function renderPortal() {
+    $('portal-lists').innerHTML = Object.entries(DATA.portal).map(([role, players]) => {
+      const title = role === 'batters' ? 'Batters' : 'Bowlers';
+      const rows = players.map(player => `<tr><td>${player.rank}</td><th scope="row">${esc(player.name)}<small>${esc(player.evidence)}</small></th><td>${player.score === null ? '—' : signed(player.score, 2)}</td></tr>`).join('');
+      return `<article class="portal-list"><div class="portal-heading"><h3 id="portal-${role}">${title}</h3><button class="button button-outline button-small" type="button" data-portal-copy="${role}">Copy ${title.toLowerCase()}</button></div><table aria-labelledby="portal-${role}"><thead><tr><th scope="col">Rank</th><th scope="col">Player</th><th scope="col">Score / 100</th></tr></thead><tbody>${rows}</tbody></table></article>`;
+    }).join('');
+    for (const button of $('portal-lists').querySelectorAll('[data-portal-copy]')) {
+      button.addEventListener('click', () => {
+        const role = button.dataset.portalCopy;
+        copy(DATA.portal[role].map(player => `${player.rank}. ${player.name}`).join('\n'), `Unstop ${role} copied in submission order`);
+      });
+    }
+  }
+  function renderBacktest() {
+    const scope = $('backtest-pool').value;
+    const methods = Object.entries(DATA.backtest.strategy_labels);
+    const rows = DATA.backtest.periods.flatMap(period => Object.entries(period[scope]).map(([role, pool]) => {
+      const cells = methods.map(([key]) => {
+        const result = pool.strategies?.[key];
+        const estimate = result?.future_mean_per_100;
+        return `<td>${estimate == null ? '—' : signed(estimate)}<small>${result ? `${result.evaluated}/${result.selected} scored` : '—'}</small></td>`;
+      }).join('');
+      return `<tr><th scope="row">${period.test_years[0]} ${role === 'batters' ? 'batting' : 'bowling'}</th>${cells}</tr>`;
+    }));
+    $('backtest-table').innerHTML = `<table aria-label="Later-season pressure performance by selection method"><thead><tr><th scope="col">Test year</th>${methods.map(([, label]) => `<th scope="col">${esc(label)}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`;
+    $('backtest-context').textContent = scope === 'portal_roles'
+      ? 'Up to three training-eligible players per method from the 20 Unstop names. Robust and balanced bowling tied in all three seasons.'
+      : 'Up to ten training-eligible players per method. Balanced bowling led robust pressure in all three splits, with paired intervals that included zero.';
   }
   function renderCoverage() {
     $('role-coverage').innerHTML=['batters','bowlers'].map(role=>{
       const picks=selected(role),groups=role==='batters'?['Opening','Middle order','Late order']:['Powerplay','Middle','Death'];
       const rows=groups.map(g=>{const n=picks.filter(p=>p.role.group===g).length;return `<div class="coverage-row"><span>${g==='Middle'?'Middle overs':g==='Death'?'Death overs':g}</span><span class="coverage-track"><span style="width:${n/10*100}%"></span></span><strong>${n}</strong></div>`;}).join('');
-      return `<article><div class="coverage-heading"><h3>${role==='batters'?'Batting positions':'Bowling phases'}</h3><span class="data-label">FINAL 10</span></div>${rows}<p class="coverage-names">${role==='batters'?'Positions are classified by the modal batting order in the reference pressure sample.':'Phases are classified by the largest number of reference pressure opportunities, across both innings.'}</p></article>`;
+      return `<article><div class="coverage-heading"><h3>${role==='batters'?'Batting positions':'Bowling phases'}</h3><span class="data-label">HISTORICAL TOP 10</span></div>${rows}<p class="coverage-names">${role==='batters'?'Positions are classified by the modal batting order in the reference pressure sample.':'Phases are classified by the largest number of reference pressure opportunities, across both innings.'}</p></article>`;
     }).join('');
   }
   function renderValidation() {
@@ -147,7 +176,8 @@
   [['pool-filter','pool'],['role-filter','group'],['coverage-filter','coverage'],['sort-filter','sort']].forEach(([id,key])=>$(id).addEventListener('change',e=>{state[key]=e.target.value;renderPlayers();}));
   $('view-table').addEventListener('click',()=>{state.view='table';renderPlayers();});$('view-chart').addEventListener('click',()=>{state.view='chart';renderPlayers();});
   $('reset-filters').addEventListener('click',()=>{state.search='';state.group='all';state.coverage='all';$('player-search').value='';$('role-filter').value='all';$('coverage-filter').value='all';renderPlayers();});
-  $('copy-rankings').addEventListener('click',()=>copy(selected(state.role).map(p=>`${p.rank}. ${p.name}`).join('\n'),`Final top 10 ${state.role} copied in submission order`));
+  $('copy-rankings').addEventListener('click',()=>copy(selected(state.role).map(p=>`${p.rank}. ${p.name}`).join('\n'),`Historical top 10 ${state.role} copied`));
+  $('backtest-pool').addEventListener('change', renderBacktest);
   $('compare-cutline').addEventListener('click', () => {
     setupComparison(state.role, cutoffPair(state.role).map(player => player.player_id));
     $('compare-role').focus({preventScroll: true});
@@ -161,7 +191,7 @@
   $('compare-role').addEventListener('change',e=>setupComparison(e.target.value));$('compare-a').addEventListener('change',renderComparison);$('compare-b').addEventListener('change',renderComparison);
   $('dialog-close').addEventListener('click',()=>$('player-dialog').close());$('player-dialog').addEventListener('close',closeProfile);
   $('player-dialog').addEventListener('click',e=>{if(e.target===$('player-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
-  renderHero();renderCoverage();renderValidation();setupComparison('batters');roleOptions();
+  renderHero();renderPortal();renderCoverage();renderValidation();renderBacktest();setupComparison('batters');roleOptions();
   const params=new URLSearchParams(location.search);setRole(params.get('role')==='bowlers'?'bowlers':'batters');
   if(params.has('player'))openProfile(state.role,params.get('player'),false);
 })();

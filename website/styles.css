@@ -22,3 +22,18 @@
 .strategy-footer{margin-top:20px;display:flex;justify-content:space-between;gap:24px;align-items:center}
 .strategy-footer p{max-width:650px;font-size:13px;color:var(--muted)}
 @media(max-width:860px){.strategy-grid{grid-template-columns:1fr}.strategy-footer{align-items:flex-start;flex-direction:column}.strategy-footer .button{width:100%;justify-content:center}}
+
+.portal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.portal-list { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.portal-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.portal-heading h3 { margin: 0; }
+.portal-list table, .backtest-table table { width: 100%; border-collapse: collapse; text-align: left; }
+.portal-list th, .portal-list td, .backtest-table th, .backtest-table td { padding: 8px 7px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.portal-list thead th, .backtest-table thead th { color: var(--muted); font-size: .78rem; }
+.portal-list td:last-child, .backtest-table td { font-variant-numeric: tabular-nums; }
+.portal-list small, .backtest-table small { display: block; color: var(--muted); font-size: .72rem; font-weight: 400; }
+.backtest-control { display: inline-flex; margin-bottom: 12px; }
+.backtest-table { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.backtest-table table { min-width: 640px; }
+.backtest-table th, .backtest-table td { padding: 12px; }
+@media (max-width: 650px) { .portal-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; } }

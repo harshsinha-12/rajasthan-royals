@@ -1,0 +1,1114 @@
+{
+  "status": "measured_locally",
+  "mode": "walk-forward",
+  "draws": 2000,
+  "ranking_draws": 2000,
+  "min_holdout_opportunities": 10,
+  "strategy_labels": {
+    "robust_pressure": "Robust pressure",
+    "balanced_form": "Balanced form",
+    "pressure_only": "Pressure-only",
+    "overall_form": "Overall form",
+    "recent_form": "Recent form"
+  },
+  "periods": [
+    {
+      "train_through": 2023,
+      "test_years": [
+        2024
+      ],
+      "train_matches": 292,
+      "holdout_matches": 165,
+      "holdout_start": "2024-01-11",
+      "holdout_end": "2024-12-30",
+      "roles": {
+        "batters": {
+          "status": "evaluated",
+          "eligible": 84,
+          "selection_size": 10,
+          "distinct_selections": 5,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 417,
+              "future_mean_per_100": -10.353209934978075,
+              "opportunity_weighted_per_100": 0.3564866513439134,
+              "interval_95": [
+                -83.0617639782376,
+                19.223329696085695
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 10,
+              "evaluated": 10,
+              "pressure_opportunities": 575,
+              "future_mean_per_100": -13.178456992714077,
+              "opportunity_weighted_per_100": 3.925195277391642,
+              "interval_95": [
+                -77.00895103084386,
+                12.551259535063556
+              ],
+              "difference_from_pressure_strategy": -2.825247057736002,
+              "paired_difference_interval_95": [
+                -41.39512269065749,
+                36.70260216699295
+              ]
+            },
+            "pressure_only": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 334,
+              "future_mean_per_100": -8.909225257826344,
+              "opportunity_weighted_per_100": -3.193311944046851,
+              "interval_95": [
+                -84.08549653716267,
+                30.69112455403687
+              ],
+              "difference_from_pressure_strategy": 1.4439846771517306,
+              "paired_difference_interval_95": [
+                -11.126212478314368,
+                25.109145215476286
+              ]
+            },
+            "overall_form": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 462,
+              "future_mean_per_100": -23.813424955976945,
+              "opportunity_weighted_per_100": -2.983108500899871,
+              "interval_95": [
+                -103.08715196621692,
+                9.595344290032418
+              ],
+              "difference_from_pressure_strategy": -13.46021502099887,
+              "paired_difference_interval_95": [
+                -61.05053375227993,
+                26.661080154272696
+              ]
+            },
+            "recent_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 516,
+              "future_mean_per_100": -3.8236248371635204,
+              "opportunity_weighted_per_100": 11.410320827707064,
+              "interval_95": [
+                -67.66446543688433,
+                29.946407868965835
+              ],
+              "difference_from_pressure_strategy": 6.529585097814555,
+              "paired_difference_interval_95": [
+                -31.182816880675063,
+                57.753002111130016
+              ]
+            }
+          }
+        },
+        "bowlers": {
+          "status": "evaluated",
+          "eligible": 80,
+          "selection_size": 10,
+          "distinct_selections": 5,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 448,
+              "future_mean_per_100": -12.815350387158997,
+              "opportunity_weighted_per_100": -15.057455874283935,
+              "interval_95": [
+                -45.47334929266931,
+                21.007821010931377
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 407,
+              "future_mean_per_100": 15.609933051127525,
+              "opportunity_weighted_per_100": 8.539573517103488,
+              "interval_95": [
+                -23.548371017222653,
+                47.011806030421056
+              ],
+              "difference_from_pressure_strategy": 28.42528343828652,
+              "paired_difference_interval_95": [
+                -14.331800830664603,
+                62.587940152585425
+              ]
+            },
+            "pressure_only": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 456,
+              "future_mean_per_100": -10.553359571262103,
+              "opportunity_weighted_per_100": -12.578583445912521,
+              "interval_95": [
+                -42.79282409915576,
+                23.611319848924435
+              ],
+              "difference_from_pressure_strategy": 2.261990815896894,
+              "paired_difference_interval_95": [
+                -13.442780225843457,
+                17.98944738670115
+              ]
+            },
+            "overall_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 479,
+              "future_mean_per_100": 18.762093821828795,
+              "opportunity_weighted_per_100": 11.88327570077945,
+              "interval_95": [
+                -22.167412945750076,
+                51.436109019878714
+              ],
+              "difference_from_pressure_strategy": 31.577444208987792,
+              "paired_difference_interval_95": [
+                -17.980145463880664,
+                72.38279512732255
+              ]
+            },
+            "recent_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 554,
+              "future_mean_per_100": 10.34687128277329,
+              "opportunity_weighted_per_100": 8.009134517441785,
+              "interval_95": [
+                -30.141378807594926,
+                57.92263585843837
+              ],
+              "difference_from_pressure_strategy": 23.162221669932286,
+              "paired_difference_interval_95": [
+                -32.28975462773055,
+                79.48957958902302
+              ]
+            }
+          }
+        }
+      },
+      "portal_roles": {
+        "batters": {
+          "status": "evaluated",
+          "eligible": 7,
+          "selection_size": 3,
+          "distinct_selections": 3,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 3,
+              "evaluated": 3,
+              "pressure_opportunities": 145,
+              "future_mean_per_100": 64.3945634594228,
+              "opportunity_weighted_per_100": 45.18577199769854,
+              "interval_95": [
+                -62.800468461038726,
+                105.84568675628033
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 3,
+              "evaluated": 3,
+              "pressure_opportunities": 198,
+              "future_mean_per_100": 9.109927703774181,
+              "opportunity_weighted_per_100": 17.165510742972028,
+              "interval_95": [
+                -17.37450758492884,
+                35.34861800704309
+              ],
+              "difference_from_pressure_strategy": -55.284635755648615,
+              "paired_difference_interval_95": [
+                -107.13240369968447,
+                70.3829198855235
+              ]
+            },
+            "pressure_only": {
+              "selected": 3,
+              "evaluated": 3,
+              "pressure_opportunities": 102,
+              "future_mean_per_100": 60.71760706005477,
+              "opportunity_weighted_per_100": 53.586999849106995,
+              "interval_95": [
+                -41.17838700015983,
+                98.69848606846817
+              ],
+              "difference_from_pressure_strategy": -3.6769563993680308,
+              "paired_difference_interval_95": [
+                -21.279505690026944,
+                62.99876820597474
+              ]
+            },
+            "overall_form": {
+              "selected": 3,
+              "evaluated": 3,
+              "pressure_opportunities": 198,
+              "future_mean_per_100": 9.10992770377418,
+              "opportunity_weighted_per_100": 17.165510742972028,
+              "interval_95": [
+                -17.37450758492884,
+                35.34861800704309
+              ],
+              "difference_from_pressure_strategy": -55.28463575564862,
+              "paired_difference_interval_95": [
+                -107.13240369968447,
+                70.3829198855235
+              ]
+            },
+            "recent_form": {
+              "selected": 3,
+              "evaluated": 3,
+              "pressure_opportunities": 198,
+              "future_mean_per_100": 9.109927703774181,
+              "opportunity_weighted_per_100": 17.165510742972028,
+              "interval_95": [
+                -17.37450758492884,
+                35.34861800704309
+              ],
+              "difference_from_pressure_strategy": -55.284635755648615,
+              "paired_difference_interval_95": [
+                -107.13240369968447,
+                70.3829198855235
+              ]
+            }
+          }
+        },
+        "bowlers": {
+          "status": "evaluated",
+          "eligible": 2,
+          "selection_size": 2,
+          "distinct_selections": 1,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 2,
+              "evaluated": 2,
+              "pressure_opportunities": 134,
+              "future_mean_per_100": -5.2863316408069885,
+              "opportunity_weighted_per_100": -6.066843188808453,
+              "interval_95": [
+                -47.402631356404655,
+                71.90754126800968
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 2,
+              "evaluated": 2,
+              "pressure_opportunities": 134,
+              "future_mean_per_100": -5.2863316408069885,
+              "opportunity_weighted_per_100": -6.066843188808453,
+              "interval_95": [
+                -47.402631356404655,
+                71.90754126800968
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "pressure_only": {
+              "selected": 2,
+              "evaluated": 2,
+              "pressure_opportunities": 134,
+              "future_mean_per_100": -5.2863316408069885,
+              "opportunity_weighted_per_100": -6.066843188808453,
+              "interval_95": [
+                -47.402631356404655,
+                71.90754126800968
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "overall_form": {
+              "selected": 2,
+              "evaluated": 2,
+              "pressure_opportunities": 134,
+              "future_mean_per_100": -5.2863316408069885,
+              "opportunity_weighted_per_100": -6.066843188808453,
+              "interval_95": [
+                -47.402631356404655,
+                71.90754126800968
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recent_form": {
+              "selected": 2,
+              "evaluated": 2,
+              "pressure_opportunities": 134,
+              "future_mean_per_100": -5.2863316408069885,
+              "opportunity_weighted_per_100": -6.066843188808453,
+              "interval_95": [
+                -47.402631356404655,
+                71.90754126800968
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "train_through": 2024,
+      "test_years": [
+        2025
+      ],
+      "train_matches": 457,
+      "holdout_matches": 176,
+      "holdout_start": "2025-01-02",
+      "holdout_end": "2025-12-19",
+      "roles": {
+        "batters": {
+          "status": "evaluated",
+          "eligible": 122,
+          "selection_size": 10,
+          "distinct_selections": 5,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 503,
+              "future_mean_per_100": 21.987887150348527,
+              "opportunity_weighted_per_100": 22.07813023790902,
+              "interval_95": [
+                -25.445232042740987,
+                51.25927402368645
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 584,
+              "future_mean_per_100": 9.492948092997505,
+              "opportunity_weighted_per_100": 28.159294886963668,
+              "interval_95": [
+                -62.98921757638695,
+                56.401472703961474
+              ],
+              "difference_from_pressure_strategy": -12.494939057351022,
+              "paired_difference_interval_95": [
+                -83.8939996747601,
+                46.0888470229735
+              ]
+            },
+            "pressure_only": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 533,
+              "future_mean_per_100": 11.259412274874032,
+              "opportunity_weighted_per_100": 5.268108738080893,
+              "interval_95": [
+                -36.80418163333293,
+                35.723852798805915
+              ],
+              "difference_from_pressure_strategy": -10.728474875474495,
+              "paired_difference_interval_95": [
+                -36.765716643812226,
+                10.74307358476663
+              ]
+            },
+            "overall_form": {
+              "selected": 10,
+              "evaluated": 10,
+              "pressure_opportunities": 560,
+              "future_mean_per_100": 1.660107275641933,
+              "opportunity_weighted_per_100": 24.043383580785154,
+              "interval_95": [
+                -60.655583447079344,
+                52.936983699274
+              ],
+              "difference_from_pressure_strategy": -20.327779874706593,
+              "paired_difference_interval_95": [
+                -81.87555187043309,
+                44.77486687821283
+              ]
+            },
+            "recent_form": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 605,
+              "future_mean_per_100": 11.653270004398749,
+              "opportunity_weighted_per_100": 12.380258176900723,
+              "interval_95": [
+                -29.810259272707185,
+                55.07311360919659
+              ],
+              "difference_from_pressure_strategy": -10.334617145949778,
+              "paired_difference_interval_95": [
+                -56.052623651842254,
+                48.22446763574616
+              ]
+            }
+          }
+        },
+        "bowlers": {
+          "status": "evaluated",
+          "eligible": 126,
+          "selection_size": 10,
+          "distinct_selections": 5,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 10,
+              "evaluated": 7,
+              "pressure_opportunities": 362,
+              "future_mean_per_100": -41.61526538812066,
+              "opportunity_weighted_per_100": -28.501561743182407,
+              "interval_95": [
+                -76.62055707116942,
+                -11.825781465759269
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 667,
+              "future_mean_per_100": -11.003133038796827,
+              "opportunity_weighted_per_100": 1.2635689811974034,
+              "interval_95": [
+                -48.478116083082995,
+                20.66332981918865
+              ],
+              "difference_from_pressure_strategy": 30.612132349323836,
+              "paired_difference_interval_95": [
+                -19.192213178208515,
+                77.44118914530924
+              ]
+            },
+            "pressure_only": {
+              "selected": 10,
+              "evaluated": 7,
+              "pressure_opportunities": 338,
+              "future_mean_per_100": -42.1548277669261,
+              "opportunity_weighted_per_100": -29.510384381284517,
+              "interval_95": [
+                -97.04737288777895,
+                -4.360085270880898
+              ],
+              "difference_from_pressure_strategy": -0.5395623788054351,
+              "paired_difference_interval_95": [
+                -50.95281168659216,
+                41.92590020548091
+              ]
+            },
+            "overall_form": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 625,
+              "future_mean_per_100": 1.938943464972559,
+              "opportunity_weighted_per_100": 12.067677914809684,
+              "interval_95": [
+                -37.59347400357861,
+                34.012854167530385
+              ],
+              "difference_from_pressure_strategy": 43.55420885309322,
+              "paired_difference_interval_95": [
+                -5.409494485523046,
+                94.41678054512343
+              ]
+            },
+            "recent_form": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 606,
+              "future_mean_per_100": 6.756744404890353,
+              "opportunity_weighted_per_100": 12.972088714369443,
+              "interval_95": [
+                -19.208643503838104,
+                37.31230082199266
+              ],
+              "difference_from_pressure_strategy": 48.37200979301102,
+              "paired_difference_interval_95": [
+                6.951750060515335,
+                93.86637565210562
+              ]
+            }
+          }
+        }
+      },
+      "portal_roles": {
+        "batters": {
+          "status": "evaluated",
+          "eligible": 8,
+          "selection_size": 3,
+          "distinct_selections": 2,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 176,
+              "future_mean_per_100": 28.520823443499072,
+              "opportunity_weighted_per_100": 30.268318360957778,
+              "interval_95": [
+                -40.50035152467432,
+                71.80779819678081
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 135,
+              "future_mean_per_100": -34.5007560435604,
+              "opportunity_weighted_per_100": 2.013134652594054,
+              "interval_95": [
+                -121.33219426154041,
+                7.181832367550829
+              ],
+              "difference_from_pressure_strategy": -63.02157948705947,
+              "paired_difference_interval_95": [
+                -148.5055297999602,
+                3.0789304756158664
+              ]
+            },
+            "pressure_only": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 176,
+              "future_mean_per_100": 28.520823443499072,
+              "opportunity_weighted_per_100": 30.268318360957778,
+              "interval_95": [
+                -40.50035152467432,
+                71.80779819678081
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "overall_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 135,
+              "future_mean_per_100": -34.5007560435604,
+              "opportunity_weighted_per_100": 2.013134652594054,
+              "interval_95": [
+                -121.33219426154041,
+                7.181832367550829
+              ],
+              "difference_from_pressure_strategy": -63.02157948705947,
+              "paired_difference_interval_95": [
+                -148.5055297999602,
+                3.0789304756158664
+              ]
+            },
+            "recent_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 176,
+              "future_mean_per_100": 28.520823443499072,
+              "opportunity_weighted_per_100": 30.268318360957778,
+              "interval_95": [
+                -40.50035152467432,
+                71.80779819678081
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "bowlers": {
+          "status": "evaluated",
+          "eligible": 4,
+          "selection_size": 3,
+          "distinct_selections": 1,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 97,
+              "future_mean_per_100": -31.628941101659123,
+              "opportunity_weighted_per_100": 2.277624486318892,
+              "interval_95": [
+                -202.01568509921213,
+                51.91537918418629
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 97,
+              "future_mean_per_100": -31.628941101659123,
+              "opportunity_weighted_per_100": 2.277624486318892,
+              "interval_95": [
+                -202.01568509921213,
+                51.91537918418629
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "pressure_only": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 97,
+              "future_mean_per_100": -31.628941101659123,
+              "opportunity_weighted_per_100": 2.277624486318892,
+              "interval_95": [
+                -202.01568509921213,
+                51.91537918418629
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "overall_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 97,
+              "future_mean_per_100": -31.628941101659123,
+              "opportunity_weighted_per_100": 2.277624486318892,
+              "interval_95": [
+                -202.01568509921213,
+                51.91537918418629
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recent_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 97,
+              "future_mean_per_100": -31.628941101659123,
+              "opportunity_weighted_per_100": 2.277624486318892,
+              "interval_95": [
+                -202.01568509921213,
+                51.91537918418629
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "train_through": 2025,
+      "test_years": [
+        2026
+      ],
+      "train_matches": 633,
+      "holdout_matches": 130,
+      "holdout_start": "2026-01-07",
+      "holdout_end": "2026-11-01",
+      "roles": {
+        "batters": {
+          "status": "evaluated",
+          "eligible": 159,
+          "selection_size": 10,
+          "distinct_selections": 5,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 508,
+              "future_mean_per_100": 18.440145131628043,
+              "opportunity_weighted_per_100": 8.547360425676413,
+              "interval_95": [
+                -48.851687931394856,
+                54.236476603629896
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 10,
+              "evaluated": 8,
+              "pressure_opportunities": 450,
+              "future_mean_per_100": 2.7322932784071217,
+              "opportunity_weighted_per_100": 7.332047275527696,
+              "interval_95": [
+                -84.91922297268724,
+                35.33935820032078
+              ],
+              "difference_from_pressure_strategy": -15.707851853220921,
+              "paired_difference_interval_95": [
+                -69.31234496015608,
+                35.122783421724414
+              ]
+            },
+            "pressure_only": {
+              "selected": 10,
+              "evaluated": 6,
+              "pressure_opportunities": 201,
+              "future_mean_per_100": 32.17290413595551,
+              "opportunity_weighted_per_100": 16.64802225966221,
+              "interval_95": [
+                -79.83467493292258,
+                88.92449997370444
+              ],
+              "difference_from_pressure_strategy": 13.73275900432747,
+              "paired_difference_interval_95": [
+                -47.75876645225607,
+                61.34008767622957
+              ]
+            },
+            "overall_form": {
+              "selected": 10,
+              "evaluated": 6,
+              "pressure_opportunities": 290,
+              "future_mean_per_100": 27.96955037878951,
+              "opportunity_weighted_per_100": 30.950434447514095,
+              "interval_95": [
+                -84.61714954609184,
+                80.58657949728297
+              ],
+              "difference_from_pressure_strategy": 9.529405247161467,
+              "paired_difference_interval_95": [
+                -50.616191950708654,
+                56.87492455316311
+              ]
+            },
+            "recent_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 696,
+              "future_mean_per_100": 2.166331160681524,
+              "opportunity_weighted_per_100": 21.30570419665422,
+              "interval_95": [
+                -65.70614916026372,
+                28.43662322368824
+              ],
+              "difference_from_pressure_strategy": -16.27381397094652,
+              "paired_difference_interval_95": [
+                -92.47658186845275,
+                36.81622436995952
+              ]
+            }
+          }
+        },
+        "bowlers": {
+          "status": "evaluated",
+          "eligible": 155,
+          "selection_size": 10,
+          "distinct_selections": 5,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 10,
+              "evaluated": 4,
+              "pressure_opportunities": 219,
+              "future_mean_per_100": -13.61546038631084,
+              "opportunity_weighted_per_100": -12.277353654123353,
+              "interval_95": [
+                -60.92662137933002,
+                35.419830986198185
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 10,
+              "evaluated": 7,
+              "pressure_opportunities": 458,
+              "future_mean_per_100": 13.580086339573738,
+              "opportunity_weighted_per_100": 5.267164334759192,
+              "interval_95": [
+                -22.354682273008297,
+                49.80446805241888
+              ],
+              "difference_from_pressure_strategy": 27.195546725884576,
+              "paired_difference_interval_95": [
+                -27.05530954873563,
+                83.79642183314651
+              ]
+            },
+            "pressure_only": {
+              "selected": 10,
+              "evaluated": 4,
+              "pressure_opportunities": 196,
+              "future_mean_per_100": -22.373394346663716,
+              "opportunity_weighted_per_100": -17.668510293763532,
+              "interval_95": [
+                -89.33928232511654,
+                57.301377796489426
+              ],
+              "difference_from_pressure_strategy": -8.757933960352876,
+              "paired_difference_interval_95": [
+                -74.09965949847239,
+                69.96308083033591
+              ]
+            },
+            "overall_form": {
+              "selected": 10,
+              "evaluated": 5,
+              "pressure_opportunities": 338,
+              "future_mean_per_100": 11.882855784205745,
+              "opportunity_weighted_per_100": 1.1413225806991327,
+              "interval_95": [
+                -30.34766146972395,
+                59.1149699884547
+              ],
+              "difference_from_pressure_strategy": 25.498316170516585,
+              "paired_difference_interval_95": [
+                -38.51465116972058,
+                92.78790624719295
+              ]
+            },
+            "recent_form": {
+              "selected": 10,
+              "evaluated": 9,
+              "pressure_opportunities": 484,
+              "future_mean_per_100": 9.438901309977396,
+              "opportunity_weighted_per_100": -0.2477319712797777,
+              "interval_95": [
+                -53.27239378090297,
+                55.2767654401976
+              ],
+              "difference_from_pressure_strategy": 23.054361696288236,
+              "paired_difference_interval_95": [
+                -55.39998025571279,
+                86.92192753406111
+              ]
+            }
+          }
+        }
+      },
+      "portal_roles": {
+        "batters": {
+          "status": "evaluated",
+          "eligible": 10,
+          "selection_size": 3,
+          "distinct_selections": 4,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 3,
+              "evaluated": 1,
+              "pressure_opportunities": 71,
+              "future_mean_per_100": 39.78520373859675,
+              "opportunity_weighted_per_100": 39.78520373859675,
+              "interval_95": [
+                -35.20613179608222,
+                120.37652573023219
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 3,
+              "evaluated": 1,
+              "pressure_opportunities": 97,
+              "future_mean_per_100": 45.93994550206191,
+              "opportunity_weighted_per_100": 45.93994550206192,
+              "interval_95": [
+                -25.06759943006351,
+                78.09096054914926
+              ],
+              "difference_from_pressure_strategy": 6.154741763465161,
+              "paired_difference_interval_95": [
+                -98.27435296258204,
+                89.79036119821014
+              ]
+            },
+            "pressure_only": {
+              "selected": 3,
+              "evaluated": 1,
+              "pressure_opportunities": 28,
+              "future_mean_per_100": 46.65474462357439,
+              "opportunity_weighted_per_100": 46.65474462357439,
+              "interval_95": [
+                -230.5049092502954,
+                283.6508794526965
+              ],
+              "difference_from_pressure_strategy": 6.8695408849776385,
+              "paired_difference_interval_95": [
+                -300.00614809672123,
+                242.27963833761905
+              ]
+            },
+            "overall_form": {
+              "selected": 3,
+              "evaluated": 1,
+              "pressure_opportunities": 28,
+              "future_mean_per_100": 46.65474462357439,
+              "opportunity_weighted_per_100": 46.65474462357439,
+              "interval_95": [
+                -230.5049092502954,
+                283.6508794526965
+              ],
+              "difference_from_pressure_strategy": 6.8695408849776385,
+              "paired_difference_interval_95": [
+                -300.00614809672123,
+                242.27963833761905
+              ]
+            },
+            "recent_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 125,
+              "future_mean_per_100": 46.29734506281815,
+              "opportunity_weighted_per_100": 46.1000605052807,
+              "interval_95": [
+                -99.99970622039237,
+                155.72467072156118
+              ],
+              "difference_from_pressure_strategy": 6.512141324221403,
+              "paired_difference_interval_95": [
+                -157.55696680009873,
+                138.494880291053
+              ]
+            }
+          }
+        },
+        "bowlers": {
+          "status": "evaluated",
+          "eligible": 4,
+          "selection_size": 3,
+          "distinct_selections": 3,
+          "strategies": {
+            "robust_pressure": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 133,
+              "future_mean_per_100": 45.08078126017981,
+              "opportunity_weighted_per_100": 44.97996933690785,
+              "interval_95": [
+                -34.25051842299267,
+                104.69778307316355
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "balanced_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 133,
+              "future_mean_per_100": 45.08078126017981,
+              "opportunity_weighted_per_100": 44.97996933690785,
+              "interval_95": [
+                -34.25051842299267,
+                104.69778307316355
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "pressure_only": {
+              "selected": 3,
+              "evaluated": 1,
+              "pressure_opportunities": 75,
+              "future_mean_per_100": 44.29207621340508,
+              "opportunity_weighted_per_100": 44.29207621340509,
+              "interval_95": [
+                -41.50263709235538,
+                120.99592777538497
+              ],
+              "difference_from_pressure_strategy": -0.7887050467747301,
+              "paired_difference_interval_95": [
+                -65.43652264811304,
+                81.87314558276783
+              ]
+            },
+            "overall_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 133,
+              "future_mean_per_100": 45.08078126017981,
+              "opportunity_weighted_per_100": 44.97996933690785,
+              "interval_95": [
+                -34.25051842299267,
+                104.69778307316355
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recent_form": {
+              "selected": 3,
+              "evaluated": 2,
+              "pressure_opportunities": 133,
+              "future_mean_per_100": 45.08078126017981,
+              "opportunity_weighted_per_100": 44.97996933690785,
+              "interval_95": [
+                -34.25051842299267,
+                104.69778307316355
+              ],
+              "difference_from_pressure_strategy": 0.0,
+              "paired_difference_interval_95": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

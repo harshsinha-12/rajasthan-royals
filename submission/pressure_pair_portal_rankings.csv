@@ -1,0 +1,21 @@
+role,rank,name,player_id,evidence,score,p_balls,p_matches,n_balls
+batters,1,Dinesh Karthik,143,Meets minimums,1.9605699991377654,175,32,410
+batters,2,Virat Kohli,47,Meets minimums,-2.0063904060277404,695,63,1749
+batters,3,Rohit Sharma,126,Meets minimums,-3.3820056221423624,444,58,1015
+batters,4,Ravindra Jadeja,152,Meets minimums,-15.771155050370027,226,30,712
+batters,5,Wriddhiman Saha,109,Meets minimums,-15.996066864045096,199,24,423
+batters,6,Rashid Khan,4722,Meets minimums,-19.373273503951225,106,29,383
+batters,7,Abdul Samad,7446,Meets minimums,-19.877131950679924,92,16,332
+batters,8,Shikhar Dhawan,142,Meets minimums,-20.426827014933018,192,21,504
+batters,9,Mahendra Singh Dhoni,8,Meets minimums,-30.525460861707455,75,17,387
+batters,10,Faf du Plessis,88,Meets minimums,-32.134230690455496,376,42,892
+bowlers,1,Ravindra Jadeja,152,Meets minimums,13.862907612636452,320,41,1017
+bowlers,2,Piyush Chawla,23,Meets minimums,9.10954010580183,97,16,461
+bowlers,3,Rashid Khan,4722,Meets minimums,7.680178526776438,604,75,2047
+bowlers,4,Ishant Sharma,28,Meets minimums,-11.472065513034236,132,18,290
+bowlers,5,Pradeep Sangwan,147,Limited sample,2.02702964343894,22,2,32
+bowlers,6,Basil Hameed,8638,Limited sample,1.3672105334484914,43,5,95
+bowlers,7,Amit Mishra,158,Limited sample,1.3111782396239784,20,4,106
+bowlers,8,Haider Ali,28756,Limited sample,-7.674064657685054,43,6,227
+bowlers,9,Dwayne Bravo,161,Limited sample,-13.008984013368796,57,7,149
+bowlers,10,Muhammad Farooq,27373,Ordinary play only,,0,0,18

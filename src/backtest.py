@@ -3,12 +3,22 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 import numpy as np
 import pandas as pd
-from analyse import OUT, RAW, WIN_FEATURES, add_pressure_flags, fit_predictions, performance_model, prepare, pressure, robust_rank, win_model, match_weights
+from analyse import N_BOOT, OUT, RAW, SEED, WIN_FEATURES, add_pressure_flags, fit_predictions, performance_model, prepare, pressure, robust_rank, win_model, match_weights
+from portal_field import portal_players
 
-SEED = 20261117
 TOP_K = 10
+PORTAL_K = 3
+DEFAULT_CUTOFFS = (2023, 2024, 2025)
+STRATEGIES = {
+    "robust_pressure": "Robust pressure",
+    "balanced_form": "Balanced form",
+    "pressure_only": "Pressure-only",
+    "overall_form": "Overall form",
+    "recent_form": "Recent form",
+}
 
 def future_predictions(train, test):
     """Train nuisance models only on earlier matches; freeze pressure thresholds."""
@@ -45,120 +55,211 @@ def event_values(d, role):
         raise ValueError(role)
     return x[["pid", "match_id", "year", "high_pressure", "units", "residual"]].copy()
 
-def sorted_baselines(history, candidates, end_year):
-    """Comparators are ranked on the identical TRAINING eligible pool."""
-    def score(frame):
-        by = frame.groupby("pid").agg(total=("residual", "sum"), units=("units", "sum"))
-        return 100 * by.total.div(by.units.replace(0, np.nan))
-    def order(series):
-        values = series.reindex(candidates).replace([np.inf, -np.inf], np.nan).fillna(-np.inf)
-        return sorted(candidates, key=lambda pid: (-float(values.loc[pid]), int(pid)))[:TOP_K]
-    return {"pressure_only": order(score(history[history.high_pressure])),
-            "overall_form": order(score(history)),
-            "recent_form": order(score(history[history.year.eq(end_year)]))}
+def sorted_baselines(history, candidates, end_year, top_k=TOP_K):
+    """Rank all comparators on the same training-time candidate pool."""
+    def order(frame):
+        totals = frame.groupby("pid")[["residual", "units"]].sum()
+        values = (100 * totals.residual.div(totals.units.replace(0, np.nan))).reindex(candidates).fillna(-np.inf)
+        return sorted(candidates, key=lambda pid: (-float(values.loc[pid]), int(pid)))[:top_k]
+    return {"pressure_only": order(history[history.high_pressure]),
+            "overall_form": order(history),
+            "recent_form": order(history[history.year.eq(end_year)])}
+
+
+def match_draws(match_ids, draws, seed=SEED):
+    if draws <= 0 or len(match_ids) < 2:
+        return None
+    count = len(match_ids)
+    return np.random.default_rng(seed).multinomial(count, np.full(count, 1 / count), size=draws).T
+
+
+def interval(values):
+    if values is None:
+        return None
+    valid = values[np.isfinite(values)]
+    return np.quantile(valid, [.025, .975]).tolist() if len(valid) else None
+
+
+def measure(hold, picks, match_ids, weights, min_units):
+    events = hold[hold.high_pressure & hold.pid.isin(picks)]
+    matches = events.groupby(["pid", "match_id"])[["residual", "units"]].sum()
+    totals = matches.groupby(level="pid").sum().reindex(picks).fillna(0)
+    covered = totals[totals.units.ge(min_units)]
+    observations = int(covered.units.sum())
+    result = {
+        "selected": len(picks), "evaluated": len(covered),
+        "missing_or_thin_player_ids": [int(pid) for pid in picks if pid not in covered.index],
+        "pressure_opportunities": observations, "future_mean_per_100": None,
+        "opportunity_weighted_per_100": None, "interval_95": None,
+    }
+    if not observations:
+        return result, None
+    result["future_mean_per_100"] = float(100 * (covered.residual / covered.units).mean())
+    result["opportunity_weighted_per_100"] = float(100 * covered.residual.sum() / observations)
+    if weights is None:
+        return result, None
+    gaps = matches.unstack("match_id", fill_value=0)
+    numerator = gaps["residual"].reindex(index=covered.index, columns=match_ids, fill_value=0).to_numpy() @ weights
+    denominator = gaps["units"].reindex(index=covered.index, columns=match_ids, fill_value=0).to_numpy() @ weights
+    per_player = np.divide(100 * numerator, denominator, out=np.zeros_like(numerator, dtype=float), where=denominator > 0)
+    present = (denominator > 0).sum(axis=0)
+    samples = np.divide(per_player.sum(axis=0), present, out=np.full(weights.shape[1], np.nan), where=present > 0)
+    result["interval_95"] = interval(samples)
+    return result, samples
+
 
 def evaluate_holdout(hold, picks, seed=SEED, draws=300, min_units=10):
-    """Match-block bootstrap on held-out games, with a frozen selected roster."""
-    p = hold[hold.high_pressure & hold.pid.isin(picks)]
-    gg = p.groupby(["pid", "match_id"]).agg(residual=("residual", "sum"), units=("units", "sum")).reset_index()
-    totals = gg.groupby("pid")[["residual", "units"]].sum() if len(gg) else pd.DataFrame(columns=["residual", "units"])
-    covered = [pid for pid in picks if pid in totals.index and totals.loc[pid, "units"] >= min_units]
-    out = {"selected": len(picks), "evaluated": len(covered),
-           "missing_or_thin_player_ids": [int(pid) for pid in picks if pid not in covered],
-           "pressure_opportunities": int(totals.loc[covered, "units"].sum()) if covered else 0,
-           "future_mean_per_100": None, "interval_95": None}
-    if not covered:
-        return out
-    means = 100 * totals.loc[covered, "residual"] / totals.loc[covered, "units"]
-    out["future_mean_per_100"] = float(means.mean())
-    mids = sorted(hold.match_id.unique())
-    if len(mids) <= 1 or draws <= 0:
-        return out
-    r = gg.pivot(index="pid", columns="match_id", values="residual").reindex(index=covered, columns=mids).fillna(0).to_numpy()
-    u = gg.pivot(index="pid", columns="match_id", values="units").reindex(index=covered, columns=mids).fillna(0).to_numpy()
-    rng = np.random.default_rng(seed)
-    weights = rng.multinomial(len(mids), np.full(len(mids), 1 / len(mids)), size=draws).T
-    numerator, denominator = r @ weights, u @ weights
-    sampled = np.divide(100 * numerator, denominator,
-                        out=np.full(numerator.shape, np.nan), where=denominator > 0)
-    good = np.nanmean(sampled, axis=0)
-    good = good[np.isfinite(good)]
-    if len(good):
-        out["interval_95"] = [float(v) for v in np.quantile(good, [0.025, 0.975])]
-    return out
-
-def assess(train, hold, end_year, draws):
-    assert train.match_date.max() < hold.match_date.min(), "Holdout overlaps training"
-    result = {"train_through": int(end_year), "test_years": sorted(int(v) for v in hold.year.unique()),
-              "train_matches": int(train.match_id.nunique()), "holdout_matches": int(hold.match_id.nunique()), "roles": {}}
-    for role in ["batters", "bowlers"]:
-        ranked = robust_rank(train, role, n_boot=draws)
-        candidates = [int(v) for v in ranked.index]
-        if len(candidates) < TOP_K:
-            result["roles"][role] = {"status": "insufficient_train_eligibility", "eligible": len(candidates)}
-            continue
-        hist, unseen = event_values(train, role), event_values(hold, role)
-        choices = {"robust_pressure": candidates[:TOP_K]}
-        choices.update(sorted_baselines(hist, candidates, end_year))
-        names = ranked.name.to_dict()
-        strategies = {}
-        for label, picks in choices.items():
-            res = evaluate_holdout(unseen, picks, draws=draws)
-            res["players"] = [{"player_id": int(pid), "name": str(names[pid])} for pid in picks]
-            strategies[label] = res
-        reference = strategies["robust_pressure"]["future_mean_per_100"]
-        for label, value in strategies.items():
-            current = value["future_mean_per_100"]
-            value["difference_from_pressure_strategy"] = None if reference is None or current is None else float(current - reference)
-        result["roles"][role] = {"status": "evaluated", "eligible": len(candidates), "strategies": strategies}
+    """Summarize one frozen selection (the paired comparison shares draws across selections)."""
+    match_ids = sorted(hold.match_id.unique())
+    result, _ = measure(hold, picks, match_ids, match_draws(match_ids, draws, seed), min_units)
     return result
 
+
+def compare(hold, choices, names, match_ids, weights, min_units):
+    comparison, samples = {}, {}
+    for label, picks in choices.items():
+        result, samples[label] = measure(hold, picks, match_ids, weights, min_units)
+        result["players"] = [{"player_id": int(pid), "name": str(names[pid])} for pid in picks]
+        comparison[label] = result
+    original = comparison["robust_pressure"]["future_mean_per_100"]
+    original_samples = samples["robust_pressure"]
+    for label, result in comparison.items():
+        estimate = result["future_mean_per_100"]
+        result["difference_from_pressure_strategy"] = None if estimate is None or original is None else estimate - original
+        series = samples[label]
+        result["paired_difference_interval_95"] = interval(series - original_samples) if series is not None and original_samples is not None else None
+    return comparison
+
+
+def pool_comparison(history, hold, ordered, balanced, candidates, end_year, limit, match_ids, weights, min_units):
+    if not candidates:
+        return {"status": "insufficient_train_eligibility", "eligible": 0, "selection_size": 0}
+    count = min(limit, len(candidates))
+    allowed = set(candidates)
+    choices = {
+        "robust_pressure": [pid for pid in ordered.index if pid in allowed][:count],
+        "balanced_form": [pid for pid in balanced.index if pid in allowed][:count],
+        **sorted_baselines(history, candidates, end_year, count),
+    }
+    return {
+        "status": "evaluated", "eligible": len(candidates), "selection_size": count,
+        "distinct_selections": len({frozenset(picks) for picks in choices.values()}),
+        "strategies": compare(hold, choices, ordered.name.to_dict(), match_ids, weights, min_units),
+    }
+
+
+def assess(train, hold, end_year, draws, *, rank_draws=N_BOOT, min_units=10):
+    assert train.match_date.max() < hold.match_date.min(), "Holdout overlaps training"
+    assert set(train.match_id).isdisjoint(hold.match_id), "A match appears on both sides of the split"
+    match_ids = sorted(hold.match_id.unique())
+    weights = match_draws(match_ids, draws)
+    result = {"train_through": int(end_year), "test_years": sorted(int(v) for v in hold.year.unique()),
+              "train_matches": int(train.match_id.nunique()), "holdout_matches": len(match_ids),
+              "holdout_start": str(hold.match_date.min())[:10], "holdout_end": str(hold.match_date.max())[:10],
+              "roles": {}, "portal_roles": {}}
+    for role in ("batters", "bowlers"):
+        ordered = robust_rank(train, role, n_boot=rank_draws)
+        candidates = list(ordered.index)
+        balanced = robust_rank(train, role, n_boot=rank_draws, pressure_weight=.5, uw=-.5,
+                               eligible_ids=candidates) if candidates else ordered
+        history, unseen = event_values(train, role), event_values(hold, role)
+        option_ids = set(portal_players(role).values())
+        for key, pool, limit in (("roles", candidates, TOP_K),
+                                 ("portal_roles", [pid for pid in candidates if pid in option_ids], PORTAL_K)):
+            result[key][role] = pool_comparison(history, unseen, ordered, balanced, pool, end_year,
+                                                 limit, match_ids, weights, min_units)
+    return result
+
+
+def public_summary(payload):
+    """Publish only role-level metrics, never player lists or match/delivery records."""
+    summary = {key: payload[key] for key in ("status", "mode", "draws", "ranking_draws", "min_holdout_opportunities")}
+    summary["strategy_labels"] = STRATEGIES
+    summary["periods"] = []
+    for period in payload["periods"]:
+        public = {key: value for key, value in period.items() if key not in ("roles", "portal_roles")}
+        for scope in ("roles", "portal_roles"):
+            public[scope] = {}
+            for role, result in period[scope].items():
+                public[scope][role] = {key: value for key, value in result.items() if key != "strategies"}
+                if "strategies" in result:
+                    public[scope][role]["strategies"] = {
+                        label: {key: value for key, value in stats.items()
+                                if key not in ("players", "missing_or_thin_player_ids")}
+                        for label, stats in result["strategies"].items()
+                    }
+        summary["periods"].append(public)
+    return summary
+
+
+def payload_for(cases, mode, draws, rank_draws=N_BOOT, min_units=10):
+    return {
+        "status": "measured_locally", "mode": mode, "seed": SEED, "draws": draws,
+        "ranking_draws": rank_draws, "min_holdout_opportunities": min_units,
+        "method": "frozen selections; context-adjusted run equivalents per 100 later pressure opportunities",
+        "caveats": [
+            "Equal-player means condition on meeting the later opportunity minimum.",
+            "Shared whole-match draws condition on the training selections and fitted models.",
+            "The portal replay compares up to three training-eligible selections from today's twenty labels.",
+            "Observed periods are retrospective and do not measure causal match-win lift.",
+        ],
+        "periods": cases,
+    }
+
+
+def write_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    encoded = json.dumps(data, indent=2, allow_nan=False) + "\n"
+    with NamedTemporaryFile(mode="w", dir=path.parent, delete=False) as handle:
+        temporary = Path(handle.name)
+        handle.write(encoded)
+    try:
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--mode", choices=["cached", "walk-forward"], default="cached")
-    p.add_argument("--cutoffs", type=int, nargs="+", default=[2023, 2024, 2025])
-    p.add_argument("--draws", type=int, default=300)
-    p.add_argument("--out", type=Path, default=OUT / "backtest_results.json")
-    a = p.parse_args()
-    if a.draws < 1:
-        p.error("--draws must be positive")
-    cases = []
-    if a.mode == "cached":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--mode", choices=["cached", "walk-forward"], default="walk-forward")
+    parser.add_argument("--cutoffs", type=int, nargs="+", default=DEFAULT_CUTOFFS)
+    parser.add_argument("--draws", type=int, default=2000, help="shared held-out match resamples")
+    parser.add_argument("--rank-draws", type=int, default=N_BOOT, help="training match resamples for selection")
+    parser.add_argument("--min-units", type=int, default=10, help="minimum later pressure opportunities per selected player")
+    parser.add_argument("--out", type=Path, default=OUT / "backtest_results.json")
+    parser.add_argument("--summary-out", type=Path, help="optional public aggregate-only JSON")
+    args = parser.parse_args()
+    if min(args.draws, args.rank_draws, args.min_units) < 1:
+        parser.error("draw counts and the opportunity threshold must be positive")
+    if args.summary_out and args.summary_out.resolve() == args.out.resolve():
+        parser.error("Choose separate paths for private and aggregate results.")
+    def run(train, hold, cutoff):
+        return assess(train, hold, cutoff, args.draws, rank_draws=args.rank_draws, min_units=args.min_units)
+    if args.mode == "cached":
         first, second = OUT / "cache/strict_early.pkl", OUT / "cache/strict_late.pkl"
         if not first.exists() or not second.exists():
-            p.error("Missing private cached predictions. Run python src/analyse.py with authorized data first.")
-        cases.append(assess(pd.read_pickle(first), pd.read_pickle(second), 2024, a.draws))
+            parser.error("Run python src/analyse.py with the authorized data first.")
+        cases = [run(pd.read_pickle(first), pd.read_pickle(second), 2024)]
     else:
         if not (RAW / "ball_by_ball.csv").exists():
-            p.error("Missing authorized data/raw/ pack; it must never be committed.")
+            parser.error("Missing authorized data/raw/ pack.")
         raw, _ = prepare()
-        for cutoff in sorted(set(a.cutoffs)):
-            tr, te = raw[raw.year.le(cutoff)].copy(), raw[raw.year.eq(cutoff + 1)].copy()
-            if tr.match_id.nunique() < 10 or te.empty:
-                continue
-            train, _ = fit_predictions(tr, validate=False)
+        cases = []
+        for cutoff in sorted(set(args.cutoffs)):
+            train, test = raw[raw.year.le(cutoff)].copy(), raw[raw.year.eq(cutoff + 1)].copy()
+            if train.match_id.nunique() < 10 or test.empty:
+                parser.error(f"Cutoff {cutoff} has insufficient training or no next-year matches.")
+            train, _ = fit_predictions(train, validate=False)
             train, _ = add_pressure_flags(train)
-            hold = future_predictions(tr, te)
-            cases.append(assess(train, hold, cutoff, a.draws))
-    payload = {"status": "measured_locally", "seed": SEED, "draws": a.draws,
-               "method": "frozen training selections; mean held-out pressure residual per 100, equally weighted by covered player",
-               "caveats": ["Not match-win uplift or causal auction value.",
-                           "Players with under 10 future pressure opportunities are unscored, never assumed zero.",
-                           "Match-bootstrap intervals condition on selected players and fitted models.",
-                           "Baselines use the same training eligible pool but may have different future exposure.",
-                           "Never upload restricted match-level records."],
-               "periods": cases}
-    a.out.parent.mkdir(parents=True, exist_ok=True)
-    a.out.write_text(json.dumps(payload, indent=2, allow_nan=False) + "\n")
-    print("Wrote", a.out, "for", len(cases), "time period(s)")
-    for item in cases:
-        print("Train through", item["train_through"], "test", item["test_years"])
-        for role, entry in item["roles"].items():
-            if entry["status"] == "evaluated":
-                for name, value in entry["strategies"].items():
-                    print(role, name, value["evaluated"], "covered,", value["future_mean_per_100"], "runs/100")
-            else:
-                print(role, entry["status"])
+            hold = future_predictions(train, test)
+            cases.append(run(train, hold, cutoff))
+            print(f"Completed {cutoff + 1} evaluation ({hold.match_id.nunique()} matches)", flush=True)
+    payload = payload_for(cases, args.mode, args.draws, args.rank_draws, args.min_units)
+    write_json(args.out, payload)
+    if args.summary_out:
+        write_json(args.summary_out, public_summary(payload))
+    print(f"Wrote {args.out} for {len(cases)} time period(s)")
+
 
 if __name__ == "__main__":
     main()

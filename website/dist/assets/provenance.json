@@ -1,14 +1,15 @@
 {
-  "author": "Harsh Sinha",
+  "author": "Harsh Sinha and Mosin Shaikh",
   "entry_count": 351,
   "source_files": [
     "output/tables/batters_all.csv",
     "output/tables/bowlers_all.csv",
     "output/validation.json",
     "output/tables/chronological_calibration.csv",
-    "submission/rankings.csv"
+    "submission/pressure_pair_portal_rankings.csv",
+    "output/strategy_backtest_summary.json"
   ],
-  "report_sha256": "f27ab2d4cad06a33a4db73b2024e87a35a46feb04122448e362761ac0ae9e0de",
-  "strategy_report_sha256": "3c965f9019b1157f27a45bbfac2ce859e0e122246f107a385b5bdb928058007c",
+  "report_sha256": "5a912d4e59f57db1d2d2ae7614bed45e6bfd5992171c1fa2f0c12b3de04fab06",
+  "strategy_report_sha256": "a00589f699b17da84fd9ca13fe57a2b4c4fcb4fb763f8934eafaccd07bf40cb1",
   "raw_data_included": false
 }

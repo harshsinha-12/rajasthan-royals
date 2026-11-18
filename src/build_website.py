@@ -5,6 +5,9 @@ import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[1]
 WEB=ROOT/'website';OUT=ROOT/'output';DIST=WEB/'dist'
+PORTAL_RANKINGS=ROOT/'submission/pressure_pair_portal_rankings.csv'
+PORTAL_REPORT=OUT/'pdf/Pressure_Pair_Round_1_Methodology.pdf'
+BACKTEST=OUT/'strategy_backtest_summary.json'
 
 def main():
     DIST.mkdir(parents=True,exist_ok=True);assets=DIST/'assets';assets.mkdir(exist_ok=True)
@@ -15,17 +18,19 @@ def main():
         records=json.loads(frame.to_json(orient='records',double_precision=12))
         for p in records:p['role']=profiles[f'{role}:{p["player_id"]}']
         players[role]=records
-    data={'players':players,'validation':json.loads((OUT/'validation.json').read_text()),
+    portal=pd.read_csv(PORTAL_RANKINGS)
+    data={'players':players,'portal':{role:json.loads(portal[portal.role.eq(role)].to_json(orient='records',double_precision=12)) for role in players},
+          'backtest':json.loads(BACKTEST.read_text()),'validation':json.loads((OUT/'validation.json').read_text()),
           'calibration':json.loads(pd.read_csv(OUT/'tables/chronological_calibration.csv').to_json(orient='records',double_precision=12))}
     template=(WEB/'template.html').read_text()
     encoded=json.dumps(data,separators=(',',':'),ensure_ascii=False).replace('<','\\u003c')
     page=template.replace('/*__STYLES__*/',(WEB/'styles.css').read_text()).replace('/*__DATA__*/',encoded).replace('/*__SCRIPT__*/',(WEB/'app.js').read_text())
     (DIST/'index.html').write_text(page)
-    shutil.copyfile(OUT/'pdf/SupeRR_Selector_Round1_Methodology.pdf',assets/'methodology.pdf')
-    shutil.copyfile(ROOT/'submission/rankings.csv',assets/'rankings.csv')
+    shutil.copyfile(PORTAL_REPORT,assets/'methodology.pdf')
+    shutil.copyfile(PORTAL_RANKINGS,assets/'rankings.csv')
     shutil.copyfile(OUT/'pdf/Strategy_Validation_Addendum.pdf',assets/'strategy-validation.pdf')
-    manifest={'author':'Harsh Sinha','entry_count':sum(map(len,players.values())),
-      'source_files':[str(p.relative_to(ROOT)) for p in [OUT/'tables/batters_all.csv',OUT/'tables/bowlers_all.csv',OUT/'validation.json',OUT/'tables/chronological_calibration.csv',ROOT/'submission/rankings.csv']],
+    manifest={'author':'Harsh Sinha and Mosin Shaikh','entry_count':sum(map(len,players.values())),
+      'source_files':[str(p.relative_to(ROOT)) for p in [OUT/'tables/batters_all.csv',OUT/'tables/bowlers_all.csv',OUT/'validation.json',OUT/'tables/chronological_calibration.csv',PORTAL_RANKINGS,BACKTEST]],
       'report_sha256':hashlib.sha256((assets/'methodology.pdf').read_bytes()).hexdigest(),
       'strategy_report_sha256':hashlib.sha256((assets/'strategy-validation.pdf').read_bytes()).hexdigest(),
       'raw_data_included':False}

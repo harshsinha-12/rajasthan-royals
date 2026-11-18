@@ -289,26 +289,6 @@ def main():
         title=REPORT_TITLE,author=AUTHOR,pageCompression=1)
     doc.build(story,onFirstPage=page_frame,onLaterPages=page_frame)
     (OUT/'pdf/Methodology_source.md').write_text('\n\n'.join(md)+'\n')
-    lines=['# Unstop final selection order','',f'**{PREPARED_BY}**','',
-           'Use the two dropdown lists below and upload the [final methodology PDF](../output/pdf/SupeRR_Selector_Round1_Methodology.pdf).', '',
-           'Unstop’s 17 November clarification accepts a PDF, PowerPoint or interactive dashboard for methodology. This entry uses the PDF for upload and the dashboard as a companion.', '',
-           'Scores measure conservative run-equivalent advantage per 100 opportunities. The reattached dataset and brief match the original inputs byte for byte.', '']
-    for role,df in players.items():
-        lines += ['## '+role.title(),'','| Rank | Name | Player ID | Score |','| --- | --- | --- | --- |']
-        for _,r in df.iterrows(): lines.append(f'| {int(r["rank"])} | {r["name"]} | {int(r.player_id)} | {r.score:.2f} |')
-        lines.append('')
-    lines += ['## Portal submission steps', '',
-              '- Enter one unique player per rank in each dropdown list, in the exact order above.',
-              '- Confirm ambiguous names against the player ID if the portal exposes IDs.',
-              '- Upload the methodology PDF and verify that the dropdown choices match pages 2 and 3.',
-              '- Confirm registration and the submission deadline in your logged-in Unstop portal.',
-              '- Submit the single permitted individual entry and retain the portal confirmation.',
-              '- Keep the supplied dataset and match-level audits private.',
-              '- If shortlisted, confirm travel availability and a valid government photo ID.', '',
-              '## Share your journey', '',
-              'Unstop’s clarification invites one reel or post. The original brief describes the journey as optional and unscored. Use the [ready-to-post draft](JOURNEY_POST.md), tag Rajasthan Royals and Unstop, and include `#SuperSelector`. The organizers encourage an on-camera appearance if you choose a reel.', '',
-              'Sources are the 17 November clarification email, the supplied Round 1 brief and the [official Unstop rules](https://api.unstop.com/hackathons/superr-selector-season-2-help-shape-rajasthan-royals-ipl-2027-auction-strategy-rajasthan-royals-1792758).']
-    (ROOT/'submission/UNSTOP_CHECKLIST.md').write_text('\n'.join(lines)+'\n')
     build_inline(players)
     print('Built',path)
 

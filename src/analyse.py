@@ -243,7 +243,7 @@ def add_pressure_flags(d):
         t=d.groupby('innings').pressure.quantile(q);d[f'high_{int(q*100)}']=d.pressure>=d.innings.map(t)
     return d,thresholds
 
-def rank(d,role,pressure_col='high_pressure',v=12,prior=120,uw=.25,n_boot=N_BOOT,eligible_ids=None,return_draws=False):
+def rank(d,role,pressure_col='high_pressure',v=12,prior=120,uw=.25,n_boot=N_BOOT,eligible_ids=None,return_draws=False,*,pressure_weight=1):
     isbat=role=='batters';player='striker_id' if isbat else 'bowler_id';name='striker_name' if isbat else 'bowler_name'
     x=d[(d.balls_faced.eq(1))|d.bat_dismissal.eq(1)].copy() if isbat else d[d.bowling_active].copy()
     if not isbat:
@@ -263,13 +263,13 @@ def rank(d,role,pressure_col='high_pressure',v=12,prior=120,uw=.25,n_boot=N_BOOT
     mats={c:gg[c].unstack('match_id').reindex(index=pids,columns=mids).fillna(0).to_numpy() for c in ['p','n','pr','nr']}
     a=mats['pr'].sum(axis=1)/(mats['p'].sum(axis=1)+prior)
     b=mats['nr'].sum(axis=1)/(mats['n'].sum(axis=1)+2*prior)
-    point=100*(a-uw*b)
+    point=100*(pressure_weight*a-uw*b)
     rng=np.random.default_rng(SEED)
     # One shared draw of entire matches, preserving dependence across players and roles.
     weights=rng.multinomial(len(mids),np.full(len(mids),1/len(mids)),size=n_boot).T.astype(float)
     ba=(mats['pr']@weights)/(mats['p']@weights+prior)
     bb=(mats['nr']@weights)/(mats['n']@weights+2*prior)
-    draws=100*(ba-uw*bb)
+    draws=100*(pressure_weight*ba-uw*bb)
     score=np.quantile(draws,.20,axis=1)
     pp['pressure_advantage']=a*100;pp['usual_advantage']=b*100;pp['uplift']=(a-b)*100
     pp['rating']=point;pp['score']=score;pp['ci_low'],pp['ci_high']=np.quantile(draws,[.05,.95],axis=1)
@@ -298,13 +298,14 @@ def rank(d,role,pressure_col='high_pressure',v=12,prior=120,uw=.25,n_boot=N_BOOT
     if return_draws:return pp,pd.DataFrame(draws,index=pids)
     return pp
 
-def robust_rank(d,role,n_boot=N_BOOT,save=False):
-    reference=rank(d,role,n_boot=n_boot)
+def robust_rank(d,role,n_boot=N_BOOT,save=False,eligible_ids=None,*,pressure_weight=1,uw=.25):
+    reference=rank(d,role,n_boot=n_boot,eligible_ids=eligible_ids,pressure_weight=pressure_weight,uw=uw)
     ids=reference.index.to_numpy()
     draws=[];points=[];scenarios=[]
     for pc in ['high_70','high_pressure','high_80']:
         for v in [8,12,16]:
-            rr,dr=rank(d,role,pressure_col=pc,v=v,n_boot=n_boot,eligible_ids=ids,return_draws=True)
+            rr,dr=rank(d,role,pressure_col=pc,v=v,n_boot=n_boot,eligible_ids=ids,return_draws=True,
+                       pressure_weight=pressure_weight,uw=uw)
             draws.append(dr.loc[ids].to_numpy());points.append(rr.loc[ids,'rating'].to_numpy())
             ss=rr[['rank','score','rating']].reset_index();ss['pressure']=pc;ss['wicket_value']=v;scenarios.append(ss)
     rd=np.median(np.stack(draws),axis=0)

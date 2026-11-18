@@ -28,6 +28,10 @@ def main():
     (DIST/'index.html').write_text(page)
     shutil.copyfile(WEB/'media'/'journey.mp4',assets/'journey.mp4')
     shutil.copyfile(WEB/'media'/'journey-poster.jpg',assets/'journey-poster.jpg')
+    report_dir=assets/'report'
+    report_dir.mkdir(exist_ok=True)
+    for slide in sorted((WEB/'media'/'report').glob('slide-*.jpg')):
+        shutil.copyfile(slide, report_dir/slide.name)
     shutil.copyfile(PORTAL_REPORT,assets/'methodology.pdf')
     shutil.copyfile(PORTAL_RANKINGS,assets/'rankings.csv')
     shutil.copyfile(OUT/'pdf/Strategy_Validation_Addendum.pdf',assets/'strategy-validation.pdf')

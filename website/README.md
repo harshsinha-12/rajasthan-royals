@@ -12,6 +12,7 @@ Prepared by The Pressure Pair, Harsh Sinha and Mosin Shaikh, for SupeRR Selector
 - Role coverage, a worked pressure example, scoring formulas, eligibility, chronological calibration and temporal limitations.
 - Matching PDF and final-selection CSV downloads; exact-order copying for Unstop.
 - A 20-second film of the pressure question, the pre-ball measure, and the two Unstop leaders.
+- The Round 1 methodology report, readable on the page and available as the same PDF download.
 
 The website is buildless HTML/CSS/JavaScript. It has no runtime dependencies, tracking or external cricket feed. It includes only aggregated results; the restricted data pack and record-level records are excluded.
 

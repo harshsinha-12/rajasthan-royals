@@ -45,7 +45,12 @@ def main():
     assert (DIST/'assets/strategy-validation.pdf').read_bytes()==(ROOT/'output/pdf/Strategy_Validation_Addendum.pdf').read_bytes()
     assert (DIST/'assets/journey.mp4').read_bytes()==(WEB/'media'/'journey.mp4').read_bytes()
     assert (DIST/'assets/journey-poster.jpg').read_bytes()==(WEB/'media'/'journey-poster.jpg').read_bytes()
-    expected={'index.html','assets/methodology.pdf','assets/rankings.csv','assets/strategy-validation.pdf','assets/provenance.json','assets/journey.mp4','assets/journey-poster.jpg'}
+    slides=sorted((WEB/'media'/'report').glob('slide-*.jpg'))
+    assert [p.name for p in slides]==[f'slide-{i:02d}.jpg' for i in range(1,11)]
+    for slide in slides:
+        assert (DIST/'assets'/'report'/slide.name).read_bytes()==slide.read_bytes()
+    expected={'index.html','assets/methodology.pdf','assets/rankings.csv','assets/strategy-validation.pdf','assets/provenance.json','assets/journey.mp4','assets/journey-poster.jpg',
+              *[f'assets/report/{slide.name}' for slide in slides]}
     assert {str(p.relative_to(DIST)) for p in DIST.rglob('*') if p.is_file()}==expected
     assert not any(token in html for token in ['/*__DATA__*/','/*__SCRIPT__*/','/*__STYLES__*/'])
     harness=html.replace('</body>','<script>'+(WEB/'tests/interaction.js').read_text()+'</script></body>')

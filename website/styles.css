@@ -11,6 +11,8 @@
 
 .journey-player{background:var(--navy);border-radius:12px;overflow:hidden}
 .journey-player video{display:block;width:100%;height:auto;background:var(--navy)}
+.report-slides{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.report-slides img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
 
 /* Strategy Validation Lab */
 .strategy-notice{display:flex;flex-direction:column;gap:2px;border-left:4px solid var(--pink);padding:14px 18px;background:#fff0f7;border-radius:0 10px 10px 0;margin-bottom:22px}

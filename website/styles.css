@@ -8,3 +8,17 @@
 .explorer{min-width:0}.table-scroll{width:100%;max-width:100%;contain:layout paint}
 
 .mobile-sample{display:none}.chart-container{contain:layout paint}@media(max-width:600px){.rank-table{min-width:0;table-layout:auto}.rank-table th:nth-child(3),.rank-table td:nth-child(3),.rank-table th:nth-child(4),.rank-table td:nth-child(4),.rank-table th:nth-child(5),.rank-table td:nth-child(5){display:none}.rank-table th:first-child,.rank-table td:first-child{width:28px;padding-left:12px;padding-right:4px}.rank-table th:nth-child(2),.rank-table td:nth-child(2){padding-left:7px;padding-right:4px}.rank-table th:nth-child(6),.rank-table td:nth-child(6){padding-left:6px;padding-right:6px}.rank-table th:last-child,.rank-table td:last-child{padding-left:5px;padding-right:10px}.rank-table .player-avatar,.rank-table .selected-label{display:none}.rank-table .player-name{white-space:normal;max-width:160px;font-size:11px}.rank-table .player-sub{white-space:normal;max-width:170px;font-size:7px}.mobile-sample{display:inline}.score-meter{width:40px}.rank-table .row-actions{gap:6px}.rank-table .selection-score{font-size:16px}.rank-table th .th-help{font-size:6px}.rank-table .player-cell{gap:0}.rank-table .rank-number{font-size:11px}}
+
+/* Strategy Validation Lab */
+.strategy-notice{display:flex;flex-direction:column;gap:2px;border-left:4px solid var(--pink);padding:14px 18px;background:#fff0f7;border-radius:0 10px 10px 0;margin-bottom:22px}
+.strategy-notice span{color:var(--muted);font-size:13px}
+.strategy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.strategy-card{border:1px solid var(--line);padding:22px;border-radius:14px;background:#fff;min-width:0}
+.strategy-card h3{font-size:19px;line-height:1.3;margin:10px 0}
+.strategy-card p{font-size:14px;color:var(--muted)}
+.strategy-card details{border-top:1px solid var(--line);padding-top:10px;margin-top:16px}
+.strategy-card summary{cursor:pointer;font-weight:700;font-size:13px;color:var(--ink)}
+.strategy-card a{overflow-wrap:anywhere}
+.strategy-footer{margin-top:20px;display:flex;justify-content:space-between;gap:24px;align-items:center}
+.strategy-footer p{max-width:650px;font-size:13px;color:var(--muted)}
+@media(max-width:860px){.strategy-grid{grid-template-columns:1fr}.strategy-footer{align-items:flex-start;flex-direction:column}.strategy-footer .button{width:100%;justify-content:center}}

@@ -9,6 +9,9 @@
 
 .mobile-sample{display:none}.chart-container{contain:layout paint}@media(max-width:600px){.rank-table{min-width:0;table-layout:auto}.rank-table th:nth-child(3),.rank-table td:nth-child(3),.rank-table th:nth-child(4),.rank-table td:nth-child(4),.rank-table th:nth-child(5),.rank-table td:nth-child(5){display:none}.rank-table th:first-child,.rank-table td:first-child{width:28px;padding-left:12px;padding-right:4px}.rank-table th:nth-child(2),.rank-table td:nth-child(2){padding-left:7px;padding-right:4px}.rank-table th:nth-child(6),.rank-table td:nth-child(6){padding-left:6px;padding-right:6px}.rank-table th:last-child,.rank-table td:last-child{padding-left:5px;padding-right:10px}.rank-table .player-avatar,.rank-table .selected-label{display:none}.rank-table .player-name{white-space:normal;max-width:160px;font-size:11px}.rank-table .player-sub{white-space:normal;max-width:170px;font-size:7px}.mobile-sample{display:inline}.score-meter{width:40px}.rank-table .row-actions{gap:6px}.rank-table .selection-score{font-size:16px}.rank-table th .th-help{font-size:6px}.rank-table .player-cell{gap:0}.rank-table .rank-number{font-size:11px}}
 
+.journey-player{background:var(--navy);border-radius:12px;overflow:hidden}
+.journey-player video{display:block;width:100%;height:auto;background:var(--navy)}
+
 /* Strategy Validation Lab */
 .strategy-notice{display:flex;flex-direction:column;gap:2px;border-left:4px solid var(--pink);padding:14px 18px;background:#fff0f7;border-radius:0 10px 10px 0;margin-bottom:22px}
 .strategy-notice span{color:var(--muted);font-size:13px}

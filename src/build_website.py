@@ -26,6 +26,8 @@ def main():
     encoded=json.dumps(data,separators=(',',':'),ensure_ascii=False).replace('<','\\u003c')
     page=template.replace('/*__STYLES__*/',(WEB/'styles.css').read_text()).replace('/*__DATA__*/',encoded).replace('/*__SCRIPT__*/',(WEB/'app.js').read_text())
     (DIST/'index.html').write_text(page)
+    shutil.copyfile(WEB/'media'/'journey.mp4',assets/'journey.mp4')
+    shutil.copyfile(WEB/'media'/'journey-poster.jpg',assets/'journey-poster.jpg')
     shutil.copyfile(PORTAL_REPORT,assets/'methodology.pdf')
     shutil.copyfile(PORTAL_RANKINGS,assets/'rankings.csv')
     shutil.copyfile(OUT/'pdf/Strategy_Validation_Addendum.pdf',assets/'strategy-validation.pdf')

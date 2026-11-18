@@ -23,9 +23,11 @@ def main():
     (DIST/'index.html').write_text(page)
     shutil.copyfile(OUT/'pdf/SupeRR_Selector_Round1_Methodology.pdf',assets/'methodology.pdf')
     shutil.copyfile(ROOT/'submission/rankings.csv',assets/'rankings.csv')
+    shutil.copyfile(OUT/'pdf/Strategy_Validation_Addendum.pdf',assets/'strategy-validation.pdf')
     manifest={'author':'Harsh Sinha','entry_count':sum(map(len,players.values())),
       'source_files':[str(p.relative_to(ROOT)) for p in [OUT/'tables/batters_all.csv',OUT/'tables/bowlers_all.csv',OUT/'validation.json',OUT/'tables/chronological_calibration.csv',ROOT/'submission/rankings.csv']],
       'report_sha256':hashlib.sha256((assets/'methodology.pdf').read_bytes()).hexdigest(),
+      'strategy_report_sha256':hashlib.sha256((assets/'strategy-validation.pdf').read_bytes()).hexdigest(),
       'raw_data_included':False}
     (DIST/'assets/provenance.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(f'Built website with {manifest["entry_count"]} aggregate role entries: {DIST/"index.html"}')

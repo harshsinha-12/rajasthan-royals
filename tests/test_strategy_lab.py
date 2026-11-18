@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import pandas as pd
-from backtest import evaluate_holdout, sorted_baselines
+from backtest import evaluate_holdout, sorted_baselines, assess
 from cricsheet_adapter import iter_rows
 from tactics import optimize, phase
 
@@ -30,6 +30,12 @@ class StrategyLabTests(unittest.TestCase):
         rankings = sorted_baselines(d, [1, 2], 2024)
         self.assertTrue(all(3 not in picks for picks in rankings.values()))
         self.assertEqual(rankings["pressure_only"][:2], [2, 1])
+
+    def test_reject_overlapping_train_and_holdout(self):
+        train = pd.DataFrame([{"match_date": "2025-02-01"}])
+        later = pd.DataFrame([{"match_date": "2025-01-01"}])
+        with self.assertRaises(AssertionError):
+            assess(train, later, 2024, 10)
 
     def test_rotation_legality(self):
         costs = {"Powerplay": 8.0, "Middle": 8.0, "Death": 8.0}

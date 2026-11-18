@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import numpy as np
 import pandas as pd
-from analyse import OUT, RAW, WIN_FEATURES, add_pressure_flags, fit_predictions, performance_model, prepare, pressure, robust_rank, win_model
+from analyse import OUT, RAW, WIN_FEATURES, add_pressure_flags, fit_predictions, performance_model, prepare, pressure, robust_rank, win_model, match_weights
 
 SEED = 20261117
 TOP_K = 10
@@ -14,7 +14,7 @@ def future_predictions(train, test):
     """Train nuisance models only on earlier matches; freeze pressure thresholds."""
     assert train.match_date.max() < test.match_date.min()
     hold = test.copy()
-    wm = win_model().fit(train[WIN_FEATURES], train.bat_win)
+    wm = win_model().fit(train[WIN_FEATURES], train.bat_win, sample_weight=match_weights(train))
     hold["win_p"], hold["leverage"], hold["pressure"] = pressure(wm, hold)
     bf = WIN_FEATURES + ["batting_order", "opponent_bowler"]
     of = WIN_FEATURES + ["batting_order", "opponent_batter"]

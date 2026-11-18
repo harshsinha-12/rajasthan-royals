@@ -129,6 +129,27 @@ These metrics evaluate win-probability predictions, **not ranking accuracy**. Th
 
 Strict earlier-versus-later rank correlations are weak (0.232 for batters; 0.105 for bowlers), and top-10 overlap is 1/10 and 0/10. The lists describe the supplied historical coverage; they are not established forecasts of a permanent clutch trait. The report states this explicitly. Resampling intervals condition on fitted models and candidate eligibility; they do not capture all model or selection uncertainty.
 
+## Strategy backtesting and tactical scenarios (new addendum)
+
+The original Round 1 rankings and required report are unchanged. The [strategy validation addendum](docs/strategy_validation_report.md) specifies the evidence gaps and adds independent evaluation tools. **New strategy tests have not been run against the private dataset in this branch.** Pre-ball prediction accuracy is not selection-strategy accuracy.
+
+- src/backtest.py: frozen historical Top 10 against pressure-only, overall-form and recent-form baselines, evaluated on later matches. Supports a cached 2024 cutoff and multi-cutoff walk-forward tests (2023, 2024, 2025).
+- src/cricsheet_adapter.py: convert external Cricsheet T20 JSON into a separate local delivery table. Identity mapping and independent scoring parity are not yet implemented.
+- src/tactics.py: optimize hypothetical 20-over bowling rotations from provided phase estimates, without claiming match-win predictions.
+- tests/test_strategy_lab.py: synthetic accounting, leakage safeguards, input constraints and rotation checks. Competition data remains excluded.
+
+Run after the authorized private source pack has been processed:
+
+~~~bash
+python src/backtest.py --mode cached
+python src/backtest.py --mode walk-forward --cutoffs 2023 2024 2025
+python src/cricsheet_adapter.py --json-dir /path/to/cricsheet-json
+python src/tactics.py --scenario examples/tactics_hypothetical.json
+python -m unittest discover -s tests -v
+~~~
+
+See the addendum for interpretation limits and the difference between observed and hypothetical evidence.
+
 ## Reproduce
 
 Python **3.12** is used. The six CSVs and original brief are intentionally excluded from GitHub under the organizer's rules. Authorized participants must put their own original pack in `data/raw/`, using the filenames in `data/manifest.json`. Run from the repository root:

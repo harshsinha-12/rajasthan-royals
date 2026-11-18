@@ -7,3 +7,6 @@ data/raw/
 output/audit.json
 output/tables/match_audit.csv
 .vercel/
+output/backtest_results.json
+output/tactics_results.json
+output/external_cricsheet.csv

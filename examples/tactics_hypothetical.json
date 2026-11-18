@@ -1,0 +1,20 @@
+{
+  "source": "user_estimates",
+  "note": "SYNTHETIC DEMO INPUTS ONLY. Replace every phase estimate with validated, context-specific inputs before interpreting a result.",
+  "overs": 20,
+  "max_overs_per_bowler": 4,
+  "bowlers": [
+    {"name": "Bowler A", "expected_runs_per_over": {"Powerplay": 7.0, "Middle": 8.5, "Death": 11.2}},
+    {"name": "Bowler B", "expected_runs_per_over": {"Powerplay": 7.6, "Middle": 8.7, "Death": 10.8}},
+    {"name": "Bowler C", "expected_runs_per_over": {"Powerplay": 9.4, "Middle": 7.1, "Death": 9.8}},
+    {"name": "Bowler D", "expected_runs_per_over": {"Powerplay": 9.0, "Middle": 7.5, "Death": 8.3}},
+    {"name": "Bowler E", "expected_runs_per_over": {"Powerplay": 8.8, "Middle": 8.0, "Death": 7.8}},
+    {"name": "Bowler F", "expected_runs_per_over": {"Powerplay": 8.0, "Middle": 8.4, "Death": 8.1}}
+  ],
+  "baseline_rotation": [
+    "Bowler A", "Bowler B", "Bowler C", "Bowler D", "Bowler E",
+    "Bowler A", "Bowler B", "Bowler C", "Bowler D", "Bowler E",
+    "Bowler A", "Bowler B", "Bowler C", "Bowler D", "Bowler E",
+    "Bowler A", "Bowler B", "Bowler C", "Bowler D", "Bowler E"
+  ]
+}

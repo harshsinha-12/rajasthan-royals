@@ -13,6 +13,10 @@ Prepared by Harsh Sinha. A responsive website for the final SupeRR Selector Seas
 
 The website is buildless HTML/CSS/JavaScript. It has no runtime dependencies, tracking or external cricket feed. It includes only aggregated results; the restricted data pack and record-level records are excluded.
 
+## Strategy testing addendum
+
+The new Strategy Lab section displays the current evidence limitations and links a supplementary validation PDF. Its tools are run locally from the main repository: src/backtest.py, src/cricsheet_adapter.py and src/tactics.py. The external adapter and tactical optimizer do not import private competition data into the public website; no unmeasured strategy lift is claimed. See docs/strategy_validation_report.md.
+
 ## Build from the main repository root
 
 ```bash

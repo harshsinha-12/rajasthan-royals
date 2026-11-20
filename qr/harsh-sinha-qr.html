@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Harsh Sinha">
+  <title>Harsh Sinha · Website, LinkedIn, X</title>
+  <style>
+    :root {
+      --paper: #e8e3da;
+      --card: #f7f6f3;
+      --ink: #171717;
+      --muted: #5e5a54;
+      --line: #ddd7cd;
+      --font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: ui-sans-serif, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      display: grid;
+      place-items: center;
+      padding: 28px 16px;
+    }
+    .card {
+      width: min(420px, 100%);
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 28px 28px 22px;
+    }
+    .kicker {
+      margin: 0 0 14px;
+      font-size: 11px;
+      letter-spacing: .16em;
+      font-weight: 650;
+    }
+    h1 {
+      margin: 0;
+      font-family: var(--font);
+      font-size: 42px;
+      font-weight: 560;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+    .role {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 28ch;
+    }
+    .qr { margin: 22px 0 8px; }
+    .qr img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #f7f6f3;
+    }
+    .hint {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+    .links a {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas: "name go" "host go";
+      gap: 2px 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      color: inherit;
+      text-decoration: none;
+    }
+    .links a:hover .name { text-decoration: underline; text-underline-offset: 3px; }
+    .name { grid-area: name; font-weight: 650; font-size: 14px; }
+    .host { grid-area: host; color: var(--muted); font-size: 13px; }
+    .go { grid-area: go; font-size: 14px; }
+    .actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .actions button {
+      font: inherit;
+      font-size: 13px;
+      font-weight: 650;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    #save-status {
+      min-height: 1.2em;
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    @media (max-width: 380px) {
+      .card { padding: 22px 18px 16px; }
+      h1 { font-size: 36px; }
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      .card { border: 0; width: 420px; }
+      .actions, #save-status { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="kicker">HARSH SINHA</p>
+    <h1>Pick a place to land.</h1>
+    <p class="role">AI engineer at Scalio. Previously Founder’s Office at Multibagg. IIT Patna.</p>
+    <div class="qr">
+      <img id="qr-image" alt="QR code for the website, LinkedIn, and X" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1AAAANQAQMAAAAc1RxyAAAABlBMVEUXFxf39vNyYy+QAAAEbklEQVR42u3dQW7cMAwF0EHvf+d0UaQ2P6mZheQsgjdAm8T2+C28+KAkU6+vH/u8UCgUCoVCoVAoFOrXU6/y+ff3/wte1//3I9f3hpu++j2/vv68fuyDQqFQqN9GvUmj70S6Eug623++SvJN9/SsUCgUCrWfVzVnap11T6usvXrqXfep9/SsUCgUCvVEXtVzcxWWSXa/g7xCoVAo1LN5VWeopjmr6/hVb+U35RUKhUKhzufVtFYia6dpBqum2HxeXqFQKBTqTF7VI2f+peJZoVAoFGovrxZL3cuIXn4ja7Ncq9E/nhUKhUKhdvOqV1j36quuGFxXZ/m9OjboWaFQKBRqL6/uWTPnV78mx//m97HUVygUCoU6WV/lur/1Kr98L2taMVhXF34f8axQKBQKtV9fXX/nuUyp1dr1PgZYj3lWKBQKhdrNq3wzOKutucZaZV4mm/FAFAqFQp3Kq/U44DSblWOBvcfgvV6TVygUCoU6kVdzT/VMnHdrKaa6LK/3rFAoFAq1W19NudTTaf6t5l5fx66+QqFQKNS5vOrvTmWGfa7Q+vta9/TyrFAoFAq1m1fZ72+1e0g/16+dUkteoVAoFGo/r/qeVfeKK89Pay1671vvX6FQKBTqifpqemNq6l0793Ofs8r8FQqFQqGeyqtcd5HV0npVRb1rZp68QqFQKNRuXvWetvkG1rQzY2ZTTSjzVygUCoV6Iq/68Vp99Xes5k4X0zXqKxQKhUKdyKt1LVWvqKOA824iuSeW/URQKBQKdTKv5o5KvXt77iH8eZ2GvEKhUCjUmbzqHZferaOYOuDm+sLsgiGvUCgUCnWivlrtK7J6JyuvyLUaeb28QqFQKNSZvMrqad7BMfOofz9zzPwVCoVCoU7lVXauvY5fiTTv3dj7sOcZ69lRKBQKdTKv6u/Teok5r+Y9h2vtJa9QKBQKdSKvsp6azt6Tq3fC7bVZVzwrFAqFQu3m1ZxafYwvu9vmiozeT9D8FQqFQqFO1lc5/jevSe9V17QCPjPMeCAKhUKhTuRV7hrcz+c8V9ZimXo96eQVCoVCofbrqzpzNa1w77sQ97HErL7qTJdnhUKhUKj9+qrWWrk7Y6ZRr6eyp1Ov2jwrFAqFQu3XV7ljcK+melXVRxHnWSx5hUKhUKgzedU7qteUmncbnntgzKOJ8gqFQqFQu3k1VVira+Y3gmutloL5KxQKhUKdyqv++z1rahrNPQNX6yyMB6JQKBTqTF5lWs3zVnPSvavLzF+hUCgU6mx9NXWtuJ+d1gFeiTR3bcoRRM8KhUKhUCfqq0yg3s123Qt3tU+x969QKBQKdTKv5o6Aua5i7mYxz2r1fYY9KxQKhULt51Xmz1Rd9XWDUwen+Qp5hUKhUKgn8mrVJTDfDc5dRnqPJnmFQqFQqKfz6vM8Ve+KUWexriOeFQqFQqH286qvDVzthvVpj+HpjS55hUKhUKgTebWuuHpyzXXUtCJDfYVCoVCok3n1Mx8UCoVCoVAoFAqF+tXUXx6P+MXPJ3S5AAAAAElFTkSuQmCC">
+    </div>
+    <p class="hint">One code for the website, LinkedIn, and X. If the button does not start a download, right-click the code and choose Save image.</p>
+    <ul class="links">
+      <li><a href="https://www.harshsinha.dev/"><span class="name">Website</span><span class="host">harshsinha.dev</span><span class="go" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://www.linkedin.com/in/harshsinha12/"><span class="name">LinkedIn</span><span class="host">linkedin.com/in/harshsinha12</span><span class="go" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://x.com/sinhaharsh12"><span class="name">X</span><span class="host">x.com/sinhaharsh12</span><span class="go" aria-hidden="true">↗</span></a></li>
+    </ul>
+    <div class="actions">
+      <button type="button" id="download-png">Download QR image</button>
+      <button type="button" id="print">Print card</button>
+    </div>
+    <p id="save-status" role="status"></p>
+  </main>
+  <script>
+    document.getElementById('print').addEventListener('click', function () { window.print(); });
+    document.getElementById('download-png').addEventListener('click', function () {
+      var status = document.getElementById('save-status');
+      var src = document.getElementById('qr-image').src;
+      fetch(src).then(function (response) { return response.blob(); }).then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = 'harsh-sinha-qr.png';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+        status.textContent = 'Saved harsh-sinha-qr.png';
+      }).catch(function () {
+        status.textContent = 'Right-click the code and choose Save image.';
+      });
+    });
+  </script>
+</body>
+</html>
